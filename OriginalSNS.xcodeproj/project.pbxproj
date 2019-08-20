@@ -14,6 +14,7 @@
 		D1CB1DE3230AB58A008C3855 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1DE1230AB58A008C3855 /* LaunchScreen.storyboard */; };
 		D1CB1DEB230AB5DB008C3855 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1DEA230AB5DB008C3855 /* GoogleService-Info.plist */; };
 		D1CB1DEF230ABDDF008C3855 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1DEE230ABDDF008C3855 /* Login.storyboard */; };
+		D1CB1DF1230ABEA7008C3855 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */; };
 		E82702A8E565F09338C09786 /* Pods_OriginalSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0DF0EAFE3E2F1E91F96C56 /* Pods_OriginalSNS.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		D1CB1DE4230AB58A008C3855 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1CB1DEA230AB5DB008C3855 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1CB1DEE230ABDDF008C3855 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D6F0A2C68411E0228729917E /* Pods-OriginalSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalSNS.release.xcconfig"; path = "Target Support Files/Pods-OriginalSNS/Pods-OriginalSNS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 				D1CB1DE4230AB58A008C3855 /* Info.plist */,
 				D1CB1DEA230AB5DB008C3855 /* GoogleService-Info.plist */,
 				D1CB1DEE230ABDDF008C3855 /* Login.storyboard */,
+				D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */,
 			);
 			path = OriginalSNS;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1CB1DF1230ABEA7008C3855 /* LoginViewController.swift in Sources */,
 				D1CB1DDB230AB589008C3855 /* ViewController.swift in Sources */,
 				D1CB1DD9230AB589008C3855 /* AppDelegate.swift in Sources */,
 			);
