@@ -83,15 +83,25 @@ class ViewController: UIViewController {
             // HOW を表示
             howLabel.text = howList[howCount]
 
-            // FIXME: 画面遷移して画面に決定したお題を表示する、画面をだしてくる?
+            // FIXME: ThemeVCへ画面遷移する
+            performSegue(withIdentifier: "showTheme", sender: nil)
 
             // FIXME: 一定期間(例:24時間)はお題を出せないようにする?
-            // 表示をもとに戻す
-            tapCount = 0
 
         default:
             return
         }
+    }
+
+    // segue遷移前準備
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showTheme" , let vc = segue.destination as? ThemeViewController else {
+            print("ThemeVCへの遷移失敗")
+            return
+        }
+        vc.receiveWhat = whatList[whatCount]
+        vc.receiveTodo = toDoList[toDoCount]
+        vc.receiveHow = howList[howCount]
     }
 
 
