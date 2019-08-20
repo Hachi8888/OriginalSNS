@@ -24,22 +24,29 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-Zj-pob">
                                 <rect key="frame" x="30" y="124" width="354" height="638"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="対象を表示" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOw-JP-Lbl">
-                                        <rect key="frame" x="0.0" y="0.0" width="354" height="192.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOw-JP-Lbl">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="137"/>
                                         <color key="backgroundColor" red="0.23520264900000001" green="0.90645239710000003" blue="0.41255559829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="動詞を表示" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mL-ND-SjT">
-                                        <rect key="frame" x="0.0" y="222.5" width="354" height="193"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO DO?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mL-ND-SjT">
+                                        <rect key="frame" x="0.0" y="167" width="354" height="137"/>
                                         <color key="backgroundColor" red="0.23520264900000001" green="0.90645239710000003" blue="0.41255559829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8f-ou-2bd">
+                                        <rect key="frame" x="0.0" y="334" width="354" height="137"/>
+                                        <color key="backgroundColor" red="0.23520264900000001" green="0.90645239710000003" blue="0.41255559829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-3z-Gj9">
-                                        <rect key="frame" x="0.0" y="445.5" width="354" height="192.5"/>
+                                        <rect key="frame" x="0.0" y="501" width="354" height="137"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                         <state key="normal" title="START"/>
                                         <connections>
@@ -63,8 +70,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="subjectLabel" destination="IOw-JP-Lbl" id="n1G-Ef-gmb"/>
-                        <outlet property="verbLabel" destination="6mL-ND-SjT" id="Jhp-Q0-z1I"/>
+                        <outlet property="howLabel" destination="n8f-ou-2bd" id="bq6-rS-h5q"/>
+                        <outlet property="toDoLabel" destination="6mL-ND-SjT" id="Jhp-Q0-z1I"/>
+                        <outlet property="whatLabel" destination="IOw-JP-Lbl" id="n1G-Ef-gmb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
