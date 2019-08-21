@@ -8,5 +8,7 @@ target 'OriginalSNS' do
   # Pods for OriginalSNS
      pod 'Firebase'
      pod 'Firebase/Auth'
-     pod 'Firebase/Firestore'  
+     pod 'Firebase/Firestore'
+     pod 'IQKeyboardManagerSwift'
+     pod 'IBAnimatable'
 end
