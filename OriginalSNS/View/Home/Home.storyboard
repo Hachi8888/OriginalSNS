@@ -21,20 +21,29 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="黄色い星2" translatesAutoresizingMaskIntoConstraints="NO" id="Izr-GS-5C0">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNQ-fB-Hbx">
-                                <rect key="frame" x="10" y="54" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFu-Qr-OGw">
-                                <rect key="frame" x="184" y="245" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="121" translatesAutoresizingMaskIntoConstraints="NO" id="PG4-VT-KeY">
+                                <rect key="frame" x="175.5" y="282" width="63" height="332"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ult-yy-Zia">
+                                        <rect key="frame" x="15" y="0.0" width="33" height="30"/>
+                                        <state key="normal" title="Main"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFu-Qr-OGw">
+                                        <rect key="frame" x="0.0" y="151" width="63" height="30"/>
+                                        <state key="normal" title="TimeLine"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNQ-fB-Hbx">
+                                        <rect key="frame" x="16" y="302" width="31" height="30"/>
+                                        <state key="normal" title="Post"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Opj-Us-3wq" firstAttribute="bottom" secondItem="Izr-GS-5C0" secondAttribute="bottom" id="XWX-Tn-wX8"/>
+                            <constraint firstItem="PG4-VT-KeY" firstAttribute="centerY" secondItem="0HG-yT-xeq" secondAttribute="centerY" id="edn-1O-PpB"/>
+                            <constraint firstItem="PG4-VT-KeY" firstAttribute="centerX" secondItem="0HG-yT-xeq" secondAttribute="centerX" id="fuA-ep-Jvk"/>
                             <constraint firstItem="Izr-GS-5C0" firstAttribute="top" secondItem="Opj-Us-3wq" secondAttribute="top" id="i8O-P7-zBq"/>
                             <constraint firstItem="Izr-GS-5C0" firstAttribute="leading" secondItem="Opj-Us-3wq" secondAttribute="leading" id="s3x-Hj-Rv7"/>
                             <constraint firstItem="Opj-Us-3wq" firstAttribute="trailing" secondItem="Izr-GS-5C0" secondAttribute="trailing" id="w7M-ve-FCV"/>
