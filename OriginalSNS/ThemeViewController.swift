@@ -18,24 +18,10 @@ class ThemeViewController: UIViewController {
     var receiveTodo: String = ""
     var receiveHow: String = ""
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     // ラベルにお題を表示
      themeLabel.text = "\n\(receiveWhat)" + "\n\(receiveTodo)" + "\n\(receiveHow)"
-
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

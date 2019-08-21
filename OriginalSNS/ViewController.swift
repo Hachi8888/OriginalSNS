@@ -29,10 +29,10 @@ class ViewController: UIViewController {
     var whatList: [String] = ["青色のものを", "黄色のものを", "緑色のものを", "赤色のものを", "つやつやしたものを", "ざらざらしたものを", "トゲトゲしたものを", "丸いものを", "やわらかいものを", "硬いものを", "長いものを", "辛いものを", "甘いものを", "漢字で書いたときに画数の多いものを", "細いものを", "高さがあるものを"]
 
     // 動詞リスト
-    var toDoList: [String] = ["食べる", "触る", "買う", "人に語る", "写真に取る", "街で見つける", "辞書で意味を調べる", "綺麗な字で書く", "全身で表現する"]
+    var toDoList: [String] = ["食べる", "触る", "買う", "人に語る", "写真に取る", "街で見つける", "辞書で意味を調べる", "綺麗な字で書く", "全身で表現する", "題材に一句詠む", "主人公とした物語を調べる", "題材としたエピソードを人に尋ねる"]
 
     // 【ハードモード】副詞リスト
-    var howList: [String] = ["すばやく", "ゆっくりと", "満面の笑みで", "元気よく", "さりげなく", "心をこめて", "無表情で", "おもむろに", "どざくさにまぎれて", "目をつむって", "おおげさに", "息を止めて", "瞬きをせずに", "目をパチパチさせながら", "リズムに乗りながら"]
+    var howList: [String] = ["すばやく", "ゆっくりと", "満面の笑みで", "元気よく", "さりげなく", "心をこめて", "無表情で", "おもむろに", "どざくさにまぎれて", "目をつむって", "おおげさに", "息を止めながら", "瞬きもせずに", "目をパチパチさせながら", "リズムに乗りながら", "大きく振りかぶって", "ただひたすらに", "目に余る勢いで"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +46,6 @@ class ViewController: UIViewController {
        // ボタンを押したときのカウントを進める
        tapCount += 1
        print(tapCount)
-       print("\(tapCount)回押したとき:\(whatCount)")
-
-
 
         switch tapCount {
         case 1: // 1回押したとき
@@ -68,12 +65,9 @@ class ViewController: UIViewController {
             // WHAT を表示
             whatLabel.text = whatList[whatCount]
 
-
-            // ボタンの表示を START → STOP へ変更
-//            sender.setTitle("STOP", for: .normal)
+            // FIXME: 一瞬STOPに変更になったああと、すぐにSTARTに表示をもどしたい
             // TO DO? に表示させるものを対象の配列から決定するための乱数を生成
             toDoCount = Int.random(in: 0..<toDoList.count)
-
 
             // FIXME: 休憩をはさんだほうが良い?
 
@@ -81,12 +75,9 @@ class ViewController: UIViewController {
             // TO DO? を表示する
             toDoLabel.text = toDoList[toDoCount]
 
-
-            // ボタンの表示を STOP → START へ変更
-//            sender.setTitle("START", for: .normal)
+            // FIXME: 一瞬STOPに変更になったああと、すぐにSTARTに表示をもどしたい
             // HOW に表示させるものを対象の配列から決定するための乱数を生成
             howCount = Int.random(in: 0..<howList.count)
-
 
         case 4: // 4回押したとき
             // HOW を表示
@@ -95,7 +86,6 @@ class ViewController: UIViewController {
             performSegue(withIdentifier: "showTheme", sender: nil)
 
             // FIXME: 一定期間(例:24時間)はお題を出せないようにする?
-
 
         default:
             return
