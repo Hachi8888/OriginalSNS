@@ -42,51 +42,60 @@ class ViewController: UIViewController {
     // 【メイン機能】ボタンを押して、WHAT TODO? HOW の3要素を決定
     // FIXME: 関数にまとめる箇所がないかチェック!
     @IBAction func tappedButton(_ sender: UIButton) {
-
+       // きボタンをおしたときの共通の処理を各
        // ボタンを押したときのカウントを進める
        tapCount += 1
        print(tapCount)
+       print("\(tapCount)回押したとき:\(whatCount)")
 
-       // WHAT に表示させるものを対象の配列から決定するための乱数を生成
-       whatCount = Int.random(in: 0..<whatList.count)
 
-       // ボタンの表示を START → STOP へ変更
-       sender.setTitle("STOP", for: .normal)
 
         switch tapCount {
-        case 1:
+        case 1: // 1回押したとき
             // 3つのラベルを??に変更
             // FIXME: ?? は gifで表現できると楽しいかも
             whatLabel.text = "??"
             toDoLabel.text = "??"
             howLabel.text = "??"
+            // WHAT に表示させるものを対象の配列から決定するための乱数を生成
+            whatCount = Int.random(in: 0..<whatList.count)
 
-        case 2:
+            // FIXME: 一瞬STOPに変更になったああと、すぐにSTARTに表示をもどしたい
+            // ボタンの表示を START → STOP へ変更
+            sender.setTitle("STOP", for: .normal)
+
+        case 2: // 2回押したとき
             // WHAT を表示
             whatLabel.text = whatList[whatCount]
-            // ボタンの表示を STOP → START へ変更
-            sender.setTitle("START", for: .normal)
+
+
+            // ボタンの表示を START → STOP へ変更
+//            sender.setTitle("STOP", for: .normal)
             // TO DO? に表示させるものを対象の配列から決定するための乱数を生成
             toDoCount = Int.random(in: 0..<toDoList.count)
 
+
             // FIXME: 休憩をはさんだほうが良い?
 
-        case 3:
+        case 3: // 3回押したとき
             // TO DO? を表示する
             toDoLabel.text = toDoList[toDoCount]
-            // ボタンの表示を START → STOP へ変更
-            sender.setTitle("STOP", for: .normal)
+
+
+            // ボタンの表示を STOP → START へ変更
+//            sender.setTitle("START", for: .normal)
             // HOW に表示させるものを対象の配列から決定するための乱数を生成
             howCount = Int.random(in: 0..<howList.count)
 
-        case 4:
+
+        case 4: // 4回押したとき
             // HOW を表示
             howLabel.text = howList[howCount]
-
             // FIXME: ThemeVCへ画面遷移する
             performSegue(withIdentifier: "showTheme", sender: nil)
 
             // FIXME: 一定期間(例:24時間)はお題を出せないようにする?
+
 
         default:
             return
@@ -99,6 +108,7 @@ class ViewController: UIViewController {
             print("ThemeVCへの遷移失敗")
             return
         }
+
         vc.receiveWhat = whatList[whatCount]
         vc.receiveTodo = toDoList[toDoCount]
         vc.receiveHow = howList[howCount]

@@ -94,14 +94,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="黄色い星2" translatesAutoresizingMaskIntoConstraints="NO" id="f9q-lU-F6v">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r">
-                                <rect key="frame" x="20" y="478" width="374" height="304"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r">
+                                <rect key="frame" x="20" y="254" width="374" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="お題は..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
-                                <rect key="frame" x="149.5" y="238" width="115" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題は..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
+                                <rect key="frame" x="149.5" y="188" width="115" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -109,11 +109,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="4s3-3y-OOg"/>
                             <constraint firstItem="OZq-AW-o7r" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" constant="20" id="9Y4-na-SZd"/>
-                            <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" secondItem="OZq-AW-o7r" secondAttribute="bottom" constant="80" id="GlF-nm-jWi"/>
+                            <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OZq-AW-o7r" secondAttribute="bottom" constant="80" id="GlF-nm-jWi"/>
                             <constraint firstItem="OZq-AW-o7r" firstAttribute="top" secondItem="ZCI-vI-bFx" secondAttribute="bottom" constant="30" id="OhP-xj-Syf"/>
-                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="150" id="PmA-dm-j8b"/>
-                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="UzJ-ST-hH3"/>
+                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="100" id="PmA-dm-j8b"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="bBC-g9-hHn"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" id="cWx-El-bHG"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="f9q-lU-F6v" secondAttribute="trailing" id="dFa-t9-RIc"/>
