@@ -28,17 +28,28 @@ class PostViewController: UIViewController {
     // ホームボタンを押したときの処理
     // FIXME: 家マークのアイコンをボタンに表示させること
     @IBAction func homeButton(_ sender: Any) {
+        /// HomeVCへ画面を遷移する。makeHomeVCはstaticで定義しているので、インスタンス化不要!
         present(HomeViewController.makeHomeVC(), animated: true)
     }
-
     // 投稿(Find!)ボタンを押したときの処理
     @IBAction func postButton(_ sender: Any) {
+
     }
 
-
-
-
 }
+
+extension PostViewController {
+    // PostVCを返す関数(PostVCへの画面遷移に使う)
+    static func makePostVC() -> UIViewController {
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Post", bundle: nil)
+        // 移動先のvcをインスタンス化
+        let vc = storyboard.instantiateViewController(withIdentifier: "Post")
+        // PostVCを返す
+        return vc
+    }
+}
+
 
 
 
