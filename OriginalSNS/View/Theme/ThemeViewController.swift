@@ -13,6 +13,7 @@ class ThemeViewController: UIViewController {
     // 決まったお題を表示させるラベル
     @IBOutlet weak var themeLabel: UILabel!
 
+
     // MainVCからsegueで送られたデータを格納する変数3つ
     var receiveWhat: String = ""
     var receiveTodo: String = ""
@@ -23,5 +24,12 @@ class ThemeViewController: UIViewController {
      // ラベルにお題を表示
      themeLabel.text = "\n\(receiveWhat)" + "\n\(receiveTodo)" + "\n\(receiveHow)"
     }
+
+
+    @IBAction func batsuButton(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+        
+    }
+
 
 }

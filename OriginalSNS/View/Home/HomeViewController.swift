@@ -6,9 +6,13 @@
 //  Copyright © 2019 N-project. All rights reserved.
 //
 
+import BubbleTransition
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate {
+
+   // BubbleTransition用
+   var startingPoint = CGPoint(x:0,y:0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +32,30 @@ class HomeViewController: UIViewController {
         present(vc, animated: true)
     }
 
+
+    // Mainボタン
+    @IBAction func mainButton(_ sender: UIButton) {
+
+
+    }
+
+
 }
 
 
 //struct transfer {
-//    func transferVC(){
+//
+//  // 設定したstoryboard名とstoryboadID名を定義
+//
+
+//    // HomeVC画面に遷移する
+//    func transferVC(_ SBname: String, _ SBIdName: String) {
 //        // HomeVC画面に遷移する
 //        // storyboardをHomeのファイルを特定
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+//        let storyboard: UIStoryboard = UIStoryboard(name: SBname, bundle: nil)
 //        // 移動先のvcをインスタンス化
-//        let vc = storyboard.instantiateViewController(withIdentifier: "Home")
+//        let vc = storyboard.instantiateViewController(withIdentifier: SBIdName)
 //        // 遷移処理
-//        self.present(vc, animated: true)
+//        present(vc, animated: true)
 //    }
 //}

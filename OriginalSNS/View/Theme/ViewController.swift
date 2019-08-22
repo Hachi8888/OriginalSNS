@@ -6,10 +6,11 @@
 //  Copyright © 2019 N-project. All rights reserved.
 //
 
+import BubbleTransition
 import UIKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
     // WHAT: 対象を表示させるラベル
     @IBOutlet weak var whatLabel: UILabel!
@@ -24,6 +25,9 @@ class ViewController: UIViewController {
     var toDoCount: Int = 0
     var howCount: Int = 0
 
+    //　BubbleTransiton用
+    let transition = BubbleTransition()
+
     // 各ラベルに表示させる語句の配列一覧(語句追加するのでvarで宣言)
     // 対象リスト
     var whatList: [String] = ["青色のものを", "黄色のものを", "緑色のものを", "赤色のものを", "つやつやしたものを", "ざらざらしたものを", "トゲトゲしたものを", "丸いものを", "やわらかいものを", "硬いものを", "長いものを", "辛いものを", "甘いものを", "漢字で書いたときに画数の多いものを", "細いものを", "高さがあるものを"]
@@ -36,6 +40,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        var tapCount: Int = 0
 
         }
 
@@ -92,7 +98,7 @@ class ViewController: UIViewController {
         }
     }
 
-    // segue遷移前準備
+     // segue遷移前準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showTheme" , let vc = segue.destination as? ThemeViewController else {
             print("ThemeVCへの遷移失敗")
@@ -105,7 +111,9 @@ class ViewController: UIViewController {
     }
 
 
+
 }
+
 
 
 

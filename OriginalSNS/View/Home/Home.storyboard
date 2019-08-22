@@ -27,6 +27,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ult-yy-Zia">
                                         <rect key="frame" x="15" y="0.0" width="33" height="30"/>
                                         <state key="normal" title="Main"/>
+                                        <connections>
+                                            <action selector="mainButton:" destination="fTr-7o-tXO" eventType="touchUpInside" id="wGo-ui-n02"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFu-Qr-OGw">
                                         <rect key="frame" x="0.0" y="151" width="63" height="30"/>

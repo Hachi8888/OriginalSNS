@@ -104,10 +104,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-gI-o9l">
+                                <rect key="frame" x="137" y="438" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="batsuButton:" destination="b31-1h-YTw" eventType="touchDown" id="9s9-gk-UCX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZCI-vI-bFx" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="4s3-3y-OOg"/>
+                            <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" secondItem="eYm-gI-o9l" secondAttribute="bottom" constant="100" id="5GW-0J-AwR"/>
                             <constraint firstItem="OZq-AW-o7r" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" constant="20" id="9Y4-na-SZd"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OZq-AW-o7r" secondAttribute="bottom" constant="80" id="GlF-nm-jWi"/>
                             <constraint firstItem="OZq-AW-o7r" firstAttribute="top" secondItem="ZCI-vI-bFx" secondAttribute="bottom" constant="30" id="OhP-xj-Syf"/>
@@ -115,6 +123,7 @@
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="bBC-g9-hHn"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" id="cWx-El-bHG"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="f9q-lU-F6v" secondAttribute="trailing" id="dFa-t9-RIc"/>
+                            <constraint firstItem="eYm-gI-o9l" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="e3v-i5-p8a"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="bottom" secondItem="fRo-eL-lbj" secondAttribute="bottom" id="gbj-Ty-r9g"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="OZq-AW-o7r" secondAttribute="trailing" constant="20" id="yPb-ay-c65"/>
                         </constraints>
@@ -126,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jO1-4z-4pY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1971.0144927536232" y="90.401785714285708"/>
+            <point key="canvasLocation" x="1970.625" y="89.788732394366193"/>
         </scene>
     </scenes>
     <resources>

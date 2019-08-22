@@ -11,4 +11,7 @@ target 'OriginalSNS' do
      pod 'Firebase/Firestore'
      pod 'IQKeyboardManagerSwift'
      pod 'IBAnimatable'
+     pod 'BubbleTransition', '~> 3.2.0'
+
+use_frameworks!
 end
