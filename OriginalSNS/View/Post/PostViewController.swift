@@ -19,10 +19,6 @@ class PostViewController: UIViewController {
     // 投稿文を記入するテキストラベル
     @IBOutlet weak var postTextLabel: UITextView!
 
-//    // HomeVCに書いたファイル共通で使うため、インスタンス化
-//    let commonFunction = HomeViewController()
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,30 +28,14 @@ class PostViewController: UIViewController {
     // ホームボタンを押したときの処理
     // FIXME: 家マークのアイコンをボタンに表示させること
     @IBAction func homeButton(_ sender: Any) {
-       // FIXME: ①ではなぜか遷移できない!!
-       // HomeVCへ遷移する
-       // ①HomeVCのクラスで定義したtransfer()を使用する場合
-       // commonFunction.transferVC("Home", "Home")
-
-       // ②このクラス内で定義したtransferVC()を使用する場合
-          transferVC("Home", "Home")
-
+        present(HomeViewController.makeHomeVC(), animated: true)
     }
 
     // 投稿(Find!)ボタンを押したときの処理
     @IBAction func postButton(_ sender: Any) {
     }
 
-    // VCを遷移する関数(②)
-    func transferVC(_ SBname: String, _ SBIdName: String) {
-        // HomeVC画面に遷移する
-        // storyboardをHomeのファイルを特定
-        let storyboard: UIStoryboard = UIStoryboard(name: SBname, bundle: nil)
-        // 移動先のvcをインスタンス化
-        let vc = storyboard.instantiateViewController(withIdentifier: SBIdName)
-        // 遷移処理
-        present(vc, animated: true)
-    }
+
 
 
 }

@@ -27,8 +27,8 @@
                                     <constraint firstAttribute="height" constant="250" id="2SZ-qh-ZVJ"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="t1z-f0-vtD">
-                                <rect key="frame" x="60" y="325" width="200" height="158"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="t1z-f0-vtD">
+                                <rect key="frame" x="60" y="325" width="200" height="178"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="L2J-1K-9qJ">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="98"/>
@@ -38,12 +38,15 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="createUser:" destination="9iD-DV-IMc" eventType="editingDidEnd" id="eCk-KQ-wbt"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1E-4J-e2t">
                                                 <rect key="frame" x="0.0" y="68" width="200" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -51,7 +54,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K10-w9-NKh">
-                                        <rect key="frame" x="0.0" y="128" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="148" width="200" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dO-XX-Hda">
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="30"/>
@@ -60,6 +63,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVz-T5-xud">
                                                 <rect key="frame" x="104" y="0.0" width="96" height="30"/>
                                                 <state key="normal" title="Login"/>
+                                                <connections>
+                                                    <action selector="userLogin:" destination="9iD-DV-IMc" eventType="touchUpInside" id="Nca-77-vcR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -80,6 +86,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AI2-Si-zLL"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="fCF-0a-Kdj" id="Ha3-gD-DFf"/>
+                        <outlet property="logoImage" destination="g1E-9I-0J5" id="VhD-dR-KG4"/>
+                        <outlet property="passwordTextField" destination="F1E-4J-e2t" id="2Yb-0b-KPR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qT5-hw-0K3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
