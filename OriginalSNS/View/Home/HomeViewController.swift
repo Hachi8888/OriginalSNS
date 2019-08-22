@@ -13,22 +13,29 @@ class HomeViewController: UIViewController, UIViewControllerTransitioningDelegat
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
-
-    // Mainボタン
-    @IBAction func mainButton(_ sender: UIButton) {
-
-
+    // Mainボタンを押したとき
+    @IBAction func toMainButton(_ sender: Any) {
+        // MainVCへ画面遷移する
+        present(MainViewController.makeMainVC(), animated: true)
     }
 
+    // TaimeLineボタンを押したとき
+    @IBAction func toTimeLineButton(_ sender: Any) {
+        // TimeLineVCへ画面遷移する
+        present(TimeLineViewController.makeTimeLineVC(), animated: true)
+    }
 
+    // Postボタンを押したとき
+    @IBAction func toPostVCbutton(_ sender: Any) {
+        // PostVCへ画面遷移する
+        present(PostViewController.makePostVC(), animated: true)
+    }
 }
 
-
 extension HomeViewController {
- // HomeVCを返す関数(HomeVCへの画面遷移に使う)
+    // HomeVCを返す関数(HomeVCへの画面遷移に使う)
     static func makeHomeVC() -> UIViewController {
         // storyboardのfileの特定
         let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)

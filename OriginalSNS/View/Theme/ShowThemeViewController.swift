@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemeViewController: UIViewController {
+class ShowThemeViewController: UIViewController {
 
     // 決まったお題を表示させるラベル
     @IBOutlet weak var themeLabel: UILabel!

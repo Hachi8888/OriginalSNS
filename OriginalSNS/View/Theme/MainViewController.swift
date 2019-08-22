@@ -10,7 +10,7 @@ import BubbleTransition
 import UIKit
 
 
-class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
+class MainViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
     // WHAT: 対象を表示させるラベル
     @IBOutlet weak var whatLabel: UILabel!
@@ -25,9 +25,8 @@ class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
     var toDoCount: Int = 0
     var howCount: Int = 0
 
-    //　BubbleTransiton用
-    let transition = BubbleTransition()
 
+    // FIXME: データをfirebaseに持たせること
     // 各ラベルに表示させる語句の配列一覧(語句追加するのでvarで宣言)
     // 対象リスト
     var whatList: [String] = ["青色のものを", "黄色のものを", "緑色のものを", "赤色のものを", "つやつやしたものを", "ざらざらしたものを", "トゲトゲしたものを", "丸いものを", "やわらかいものを", "硬いものを", "長いものを", "辛いものを", "甘いものを", "漢字で書いたときに画数の多いものを", "細いものを", "高さがあるものを"]
@@ -41,7 +40,6 @@ class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var tapCount: Int = 0
 
         }
 
@@ -100,18 +98,28 @@ class ViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
      // segue遷移前準備
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showTheme" , let vc = segue.destination as? ThemeViewController else {
-            print("ThemeVCへの遷移失敗")
+        guard segue.identifier == "showTheme" , let vc = segue.destination as? ShowThemeViewController else {
+            print("ShowThemeVCへの遷移失敗")
             return
         }
-
+        
         vc.receiveWhat = whatList[whatCount]
         vc.receiveTodo = toDoList[toDoCount]
         vc.receiveHow = howList[howCount]
     }
 
+}
 
-
+extension MainViewController {
+    // PostVCを返す関数(MainVCへの画面遷移に使う)
+    static func makeMainVC() -> UIViewController {
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        // 移動先のvcをインスタンス化
+        let vc = storyboard.instantiateViewController(withIdentifier: "Main")
+        // MainVCを返す
+        return vc
+    }
 }
 
 
