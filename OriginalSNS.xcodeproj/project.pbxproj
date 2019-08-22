@@ -110,8 +110,6 @@
 				D1CB1DE1230AB58A008C3855 /* LaunchScreen.storyboard */,
 				D1CB1DE4230AB58A008C3855 /* Info.plist */,
 				D1CB1DEA230AB5DB008C3855 /* GoogleService-Info.plist */,
-				D1CB1DEE230ABDDF008C3855 /* Login.storyboard */,
-				D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */,
 			);
 			path = OriginalSNS;
 			sourceTree = "<group>";
@@ -119,6 +117,7 @@
 		D1CB1DF6230CDE24008C3855 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D1CB1E12230E82C5008C3855 /* Login */,
 				D1CB1E0B230E684F008C3855 /* Test */,
 				D1CB1E08230CE471008C3855 /* Post */,
 				D1CB1DFB230CDEEA008C3855 /* TimeLine */,
@@ -186,6 +185,15 @@
 				D1CB1E0E230E6895008C3855 /* TestViewController.swift */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		D1CB1E12230E82C5008C3855 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D1CB1DEE230ABDDF008C3855 /* Login.storyboard */,
+				D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
