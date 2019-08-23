@@ -28,8 +28,6 @@ class LoginViewController: UIViewController {
 
     // 新規登録ボタンを押したおとき
     @IBAction func createUser(_ sender: Any) {
-
-
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
         }
@@ -65,8 +63,6 @@ class LoginViewController: UIViewController {
                 self.present(HomeViewController.makeHomeVC(), animated: true)
             }
         })
-
-
     }
 
     // エラーが返ってきた場合のアラート
@@ -77,8 +73,4 @@ class LoginViewController: UIViewController {
         // 表示
         self.present(alert, animated: true)
     }
-
-
-
-
 }

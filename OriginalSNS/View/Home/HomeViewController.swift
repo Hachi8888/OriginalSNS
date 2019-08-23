@@ -32,6 +32,14 @@ class HomeViewController: UIViewController, UIViewControllerTransitioningDelegat
         // PostVCへ画面遷移する
         present(PostViewController.makePostVC(), animated: true)
     }
+
+   // Calenderボタンを押したとき
+    @IBAction func toCalender(_ sender: Any) {
+    // CalenderVCへ画面遷移する
+
+    }
+
+
 }
 
 extension HomeViewController {
