@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EIh-4n-eVg">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,34 +18,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="黄色い星2" translatesAutoresizingMaskIntoConstraints="NO" id="q8H-Qf-Qhk">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-HO-Sqa">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="St1-r9-nq4">
-                                <rect key="frame" x="67" y="170" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0f-b2-ywS">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-v0-8cO">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ssY-v0-8cO" secondAttribute="height" multiplier="1:1" id="FlO-uQ-Phy"/>
+                                                </constraints>
+                                                <state key="normal" image="plus"/>
+                                                <connections>
+                                                    <action selector="toPostButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="kLQ-8V-GZ5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWj-Aq-lwy">
+                                                <rect key="frame" x="50" y="0.0" width="364" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                                                <state key="normal" title="Find" image="Find!ロゴ(スクショ)">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="toMainButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="xBk-we-HGY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="MeV-hb-Oxq"/>
+                                        </constraints>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="St1-r9-nq4">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="718"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NPS-fh-LZ1">
+                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dh-Mr-fb8">
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
+                                                <state key="normal" image="icons8-home-50">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="toHomeButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="tPu-ZT-KWr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBG-u6-rZt">
+                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="50"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV0-WC-Hbc">
+                                                <rect key="frame" x="207" y="0.0" width="103.5" height="50"/>
+                                                <state key="normal" title="Button" image="icons8-search-64"/>
+                                                <connections>
+                                                    <action selector="searchButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="eCN-Cc-r0f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-fy-Osg">
+                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="50"/>
+                                                <state key="normal" title="Button" image="icons8-circled-user-64"/>
+                                                <connections>
+                                                    <action selector="toProfileButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="gBd-ZK-0ha"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="U2B-df-JLL"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="bottom" secondItem="q8H-Qf-Qhk" secondAttribute="bottom" id="PSW-NU-xAf"/>
-                            <constraint firstItem="q8H-Qf-Qhk" firstAttribute="top" secondItem="RfJ-Q2-0uv" secondAttribute="top" id="Zm4-a0-hOR"/>
-                            <constraint firstItem="q8H-Qf-Qhk" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="ea1-L0-27a"/>
-                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="q8H-Qf-Qhk" secondAttribute="trailing" id="od5-gb-UJ5"/>
+                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="o6f-HO-Sqa" secondAttribute="trailing" id="69r-ms-Nwg"/>
+                            <constraint firstItem="o6f-HO-Sqa" firstAttribute="top" secondItem="RfJ-Q2-0uv" secondAttribute="top" id="8Bx-wf-0jm"/>
+                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="bottom" secondItem="o6f-HO-Sqa" secondAttribute="bottom" id="AKo-dZ-Vvh"/>
+                            <constraint firstItem="o6f-HO-Sqa" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="rdo-8R-ZNO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RfJ-Q2-0uv"/>
                     </view>
                     <connections>
+                        <outlet property="findImageButton" destination="YWj-Aq-lwy" id="vzP-Ol-W8o"/>
                         <outlet property="tableView" destination="St1-r9-nq4" id="VX7-Xz-GXB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4cY-5V-Jg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-119" y="42"/>
+            <point key="canvasLocation" x="-120.28985507246378" y="41.517857142857139"/>
         </scene>
     </scenes>
     <resources>
-        <image name="黄色い星2" width="225" height="225"/>
+        <image name="Find!ロゴ(スクショ)" width="1026" height="394"/>
+        <image name="icons8-circled-user-64" width="64" height="64"/>
+        <image name="icons8-home-50" width="50" height="50"/>
+        <image name="icons8-search-64" width="64" height="64"/>
+        <image name="plus" width="256" height="256"/>
     </resources>
 </document>

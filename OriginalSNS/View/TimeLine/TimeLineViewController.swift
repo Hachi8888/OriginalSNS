@@ -13,6 +13,9 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var findImageButton: UIButton!
+
+
     // 投稿情報をすべて格納(データベースからとってくる)
     var items = [NSDictionary]()
 
@@ -23,6 +26,51 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
     }
+
+
+
+    override func viewDidLayoutSubviews() {
+
+        findImageButton.imageView?.contentMode = .scaleToFill
+//        findImageButton.contentHorizontalAlignment = .fill
+       findImageButton.contentVerticalAlignment = .fill
+
+
+    }
+
+    // +ボタンを押したとき
+    @IBAction func toPostButton(_ sender: Any) {
+      present(PostViewController.makePostVC(), animated: true)
+
+    }
+
+    // Find!ボタンを押したとき
+    @IBAction func toMainButton(_ sender: Any) {
+        // MainVCへ画面遷移
+        present(MainViewController.makeMainVC(), animated: true)
+    }
+
+
+   // ホームボタンを押したとき
+    @IBAction func toHomeButton(_ sender: Any) {
+
+        /// FIXME: リロードする
+        present(TimeLineViewController.makeTimeLineVC(), animated: true)
+    }
+
+
+    @IBAction func searchButton(_ sender: Any) {
+    }
+
+
+    @IBAction func toProfileButton(_ sender: Any) {
+    }
+
+
+
+
+
+    // タイムラインの表示に関すること
     // セクションの数
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

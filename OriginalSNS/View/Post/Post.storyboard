@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iu-dEq">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WV-7r-Xaj">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="人物(仮)" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-q2-XMa">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -31,32 +31,21 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITa-UV-kgP">
-                                                <rect key="frame" x="80" y="0.0" width="214" height="80"/>
+                                                <rect key="frame" x="80" y="0.0" width="334" height="80"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ye-8y-UX4">
-                                                <rect key="frame" x="294" y="0.0" width="80" height="80"/>
-                                                <color key="backgroundColor" red="1" green="0.96984148110000001" blue="0.033419123879999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="1Ye-8y-UX4" secondAttribute="height" multiplier="1:1" id="xcB-Oa-04J"/>
-                                                </constraints>
-                                                <state key="normal" title="HOME"/>
-                                                <connections>
-                                                    <action selector="homeButton:" destination="4QX-md-q07" eventType="touchUpInside" id="Bo9-pI-FeY"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="WOx-QM-wXC"/>
                                         </constraints>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NO IMAGE" translatesAutoresizingMaskIntoConstraints="NO" id="n3w-US-gBI">
-                                        <rect key="frame" x="0.0" y="80" width="374" height="448"/>
+                                        <rect key="frame" x="0.0" y="80" width="414" height="428"/>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここに投稿分を記入する" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-2g-TOQ">
-                                        <rect key="frame" x="0.0" y="528" width="374" height="200"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここに投稿文を記入する" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-2g-TOQ">
+                                        <rect key="frame" x="0.0" y="508" width="414" height="200"/>
                                         <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="9zw-qc-kHa"/>
@@ -65,7 +54,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOb-Rm-uHj">
-                                        <rect key="frame" x="0.0" y="728" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="708" width="414" height="50"/>
                                         <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="fQx-M9-OaO"/>
@@ -78,18 +67,56 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="7WV-7r-Xaj" firstAttribute="top" secondItem="uzr-iu-dEq" secondAttribute="top" id="HkU-rx-9BY"/>
-                                    <constraint firstItem="n3w-US-gBI" firstAttribute="top" secondItem="7WV-7r-Xaj" secondAttribute="bottom" id="Tt6-Ha-ELb"/>
                                     <constraint firstItem="7WV-7r-Xaj" firstAttribute="leading" secondItem="uzr-iu-dEq" secondAttribute="leading" id="VAE-04-PMf"/>
                                     <constraint firstAttribute="trailing" secondItem="7WV-7r-Xaj" secondAttribute="trailing" id="fbm-LI-FaX"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-Q1-Lp9">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQR-8o-6Xb">
+                                        <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
+                                        <state key="normal" image="icons8-home-50">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toHomeButton:" destination="4QX-md-q07" eventType="touchUpInside" id="4eC-PT-JmX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbN-2C-Dc7">
+                                        <rect key="frame" x="103.5" y="0.0" width="103.5" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Psd-eB-brN">
+                                        <rect key="frame" x="207" y="0.0" width="103.5" height="50"/>
+                                        <state key="normal" title="Button" image="icons8-search-64"/>
+                                        <connections>
+                                            <action selector="SearchButton:" destination="4QX-md-q07" eventType="touchUpInside" id="OJL-KK-fIi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lje-Ht-o5I">
+                                        <rect key="frame" x="310.5" y="0.0" width="103.5" height="50"/>
+                                        <state key="normal" title="Button" image="icons8-circled-user-64"/>
+                                        <connections>
+                                            <action selector="toProfileButoon:" destination="4QX-md-q07" eventType="touchUpInside" id="dLq-34-yBm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="n9k-EE-OyL"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uzr-iu-dEq" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" constant="20" id="EFG-ZA-bid"/>
-                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="bottom" secondItem="uzr-iu-dEq" secondAttribute="bottom" constant="20" id="nmB-8D-GfR"/>
-                            <constraint firstItem="uzr-iu-dEq" firstAttribute="top" secondItem="4aq-ic-EOQ" secondAttribute="top" constant="20" id="oyU-uO-XfB"/>
-                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="trailing" secondItem="uzr-iu-dEq" secondAttribute="trailing" constant="20" id="q4f-bW-H4K"/>
+                            <constraint firstItem="xZp-Q1-Lp9" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" id="9wH-y1-nFC"/>
+                            <constraint firstItem="uzr-iu-dEq" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" id="EFG-ZA-bid"/>
+                            <constraint firstItem="xZp-Q1-Lp9" firstAttribute="top" secondItem="uzr-iu-dEq" secondAttribute="bottom" constant="10" id="L2b-vd-U5r"/>
+                            <constraint firstAttribute="trailing" secondItem="xZp-Q1-Lp9" secondAttribute="trailing" id="bbB-XZ-RbM"/>
+                            <constraint firstItem="uzr-iu-dEq" firstAttribute="top" secondItem="4aq-ic-EOQ" secondAttribute="top" id="oyU-uO-XfB"/>
+                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="trailing" secondItem="uzr-iu-dEq" secondAttribute="trailing" id="q4f-bW-H4K"/>
+                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="bottom" secondItem="xZp-Q1-Lp9" secondAttribute="bottom" id="tJq-sa-TCD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4aq-ic-EOQ"/>
                     </view>
@@ -107,6 +134,9 @@
     </scenes>
     <resources>
         <image name="NO IMAGE" width="225" height="225"/>
+        <image name="icons8-circled-user-64" width="64" height="64"/>
+        <image name="icons8-home-50" width="50" height="50"/>
+        <image name="icons8-search-64" width="64" height="64"/>
         <image name="人物(仮)" width="225" height="225"/>
     </resources>
 </document>

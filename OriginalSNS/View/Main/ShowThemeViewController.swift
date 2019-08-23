@@ -27,7 +27,7 @@ class ShowThemeViewController: UIViewController {
 
 
     @IBAction func batsuButton(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
+   present(TimeLineViewController.makeTimeLineVC(), animated: true)
         
     }
 

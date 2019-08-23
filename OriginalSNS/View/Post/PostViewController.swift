@@ -25,12 +25,23 @@ class PostViewController: UIViewController {
     }
 
 
-    // ホームボタンを押したときの処理
-    // FIXME: 家マークのアイコンをボタンに表示させること
-    @IBAction func homeButton(_ sender: Any) {
-        /// HomeVCへ画面を遷移する。makeHomeVCはstaticで定義しているので、インスタンス化不要!
+    // ホームボタンを押したとき
+    @IBAction func toHomeButton(_ sender: Any) {
+        // HomeVCへ画面を遷移する。makeHomeVCはstaticで定義しているので、インスタンス化不要!
         present(HomeViewController.makeHomeVC(), animated: true)
     }
+
+
+    // 検索ボタンを押したとき
+    @IBAction func SearchButton(_ sender: Any) {
+
+    }
+
+   // プロフィールボタンを押したとき
+    @IBAction func toProfileButoon(_ sender: Any) {
+        
+    }
+
     // 投稿(Find!)ボタンを押したときの処理
     @IBAction func postButton(_ sender: Any) {
 

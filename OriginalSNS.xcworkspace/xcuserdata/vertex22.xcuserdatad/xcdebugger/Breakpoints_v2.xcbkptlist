@@ -83,5 +83,113 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+            timestampString = "588247232.401749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "TimeLineViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OriginalSNS.TimeLineViewController.tableView.getter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "OriginalSNS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vertex22/Desktop/test/spaltaCamp/OriginalSNS/OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+                  timestampString = "588238641.038756"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OriginalSNS.TimeLineViewController.tableView.setter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "OriginalSNS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vertex22/Desktop/test/spaltaCamp/OriginalSNS/OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+                  timestampString = "588238641.044871"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OriginalSNS.TimeLineViewController.tableView.modify : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "OriginalSNS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vertex22/Desktop/test/spaltaCamp/OriginalSNS/OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+                  timestampString = "588238641.047447"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OriginalSNS.TimeLineViewController.tableView.modify : Swift.Optional&lt;__C.UITableView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "OriginalSNS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vertex22/Desktop/test/spaltaCamp/OriginalSNS/OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+                  timestampString = "588238641.049773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OriginalSNS.TimeLineViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; OriginalSNS.TimeLineViewController"
+                  moduleName = "OriginalSNS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vertex22/Desktop/test/spaltaCamp/OriginalSNS/OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+                  timestampString = "588238641.052"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "199">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OriginalSNS.TimeLineViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;OriginalSNS.TimeLineViewController&gt;"
+                  moduleName = "OriginalSNS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vertex22/Desktop/test/spaltaCamp/OriginalSNS/OriginalSNS/View/TimeLine/TimeLineViewController.swift"
+                  timestampString = "588238641.054127"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "107">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
