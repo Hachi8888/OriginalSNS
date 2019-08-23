@@ -108,6 +108,23 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
         vc.receiveHow = howList[howCount]
     }
 
+
+    // ホームボタンを押したとき
+    @IBAction func toHomeButton(_ sender: Any) {
+        // タイムライン画面へ遷移する
+        present(TimeLineViewController.makeTimeLineVC(), animated: true)
+    }
+
+    // 探すボタンを押したとき
+    @IBAction func せあrchButoon(_ sender: Any) {
+    }
+
+    // プロフィールボタンを押したとき
+    @IBAction func toProfileButoon(_ sender: Any) {
+        // ProfileVCへ画面遷移する
+        present(ProfileViewController.makeProfileVC(), animated: true)
+    }
+
 }
 
 extension MainViewController {

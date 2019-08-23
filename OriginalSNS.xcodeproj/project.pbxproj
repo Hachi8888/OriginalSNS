@@ -121,7 +121,7 @@
 		D1CB1DF6230CDE24008C3855 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D1CB1E17230ECDA3008C3855 /* Profile(仮) */,
+				D1CB1E17230ECDA3008C3855 /* Profile */,
 				D1CB1E0B230E684F008C3855 /* Test(仮) */,
 				D1CB1E12230E82C5008C3855 /* Login */,
 				D1CB1E08230CE471008C3855 /* Post */,
@@ -201,13 +201,13 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		D1CB1E17230ECDA3008C3855 /* Profile(仮) */ = {
+		D1CB1E17230ECDA3008C3855 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				D1CB1E18230ECDDD008C3855 /* Profile.storyboard */,
 				D1CB1E1A230ECE20008C3855 /* ProfileViewController.swift */,
 			);
-			path = "Profile(仮)";
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

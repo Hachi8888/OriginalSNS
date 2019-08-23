@@ -18,20 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iu-dEq">
-                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iu-dEq">
+                                <rect key="frame" x="10" y="44" width="394" height="758"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WV-7r-Xaj">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7WV-7r-Xaj">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="80"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="人物(仮)" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-q2-XMa">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NO IMAGE" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-q2-XMa">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Yca-q2-XMa" secondAttribute="height" multiplier="1:1" id="7om-1I-n5T"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITa-UV-kgP">
-                                                <rect key="frame" x="80" y="0.0" width="334" height="80"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名ユーザ" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITa-UV-kgP">
+                                                <rect key="frame" x="90" y="0.0" width="304" height="80"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -42,10 +42,10 @@
                                         </constraints>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NO IMAGE" translatesAutoresizingMaskIntoConstraints="NO" id="n3w-US-gBI">
-                                        <rect key="frame" x="0.0" y="80" width="414" height="428"/>
+                                        <rect key="frame" x="0.0" y="90" width="394" height="398"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ここに投稿文を記入する" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-2g-TOQ">
-                                        <rect key="frame" x="0.0" y="508" width="414" height="200"/>
+                                        <rect key="frame" x="0.0" y="498" width="394" height="200"/>
                                         <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="9zw-qc-kHa"/>
@@ -54,7 +54,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOb-Rm-uHj">
-                                        <rect key="frame" x="0.0" y="708" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="708" width="394" height="50"/>
                                         <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="fQx-M9-OaO"/>
@@ -111,11 +111,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xZp-Q1-Lp9" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" id="9wH-y1-nFC"/>
-                            <constraint firstItem="uzr-iu-dEq" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" id="EFG-ZA-bid"/>
+                            <constraint firstItem="uzr-iu-dEq" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" constant="10" id="EFG-ZA-bid"/>
                             <constraint firstItem="xZp-Q1-Lp9" firstAttribute="top" secondItem="uzr-iu-dEq" secondAttribute="bottom" constant="10" id="L2b-vd-U5r"/>
                             <constraint firstAttribute="trailing" secondItem="xZp-Q1-Lp9" secondAttribute="trailing" id="bbB-XZ-RbM"/>
                             <constraint firstItem="uzr-iu-dEq" firstAttribute="top" secondItem="4aq-ic-EOQ" secondAttribute="top" id="oyU-uO-XfB"/>
-                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="trailing" secondItem="uzr-iu-dEq" secondAttribute="trailing" id="q4f-bW-H4K"/>
+                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="trailing" secondItem="uzr-iu-dEq" secondAttribute="trailing" constant="10" id="q4f-bW-H4K"/>
                             <constraint firstItem="4aq-ic-EOQ" firstAttribute="bottom" secondItem="xZp-Q1-Lp9" secondAttribute="bottom" id="tJq-sa-TCD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4aq-ic-EOQ"/>
@@ -137,6 +137,5 @@
         <image name="icons8-circled-user-64" width="64" height="64"/>
         <image name="icons8-home-50" width="50" height="50"/>
         <image name="icons8-search-64" width="64" height="64"/>
-        <image name="人物(仮)" width="225" height="225"/>
     </resources>
 </document>

@@ -62,13 +62,12 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     @IBAction func searchButton(_ sender: Any) {
     }
 
-
+    // プロフィールボタンを押したとき
     @IBAction func toProfileButton(_ sender: Any) {
+      // ProfileVCへ画面遷移する
+      present(ProfileViewController.makeProfileVC(), animated: true)
+
     }
-
-
-
-
 
     // タイムラインの表示に関すること
     // セクションの数

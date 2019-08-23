@@ -28,7 +28,7 @@ class PostViewController: UIViewController {
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
         // HomeVCへ画面を遷移する。makeHomeVCはstaticで定義しているので、インスタンス化不要!
-        present(HomeViewController.makeHomeVC(), animated: true)
+        present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
 
 
@@ -39,7 +39,8 @@ class PostViewController: UIViewController {
 
    // プロフィールボタンを押したとき
     @IBAction func toProfileButoon(_ sender: Any) {
-        
+        // ProfileVCへ画面遷移する
+        present(ProfileViewController.makeProfileVC(), animated: true)
     }
 
     // 投稿(Find!)ボタンを押したときの処理

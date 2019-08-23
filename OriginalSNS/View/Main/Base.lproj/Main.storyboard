@@ -69,6 +69,9 @@
                                         <state key="normal" image="icons8-home-50">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toHomeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wnn-8r-VPU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ9-Q7-rXp">
                                         <rect key="frame" x="80" y="0.0" width="80" height="50"/>
@@ -77,10 +80,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icU-6R-E0r">
                                         <rect key="frame" x="160" y="0.0" width="80" height="50"/>
                                         <state key="normal" title="Button" image="icons8-search-64"/>
+                                        <connections>
+                                            <action selector="せあrchButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0g-jM-og7"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-LT-vLI">
                                         <rect key="frame" x="240" y="0.0" width="80" height="50"/>
                                         <state key="normal" title="Button" image="icons8-circled-user-64"/>
+                                        <connections>
+                                            <action selector="toProfileButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ftj-Bh-QYb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
