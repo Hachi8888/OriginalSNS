@@ -7,17 +7,23 @@
 //
 
 import UIKit
+import FirebaseFirestore
+
 
 class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate  {
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
-
+    // FIXME: 必要か不明。ここに決まったお題を表示する?
+    // Find!ボタン
     @IBOutlet weak var findImageButton: UIButton!
 
 
     // 投稿情報をすべて格納(データベースからとってくる)
     var items = [NSDictionary]()
+
+    // Firestoreをインスタンス化
+    let db = Firestore.firestore()
 
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
@@ -28,45 +34,42 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     }
 
 
-
     override func viewDidLayoutSubviews() {
 
         findImageButton.imageView?.contentMode = .scaleToFill
-//        findImageButton.contentHorizontalAlignment = .fill
-       findImageButton.contentVerticalAlignment = .fill
+        //        findImageButton.contentHorizontalAlignment = .fill
+        findImageButton.contentVerticalAlignment = .fill
 
 
     }
 
-    // +ボタンを押したとき
+    // 投稿ボタンを押したとき
     @IBAction func toPostButton(_ sender: Any) {
-      present(PostViewController.makePostVC(), animated: true)
-
+        // PostVC:投稿画面へ遷移
+        present(PostViewController.makePostVC(), animated: true)
     }
 
     // Find!ボタンを押したとき
     @IBAction func toMainButton(_ sender: Any) {
-        // MainVCへ画面遷移
+        // MainVC:お題決定画面へ遷移
         present(MainViewController.makeMainVC(), animated: true)
     }
 
-
-   // ホームボタンを押したとき
+    // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
-
         /// FIXME: リロードする
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
 
 
     @IBAction func searchButton(_ sender: Any) {
+        /// FIXME: キーワード検索でひっかかった投稿をタイムラインに表示させる
     }
 
     // プロフィールボタンを押したとき
     @IBAction func toProfileButton(_ sender: Any) {
-      // ProfileVCへ画面遷移する
-      present(ProfileViewController.makeProfileVC(), animated: true)
-
+        // ProfileVC:プロフィール設定へ画面遷
+        present(ProfileViewController.makeProfileVC(), animated: true)
     }
 
     // タイムラインの表示に関すること
@@ -96,7 +99,6 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         return 300
     }
 }
-
 
 extension TimeLineViewController {
     // TimeLineVCを返す関数(TimeLineVCへの画面遷移に使う)

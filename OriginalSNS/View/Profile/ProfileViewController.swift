@@ -15,11 +15,20 @@ class ProfileViewController: UIViewController {
     // ユーザー名を表示するLabel
     @IBOutlet weak var userNameLabel: UILabel!
 
+    // PostVCで投稿用に選択した画像を受け取る変数
+    var willPostImage: UIImage = UIImage()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // SettingVCで選択したProfile画像を表示させる
+        profImage.image = willPostImage
+
     }
 
+    // settingボタンを押したとき
+    @IBAction func settingButton(_ sender: Any) {
+     // プロフィール画像とユーザー名の設定画面に遷移する、か 各ボタンごとにそれぞれを設定できるようにする
+    }
 
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
@@ -29,14 +38,12 @@ class ProfileViewController: UIViewController {
 
     // 探すボタンを押したとき
     @IBAction func searchButton(_ sender: Any) {
-
     }
 
     // プロフィールボタンを押したとき
     @IBAction func toProfile(_ sender: Any) {
         // リロードする
     }
-
 
 }
 

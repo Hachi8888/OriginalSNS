@@ -7,20 +7,32 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
-class PostViewController: UIViewController {
+// カメラ、ライブラリを開くので、クラスを2つ追加
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
 
     // 自分のアイコンを表示
     @IBOutlet weak var iconImage: UIImageView!
     // ユーザー名を表示するラベル
     @IBOutlet weak var nameLabel: UILabel!
-    // 投稿画像を表示
-    @IBOutlet weak var postPhoto: UIImageView!
+
     // 投稿文を記入するテキストラベル
     @IBOutlet weak var postTextLabel: UITextView!
 
+
+    // 投稿する画像を表示するimageView
+    @IBOutlet weak var postImageView: UIImageView!
+
+
+    let db = Firestore.firestore()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        postImageView.isHidden = true
 
     }
 
@@ -31,21 +43,68 @@ class PostViewController: UIViewController {
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
 
-
-    // 検索ボタンを押したとき
-    @IBAction func SearchButton(_ sender: Any) {
+    // イメージボタンを押したとき
+    @IBAction func selectImageButton(_ sender: Any) {
+        // ライブラリを開く
+        cameraAction(sourceType: .photoLibrary)
 
     }
 
-   // プロフィールボタンを押したとき
-    @IBAction func toProfileButoon(_ sender: Any) {
-        // ProfileVCへ画面遷移する
-        present(ProfileViewController.makeProfileVC(), animated: true)
+    // カメラボタンを押したとき
+    @IBAction func selectCameraButton(_ sender: Any) {
+        // カメラを起動する
+        cameraAction(sourceType: .camera)
+
+
     }
+
+
+    // キャンセルボタンを押したとき
+    @IBAction func cancelButton(_ sender: Any) {
+        // postVCを破棄してTimeLineVCへ戻る
+        dismiss(animated: true, completion: nil)
+
+    }
+
 
     // 投稿(Find!)ボタンを押したときの処理
     @IBAction func postButton(_ sender: Any) {
 
+
+
+    }
+
+    // FIXME: ProfileVCのsettingでも以下処理を使用。staticでまとめられないか?
+    // カメラ・フォトライブラリへの遷移処理
+    func cameraAction(sourceType: UIImagePickerController.SourceType) {
+        // カメラ・フォトライブラリが使用可能かチェック
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+
+            // インスタンス化
+            let cameraPicker = UIImagePickerController()
+            // ソースタイプの代入
+            cameraPicker.sourceType = sourceType
+            // デリゲートの接続
+            cameraPicker.delegate = self
+            // 画面遷移
+            self.present(cameraPicker, animated: true)
+        }
+    }
+
+    // 写真が選択された時に呼ばれる
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 取得できた画像情報の存在確認とUIImage型へキャスト。pickedImageという定数に格納
+
+
+        guard let pickedImage = info[.originalImage] as? UIImage else {
+            print("画像の選択失敗")
+
+            return
+
+        }
+        postImageView.isHidden = false
+        postImageView.image = pickedImage
+        dismiss(animated: true, completion: nil)
     }
 
 }

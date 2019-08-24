@@ -40,8 +40,8 @@ class LoginViewController: UIViewController {
                 self.showErrorAlert(error: error)
             } else { // 成功した場合の処理
                 print("新規登録成功")
-                // HomeVCへ画面遷移(ホーム画面へ)
-                self.present(HomeViewController.makeHomeVC(), animated: true)
+                // TimeLineVCへ画面遷移(タイムライン画面へ)
+                self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
             }
         })
     }
@@ -59,8 +59,8 @@ class LoginViewController: UIViewController {
                 self.showErrorAlert(error: error)
             } else {  // 認証成功
                 print("ログイン成功")
-                // HomeVCへ画面遷移(ホーム画面へ)
-                self.present(HomeViewController.makeHomeVC(), animated: true)
+                // TimeLineVCへ画面遷移(タイムライン画面へ)
+                self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
             }
         })
     }
