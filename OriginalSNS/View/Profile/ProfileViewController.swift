@@ -55,7 +55,7 @@ class ProfileViewController: UIViewController {
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {
         // 画像情報があればprofImageに格納
-        if let profImage = UserDefaults.standard.object(forKey: "profileImage")  {
+        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
             // あればprofImageを型変換して投稿用のmyIconImageViewに格納
             // NSData型に変換
             let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)

@@ -15,17 +15,51 @@ class SettingViewController: UIViewController {
     // ユーザーネーム
     @IBOutlet weak var settingNameLabel: UITextField!
 
+
+
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // UserDefaultからプロフィール画像と名前の情報を取得する
+        getProfile()
     }
+
+
+    // 戻るボタンを押したとき
+    @IBAction func backButton(_ sender: Any) {
+        // FIXME: UserDefaultに設定したプロフィール画像と名前情報を保存する  (or ライブラリで画像を選択したときにもプロフィール画像については同様の処理を書いているが、、)
+
+        // 以下、選択したプロフィール画像(UIImage型)をNSData型→base64String型へ変換し、UserDefaultに保存する
+        // まず、NSData型の箱を用意
+        var data: NSData = NSData()
+        // imageの存在確認して、NSData型に変換
+        if let image = settingIconImageView.image {
+            // クオリティを10パーセントに下げる
+            data = image.jpegData(compressionQuality: 0.1)! as NSData
+        }
+        // NSData型からbase64String型へ変更
+        let base64String = data.base64EncodedString(options: .lineLength64Characters) as String
+        // 最後にUserDefaultに保存
+        UserDefaults.standard.set(base64String, forKey: "iconImage")
+
+        //
+        print("UserDefaultへ画像の保存完了")
+
+
+       // settingNameLabelの内容をUserDefaultに保存
+        if let userName = settingNameLabel.text {
+        print("UserDefaultに名前情報の保存完了")
+        UserDefaults.standard.set(userName, forKey: "userName")
+        }
+    }
+
 
     // ImageViewの下にボタンあり。押すとプロフィール画像を設定できる
     @IBAction func settingImageButton(_ sender: Any) {
         // 写真を撮る or ライブラリから選択 のアラートを出す
         showSelectAlert()
     }
-
 
     // 画像選択を 写真を撮る or ライブラリ から選択させるアラートを表示
     func showSelectAlert() {
@@ -85,13 +119,49 @@ class SettingViewController: UIViewController {
         // 選択した画像をこの画面(SettingVC)のプロフィール画像に反映
         settingIconImageView.image = pickedImage
 
-        // 画像をUserDefaultに保存する(ProfileVC,
+        // 以下、選択したプロフィール画像(UIImage型)をNSData型→base64String型へ変換し、UserDefaultに保存する
+        // まず、NSData型の箱を用意
+        var data: NSData = NSData()
+        // imageの存在確認して、NSData型に変換
+        if let image = settingIconImageView.image {
+            // クオリティを10パーセントに下げる
+            data = image.jpegData(compressionQuality: 0.1)! as NSData
+        }
+        // NSData型からbase64String型へ変更
+        let base64String = data.base64EncodedString(options: .lineLength64Characters) as String
+        // 最後にUserDefaultに保存
+        UserDefaults.standard.set(base64String, forKey: "iconImage")
 
-
-        // FIXME: 画面を閉じる(必要? コメントアウトしていても画面閉じた!!)
-//        dismiss(animated: true, completion: nil)
+        //
+        print("UserDefaultへ画像の保存完了")
     }
 
+
+    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
+    func getProfile() {
+        // 画像情報があればprofImageに格納
+        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
+            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
+            // NSData型に変換
+            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decodedImage = UIImage(data: dataImage! as Data)
+            // settingIconImageViewに代入
+            settingIconImageView.image = decodedImage
+        } else {
+            // FIXME: 初期設定のアイコンを変えること!!
+            // なければアイコン画像をpsettingIconImageViewに格納
+            settingIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+        }
+        // 名前情報があればprofNameに格納
+        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
+            // myNameLabelへ代入
+            settingNameLabel.text = profName
+        } else {
+            // なければ匿名としておく
+            settingNameLabel.text = "匿名"
+        }
+    }
 
 
     // settingNameLabelからフォーカスを外したときにキーボードを閉じる処理

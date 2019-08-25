@@ -118,6 +118,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         postImageView.isHidden = false
         postImageView.image = pickedImage
+
+
+        // 元の画面に戻る
         dismiss(animated: true, completion: nil)
     }
 

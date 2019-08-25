@@ -38,6 +38,7 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
 
         // FIXME: ProfileVCから設定してあるプロフィール画像と名前情報を取得して反映できない!!
 //        getProfile()
+
     }
 
 
@@ -82,15 +83,10 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {
 
-
-
-
-
-
         // 画像情報があればprofImageに格納
-        if let profImage = UserDefaults.standard.object(forKey: "profileImage")  {
-            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
-            // NSData型に変換
+        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
+            // あればprofImageを型変換して投稿用のtimeLineIconImageViewに格納
+            // まずNSData型に変換
             let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
             // さらにUIImage型に変換
             let decodedImage = UIImage(data: dataImage! as Data)
