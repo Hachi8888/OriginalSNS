@@ -30,7 +30,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ssY-v0-8cO" secondAttribute="height" multiplier="1:1" id="FlO-uQ-Phy"/>
                                                 </constraints>
-                                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" image="icons8-chat-room-100"/>
                                                 <connections>
                                                     <action selector="toPostButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="kLQ-8V-GZ5"/>
@@ -53,7 +53,7 @@
                                         </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="St1-r9-nq4">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="728"/>
+                                        <rect key="frame" x="0.0" y="40" width="414" height="738"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="497" id="gAo-UZ-Tfc">
@@ -109,11 +109,12 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NPS-fh-LZ1" userLabel="Bar Buttons Stack View">
-                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="778" width="414" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dh-Mr-fb8" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="40"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" image="icons8-home-50">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -122,18 +123,21 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBG-u6-rZt">
-                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="50"/>
+                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="40"/>
+                                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV0-WC-Hbc">
-                                                <rect key="frame" x="207" y="0.0" width="103.5" height="50"/>
+                                                <rect key="frame" x="207" y="0.0" width="103.5" height="40"/>
+                                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="icons8-search-64"/>
                                                 <connections>
                                                     <action selector="searchButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="eCN-Cc-r0f"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-fy-Osg">
-                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="50"/>
+                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="40"/>
+                                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="icons8-circled-user-64"/>
                                                 <connections>
                                                     <action selector="toProfileButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="gBd-ZK-0ha"/>
@@ -141,7 +145,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="U2B-df-JLL"/>
+                                            <constraint firstAttribute="height" constant="40" id="U2B-df-JLL"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>

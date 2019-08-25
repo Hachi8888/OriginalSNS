@@ -91,22 +91,17 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
 
-    // 写真が選択された時に呼ばれる
+    // 画像が選択された時に自動的に呼ばれる関数
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 取得できた画像情報の存在確認とUIImage型へキャスト。pickedImageという定数に格納
-
-
         guard let pickedImage = info[.originalImage] as? UIImage else {
             print("画像の選択失敗")
-
             return
-
         }
         postImageView.isHidden = false
         postImageView.image = pickedImage
         dismiss(animated: true, completion: nil)
     }
-
 }
 
 extension PostViewController {

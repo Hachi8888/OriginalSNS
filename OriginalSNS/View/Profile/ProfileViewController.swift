@@ -27,7 +27,10 @@ class ProfileViewController: UIViewController {
 
     // settingボタンを押したとき
     @IBAction func settingButton(_ sender: Any) {
-     // プロフィール画像とユーザー名の設定画面に遷移する、か 各ボタンごとにそれぞれを設定できるようにする
+        // SettingVC:プロフィール画像とユーザー名の設定画面に遷移
+     performSegue(withIdentifier: "toSettingVC"
+        , sender: nil)
+
     }
 
     // ホームボタンを押したとき
