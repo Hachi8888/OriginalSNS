@@ -157,9 +157,9 @@
                         <viewLayoutGuide key="safeArea" id="4aq-ic-EOQ"/>
                     </view>
                     <connections>
-                        <outlet property="iconImage" destination="Yca-q2-XMa" id="eiD-nL-fAh"/>
-                        <outlet property="nameLabel" destination="ITa-UV-kgP" id="72y-db-c1d"/>
+                        <outlet property="postIconImageView" destination="Yca-q2-XMa" id="eiD-nL-fAh"/>
                         <outlet property="postImageView" destination="w2P-cB-POr" id="GeC-F1-4wy"/>
+                        <outlet property="postNameLabel" destination="ITa-UV-kgP" id="72y-db-c1d"/>
                         <outlet property="postTextLabel" destination="sPd-2g-TOQ" id="NUS-7l-gAw"/>
                     </connections>
                 </viewController>

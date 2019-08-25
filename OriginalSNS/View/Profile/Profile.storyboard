@@ -198,7 +198,6 @@
                                 </constraints>
                                 <state key="normal" image="icons8-back-96"/>
                                 <connections>
-                                    <action selector="backButton:" destination="CCh-0l-3f7" eventType="touchUpInside" id="VS7-QF-hkb"/>
                                     <segue destination="ksf-pN-nA1" kind="show" id="lGn-mL-z3m"/>
                                 </connections>
                             </button>

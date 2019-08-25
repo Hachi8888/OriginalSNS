@@ -14,14 +14,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 {
 
     // 自分のアイコンを表示
-    @IBOutlet weak var iconImage: UIImageView!
+    @IBOutlet weak var postIconImageView: UIImageView!
     // ユーザー名を表示するラベル
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var postNameLabel: UILabel!
 
     // 投稿文を記入するテキストラベル
     @IBOutlet weak var postTextLabel: UITextView!
-
-
     // 投稿する画像を表示するimageView
     @IBOutlet weak var postImageView: UIImageView!
 
@@ -37,25 +35,16 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
 
-    // ホームボタンを押したとき
-    @IBAction func toHomeButton(_ sender: Any) {
-        // HomeVCへ画面を遷移する。makeHomeVCはstaticで定義しているので、インスタンス化不要!
-        present(TimeLineViewController.makeTimeLineVC(), animated: true)
-    }
-
     // イメージボタンを押したとき
     @IBAction func selectImageButton(_ sender: Any) {
         // ライブラリを開く
         cameraAction(sourceType: .photoLibrary)
-
     }
 
     // カメラボタンを押したとき
     @IBAction func selectCameraButton(_ sender: Any) {
         // カメラを起動する
         cameraAction(sourceType: .camera)
-
-
     }
 
 
@@ -63,13 +52,42 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func cancelButton(_ sender: Any) {
         // postVCを破棄してTimeLineVCへ戻る
         dismiss(animated: true, completion: nil)
-
     }
 
 
     // 投稿(Find!)ボタンを押したときの処理
     @IBAction func postButton(_ sender: Any) {
+        // ①各情報を定数化
+        // 投稿する情報は４つ。名前・コメント・投稿画像・プロフィール画像
+        // FIXME: 名前もfirebaseにぽpostする必要ある?
+        let userName = postNameLabel.text
+        // コメント(投稿文)
+        let comment = postTextLabel.text
 
+        // 投稿画像
+        var postImageData: NSData = NSData()
+        if let postImage = postImageView.image {
+            // クオリティを10パーセントに下げる
+            postImageData = postImage.jpegData(compressionQuality: 0.1)! as NSData
+        }
+        // 送信するためにbase64Stringという形式に変換
+        let base64PostImage = postImageData.base64EncodedString(options: .lineLength64Characters) as String
+
+        // FIXME: プロフィール画像(firebaseに送る必要ある?)
+        var profileImageData: NSData = NSData()
+        if let profileImage = postIconImageView.image {
+            profileImageData = profileImage.jpegData(compressionQuality: 0.1)! as NSData
+        }
+        let base64ProfileImage = profileImageData.base64EncodedString(options: .lineLength64Characters) as String
+
+        // ②Firestoreに飛ばす箱を用意
+        let user: NSDictionary = ["userName": userName ?? "" , "comment": comment ?? "", "postImage": base64PostImage, "profileImage": base64ProfileImage]
+
+        // ③userごとFirestoreへpost
+        db.collection("contents").addDocument(data: user as! [String : Any])
+
+        // ④画面を消す
+        self.dismiss(animated: true)
 
 
     }

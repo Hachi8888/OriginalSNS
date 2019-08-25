@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
             } else {  // 認証成功
                 print("ログイン成功")
                 // TimeLineVCへ画面遷移(タイムライン画面へ)
-                self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
+         self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
             }
         })
     }

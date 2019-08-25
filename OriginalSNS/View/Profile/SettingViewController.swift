@@ -17,14 +17,7 @@ class SettingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // UserDefaultからぴプロフィール画像と名前の情報を取得する
-    }
-
-
-    // 前の画面(ProfileVC)へ戻るボタン
-    @IBAction func backButton(_ sender: Any) {
-
-
+        // UserDefaultからプロフィール画像と名前の情報を取得する
     }
 
     // ImageViewの下にボタンあり。押すとプロフィール画像を設定できる
@@ -101,7 +94,7 @@ class SettingViewController: UIViewController {
 
 
 
-    // myNameLabelからフォーカスを外したときにキーボードを閉じる処理
+    // settingNameLabelからフォーカスを外したときにキーボードを閉じる処理
     // タッチされたかを判断
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // キーボードが開いていたら
