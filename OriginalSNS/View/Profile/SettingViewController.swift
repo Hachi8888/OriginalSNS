@@ -20,7 +20,13 @@ class SettingViewController: UIViewController {
         // UserDefaultからぴプロフィール画像と名前をの情報を取得する
         getProfile()
     }
-    
+
+
+    // 前の画面(ProfileVC)へ戻るボタン
+    @IBAction func backButton(_ sender: Any) {
+
+
+    }
 
     // ImageViewの下にボタンあり。押すとプロフィール画像を設定できる
     @IBAction func settingImageButton(_ sender: Any) {
@@ -34,21 +40,21 @@ class SettingViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 
         // 写真を撮るボタンの設定
-        let takePhoto = UIAlertAction(title: "Camera", style: .default) { (UIAlertAction) in
+        let takePhoto = UIAlertAction(title: "写真を撮る", style: .default) { (UIAlertAction) in
             // ボタンを押したときの処理
             // カメラを起動する
             self.cameraAction(sourceType: .camera)
         }
 
         // ライブラリを開くボタンの設定
-        let openLibrary = UIAlertAction(title: "Library", style: .default) { (UIAlertAction) in
+        let openLibrary = UIAlertAction(title: "ライブラリから選択", style: .default) { (UIAlertAction) in
             // ボタンを押したときの処理
             // ライブラリを開く
             self.cameraAction(sourceType: .photoLibrary)
         }
 
         // Cancelボタンの設定
-        let close = UIAlertAction(title: "Close", style: .cancel, handler: nil)
+        let close = UIAlertAction(title: "閉じる", style: .cancel, handler: nil)
 
         // 上記で設定した3つのボタンを追加する
         alert.addAction(takePhoto)

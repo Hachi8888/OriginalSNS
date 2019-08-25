@@ -185,10 +185,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWM-T0-PrO">
+                                <rect key="frame" x="5" y="30" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="tKg-eY-e3t"/>
+                                    <constraint firstAttribute="width" constant="30" id="w5j-Ai-HHo"/>
+                                </constraints>
+                                <state key="normal" image="icons8-back-96"/>
+                                <connections>
+                                    <action selector="backButton:" destination="CCh-0l-3f7" eventType="touchUpInside" id="VS7-QF-hkb"/>
+                                    <segue destination="ksf-pN-nA1" kind="show" id="lGn-mL-z3m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eED-iE-JrQ" firstAttribute="top" secondItem="0wB-k1-6oz" secondAttribute="bottom" constant="30" id="4RA-Gx-hdD"/>
+                            <constraint firstItem="LWM-T0-PrO" firstAttribute="top" secondItem="H4h-rq-MBp" secondAttribute="top" constant="10" id="B2D-aG-hNp"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="Tw8-6h-iNY" secondAttribute="trailing" constant="30" id="G5M-nc-p5t"/>
                             <constraint firstItem="Tw8-6h-iNY" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="30" id="JrM-PZ-Zpo"/>
                             <constraint firstItem="am8-mu-GDy" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="80" id="KdE-dG-JZy"/>
@@ -197,6 +210,7 @@
                             <constraint firstItem="0wB-k1-6oz" firstAttribute="top" secondItem="H4h-rq-MBp" secondAttribute="top" constant="30" id="Nzp-Th-FIh"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="eED-iE-JrQ" secondAttribute="trailing" constant="80" id="Ob1-AR-ul4"/>
                             <constraint firstItem="eED-iE-JrQ" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="80" id="PQC-9Y-z2S"/>
+                            <constraint firstItem="LWM-T0-PrO" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="5" id="T8g-iR-s3N"/>
                             <constraint firstItem="Tw8-6h-iNY" firstAttribute="top" secondItem="am8-mu-GDy" secondAttribute="bottom" constant="30" id="WRh-sq-9jG"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="am8-mu-GDy" secondAttribute="trailing" constant="80" id="cWn-hN-mlf"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="dKJ-Es-2f4" secondAttribute="trailing" id="eel-uN-akO"/>
@@ -219,6 +233,7 @@
     </scenes>
     <resources>
         <image name="NO IMAGE" width="225" height="225"/>
+        <image name="icons8-back-96" width="96" height="96"/>
         <image name="icons8-circled-user-64" width="64" height="64"/>
         <image name="icons8-home-50" width="50" height="50"/>
         <image name="icons8-search-64" width="64" height="64"/>
