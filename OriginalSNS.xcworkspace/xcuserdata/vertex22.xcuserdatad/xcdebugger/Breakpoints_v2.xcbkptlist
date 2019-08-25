@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/TimeLine/TimeLineViewController.swift"
-            timestampString = "588399324.0200059"
+            timestampString = "588412591.367319"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "TimeLineViewController"
             landmarkType = "3">
             <Locations>
@@ -198,7 +198,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Profile/ProfileViewController.swift"
-            timestampString = "588399324.0201041"
+            timestampString = "588412591.367874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7"

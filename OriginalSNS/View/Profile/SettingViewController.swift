@@ -11,14 +11,13 @@ import UIKit
 class SettingViewController: UIViewController {
 
     // プロフィール画像
-    @IBOutlet weak var myIconImageView: UIImageView!
+    @IBOutlet weak var settingIconImageView: UIImageView!
     // ユーザーネーム
-    @IBOutlet weak var myNameLabel: UITextField!
+    @IBOutlet weak var settingNameLabel: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // UserDefaultからぴプロフィール画像と名前をの情報を取得する
-        getProfile()
+        // UserDefaultからぴプロフィール画像と名前の情報を取得する
     }
 
 
@@ -85,52 +84,30 @@ class SettingViewController: UIViewController {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 取得できた画像情報の存在確認とUIImage型へキャスト。pickedImageという定数に格納
         guard let pickedImage = info[.originalImage] as? UIImage else {
-            print("画像の選択失敗")
+            print("画像選択の失敗")
             return
         }
 
         // FIXME: 選択しても表示が変わらない(コンソールにエラーが起きている)
-        // 選択した画像をプロフィール画像に設定
-        myIconImageView.image = pickedImage
+        // 選択した画像をこの画面(SettingVC)のプロフィール画像に反映
+        settingIconImageView.image = pickedImage
 
-        // 画像をUserDefaultに保存する
-        dismiss(animated: true, completion: nil)
+        // 画像をUserDefaultに保存する(ProfileVC,
+
+
+        // FIXME: 画面を閉じる(必要? コメントアウトしていても画面閉じた!!)
+//        dismiss(animated: true, completion: nil)
     }
 
-    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
-    func getProfile() {
-        // 画像情報があればprofImageに格納
-        if let profImage = UserDefaults.standard.object(forKey: "profileImage")  {
-            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
-            // NSData型に変換
-            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-            // さらにUIImage型に変換
-            let decodedImage = UIImage(data: dataImage! as Data)
-            // profileImageViewに代入
-            myIconImageView.image = decodedImage
 
-        } else {
-            // FIXME: 初期設定のアイコンを変えること!!
-            // なければアイコン画像をprofImageViewに格納
-            myIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
-        }
-        // 名前情報があればprofNameに格納
-        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
-            // myNameLabelへ代入
-            myNameLabel.text = profName
-        } else {
-            // なければ匿名としておく
-            myNameLabel.text = "匿名"
-        }
-    }
 
     // myNameLabelからフォーカスを外したときにキーボードを閉じる処理
     // タッチされたかを判断
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // キーボードが開いていたら
-        if (myNameLabel.isFirstResponder) {
+        if (settingNameLabel.isFirstResponder) {
             // 閉じる
-            myNameLabel.resignFirstResponder()
+            settingNameLabel.resignFirstResponder()
         }
     }
 

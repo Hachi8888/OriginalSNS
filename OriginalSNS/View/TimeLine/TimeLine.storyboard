@@ -56,7 +56,7 @@
                                         <rect key="frame" x="0.0" y="40" width="414" height="738"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="497" id="gAo-UZ-Tfc">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="497" id="gAo-UZ-Tfc" customClass="TimeLineTableViewCell" customModule="OriginalSNS" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="497"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gAo-UZ-Tfc" id="A3j-G6-gT9">
@@ -80,7 +80,7 @@
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-lc-mF1">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-lc-mF1">
                                                                             <rect key="frame" x="70" y="0.0" width="324" height="60"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -110,6 +110,12 @@
                                                         <constraint firstItem="Iae-t5-BYk" firstAttribute="leading" secondItem="A3j-G6-gT9" secondAttribute="leading" constant="10" id="mMZ-xS-n3o"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="timeLineIconImageView" destination="OHL-Ei-o3S" id="MDA-EK-Nsf"/>
+                                                    <outlet property="timeLineNameLabel" destination="zPZ-lc-mF1" id="gKJ-JT-5iv"/>
+                                                    <outlet property="timeLinePostImageView" destination="quA-9t-Ebp" id="OFd-OX-iv1"/>
+                                                    <outlet property="timeLineTextView" destination="muv-GP-7aM" id="08i-m5-Nst"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>

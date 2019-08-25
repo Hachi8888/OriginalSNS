@@ -121,8 +121,8 @@
                         <viewLayoutGuide key="safeArea" id="B9k-9j-sRL"/>
                     </view>
                     <connections>
-                        <outlet property="profImage" destination="t9d-jk-1Oy" id="7rt-4l-Kvr"/>
-                        <outlet property="userNameLabel" destination="zN7-wY-kYv" id="Nht-6Y-ngZ"/>
+                        <outlet property="profIconImageView" destination="t9d-jk-1Oy" id="7rt-4l-Kvr"/>
+                        <outlet property="profNameLabel" destination="zN7-wY-kYv" id="Nht-6Y-ngZ"/>
                         <segue destination="CCh-0l-3f7" kind="show" identifier="toSettingVC" id="I8A-9U-Hxn"/>
                     </connections>
                 </viewController>
@@ -227,8 +227,8 @@
                         <viewLayoutGuide key="safeArea" id="H4h-rq-MBp"/>
                     </view>
                     <connections>
-                        <outlet property="myIconImageView" destination="eED-iE-JrQ" id="aff-Jb-B0x"/>
-                        <outlet property="myNameLabel" destination="Crd-he-8xl" id="IoC-P2-kto"/>
+                        <outlet property="settingIconImageView" destination="eED-iE-JrQ" id="aff-Jb-B0x"/>
+                        <outlet property="settingNameLabel" destination="Crd-he-8xl" id="IoC-P2-kto"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9SY-n1-6Md" userLabel="First Responder" sceneMemberID="firstResponder"/>

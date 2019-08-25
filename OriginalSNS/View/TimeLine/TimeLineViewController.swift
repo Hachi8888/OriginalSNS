@@ -8,12 +8,16 @@
 
 import UIKit
 import FirebaseFirestore
+import IBAnimatable
 
 
 class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate  {
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
+
+
+
     // FIXME: 必要か不明。ここに決まったお題を表示する?
     // Find!ボタン
     @IBOutlet weak var findImageButton: UIButton!
@@ -31,6 +35,9 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         //2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
+
+        // FIXME: ProfileVCから設定してあるプロフィール画像と名前情報を取得して反映できない!!
+//        getProfile()
     }
 
 
@@ -71,6 +78,43 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         // ProfileVC:プロフィール設定へ画面遷
         present(ProfileViewController.makeProfileVC(), animated: true)
     }
+
+    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
+    func getProfile() {
+
+
+
+
+
+
+        // 画像情報があればprofImageに格納
+        if let profImage = UserDefaults.standard.object(forKey: "profileImage")  {
+            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
+            // NSData型に変換
+            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decodedImage = UIImage(data: dataImage! as Data)
+            // FIXME: TimeLineTableViewCellの要素の指定方法が変??
+            // profileImageViewに代入
+            TimeLineTableViewCell()
+                .timeLineIconImageView.image = decodedImage
+        } else {
+            // FIXME: 初期設定のアイコンを変えること!!
+            // なければアイコン画像をprofImageViewに格納
+            TimeLineTableViewCell().timeLineIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+        }
+        // 名前情報があればprofNameに格納
+        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
+            // myNameLabelへ代入
+            TimeLineTableViewCell().timeLineNameLabel.text = profName
+        } else {
+            // なければ匿名としておく
+            TimeLineTableViewCell().timeLineNameLabel.text = "匿名"
+        }
+    }
+
+
+
 
     // タイムラインの表示に関すること
     // セクションの数
