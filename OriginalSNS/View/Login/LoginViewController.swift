@@ -73,4 +73,17 @@ class LoginViewController: UIViewController {
         // 表示
         self.present(alert, animated: true)
     }
+
+    // キーボードを閉じる処理
+    // タッチされたかを判断
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードが開いていたら
+        if (emailTextField.isFirstResponder) {
+            // 閉じる
+            emailTextField.resignFirstResponder()
+        }
+        if (passwordTextField.isFirstResponder) {
+            passwordTextField.resignFirstResponder()
+        }
+    }
 }

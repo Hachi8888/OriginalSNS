@@ -102,6 +102,16 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         postImageView.image = pickedImage
         dismiss(animated: true, completion: nil)
     }
+
+    // キーボードを閉じる処理
+    // タッチされたかを判断
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードが開いていたら
+        if (postTextLabel.isFirstResponder) {
+            // 閉じる
+            postTextLabel.resignFirstResponder()
+        }
+    }
 }
 
 extension PostViewController {

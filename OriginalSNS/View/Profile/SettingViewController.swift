@@ -117,6 +117,17 @@ class SettingViewController: UIViewController {
             myNameLabel.text = "匿名"
         }
     }
+
+    // myNameLabelからフォーカスを外したときにキーボードを閉じる処理
+    // タッチされたかを判断
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // キーボードが開いていたら
+        if (myNameLabel.isFirstResponder) {
+            // 閉じる
+            myNameLabel.resignFirstResponder()
+        }
+    }
+
 }
 
 
