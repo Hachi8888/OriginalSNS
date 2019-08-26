@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="Cjd-N8-df6">
             <objects>
-                <viewController id="9iD-DV-IMc" customClass="LoginViewController" customModule="OriginalSNS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="9iD-DV-IMc" customClass="LoginViewController" customModule="OriginalSNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fjK-JR-IoW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

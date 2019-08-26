@@ -25,9 +25,7 @@ class ProfileViewController: UIViewController {
 
         // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
         getProfile()
-
     }
-
     // settingボタンを押したとき
     @IBAction func settingButton(_ sender: Any) {
         // SettingVC:プロフィール画像とユーザー名の設定画面に遷移
@@ -41,11 +39,9 @@ class ProfileViewController: UIViewController {
         // タイムライン画面に遷移する
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
-
     // 探すボタンを押したとき
     @IBAction func searchButton(_ sender: Any) {
     }
-
     // プロフィールボタンを押したとき
     @IBAction func toProfile(_ sender: Any) {
         // リロードする
@@ -55,7 +51,7 @@ class ProfileViewController: UIViewController {
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {
         // 画像情報があればprofImageに格納
-        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
+        if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
             // あればprofImageを型変換して投稿用のmyIconImageViewに格納
             // NSData型に変換
             let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)

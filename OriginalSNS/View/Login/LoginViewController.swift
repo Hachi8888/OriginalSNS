@@ -87,3 +87,15 @@ class LoginViewController: UIViewController {
         }
     }
 }
+
+extension LoginViewController {
+    // LoginVCを返す関数(LoginVCへの画面遷移に使う)
+    static func makeLoginVC() -> UIViewController {
+        // storyboardのfileの特定
+        let storyboard: UIStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        // 移動先のvcをインスタンス化
+        let vc = storyboard.instantiateViewController(withIdentifier: "Login")
+        // LoginVCを返す
+        return vc
+    }
+}

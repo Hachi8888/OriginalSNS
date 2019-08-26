@@ -16,8 +16,6 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
 
-
-
     // FIXME: 必要か不明。ここに決まったお題を表示する?
     // Find!ボタン
     @IBOutlet weak var findImageButton: UIButton!
@@ -36,9 +34,15 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
 
+        self.tableView.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+
         // FIXME: ProfileVCから設定してあるプロフィール画像と名前情報を取得して反映できない!!
 //        getProfile()
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        // FireBaseから情報をとってくる
     }
 
 
@@ -126,10 +130,18 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
 
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TimeLineTableViewCell
 
         // セルを選択不可にする
         cell.selectionStyle = .none
+
+        // Firebaseからぷプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する
+//        cell.timeLineIconImageView.image = items[][indexPath.row] as? UIImage
+//
+
+
+
+
 
         return cell
     }

@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import FirebaseAuth  // ログアウト処理に使用
+import FirebaseFirestore // Firebaseへのデータ保存に使用
 
-class SettingViewController: UIViewController {
+class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // プロフィール画像
     @IBOutlet weak var settingIconImageView: UIImageView!
     // ユーザーネーム
     @IBOutlet weak var settingNameLabel: UITextField!
 
-
-
-    
+    // インスタンス化
+    let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,33 +26,39 @@ class SettingViewController: UIViewController {
         getProfile()
     }
 
-
     // 戻るボタンを押したとき
     @IBAction func backButton(_ sender: Any) {
-        // FIXME: UserDefaultに設定したプロフィール画像と名前情報を保存する  (or ライブラリで画像を選択したときにもプロフィール画像については同様の処理を書いているが、、)
-
-        // 以下、選択したプロフィール画像(UIImage型)をNSData型→base64String型へ変換し、UserDefaultに保存する
-        // まず、NSData型の箱を用意
-        var data: NSData = NSData()
-        // imageの存在確認して、NSData型に変換
-        if let image = settingIconImageView.image {
-            // クオリティを10パーセントに下げる
-            data = image.jpegData(compressionQuality: 0.1)! as NSData
-        }
-        // NSData型からbase64String型へ変更
-        let base64String = data.base64EncodedString(options: .lineLength64Characters) as String
-        // 最後にUserDefaultに保存
-        UserDefaults.standard.set(base64String, forKey: "iconImage")
-
-        //
-        print("UserDefaultへ画像の保存完了")
-
-
-       // settingNameLabelの内容をUserDefaultに保存
-        if let userName = settingNameLabel.text {
-        print("UserDefaultに名前情報の保存完了")
+        //  名前とプロフィール画像を①UserDefaultと②Firebaseに保存する
+        /* Firebaseにもほ情報を保存する理由:タイムラインに戻ったときに、新たに投稿しなくても過去の自分の投稿に対して最新のプロフィール画像と名前が反映されるようにするため
+          */
+        
+        // ①UserDefaulへの保存
+        //  名前ついて
+        let userName = settingNameLabel.text
+        // 保存
         UserDefaults.standard.set(userName, forKey: "userName")
+        print("UserDefaultに名前の保存完了")
+
+       // プロフィール画像について(UIImage型→NSData型→base64String型へ要変換)
+        guard let image = settingIconImageView.image else {
+            return
         }
+        // NSData型の箱を用意
+        var data: NSData = NSData()
+        // クオリティを10パーセントに下げる
+            data = image.jpegData(compressionQuality: 0.1)! as NSData
+        // NSData型からbase64String型へ変更
+        let base64IconImage = data.base64EncodedString(options: .lineLength64Characters) as String
+        // 保存
+        UserDefaults.standard.set(base64IconImage, forKey: "iconImage")
+        print("UserDefaultへicon画像の保存完了")
+
+        // ②Firebaseへの保存
+        // Firestoreに飛ばす箱を用意
+        let user: NSDictionary = ["userName": userName ?? "", "iconImage": base64IconImage]
+        // userごとFirestoreへpost
+        db.collection("contents").addDocument(data: user as! [String : Any])
+        print("Firebaseへ名前とicon画像の保存完了")
     }
 
 
@@ -61,10 +68,17 @@ class SettingViewController: UIViewController {
         showSelectAlert()
     }
 
+    // ログアウトボタン
+    @IBAction func logoutButton(_ sender: Any) {
+        // ログアウト処理
+        try! Auth.auth().signOut()
+        // LoginVCへ画面遷移
+        self.present(LoginViewController.makeLoginVC(), animated: true)
+    }
+
     // 画像選択を 写真を撮る or ライブラリ から選択させるアラートを表示
     func showSelectAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-
         // 写真を撮るボタンの設定
         let takePhoto = UIAlertAction(title: "写真を撮る", style: .default) { (UIAlertAction) in
             // ボタンを押したときの処理
@@ -118,22 +132,9 @@ class SettingViewController: UIViewController {
         // FIXME: 選択しても表示が変わらない(コンソールにエラーが起きている)
         // 選択した画像をこの画面(SettingVC)のプロフィール画像に反映
         settingIconImageView.image = pickedImage
+        // ピッカーを閉じる
+        picker.dismiss(animated: true)
 
-        // 以下、選択したプロフィール画像(UIImage型)をNSData型→base64String型へ変換し、UserDefaultに保存する
-        // まず、NSData型の箱を用意
-        var data: NSData = NSData()
-        // imageの存在確認して、NSData型に変換
-        if let image = settingIconImageView.image {
-            // クオリティを10パーセントに下げる
-            data = image.jpegData(compressionQuality: 0.1)! as NSData
-        }
-        // NSData型からbase64String型へ変更
-        let base64String = data.base64EncodedString(options: .lineLength64Characters) as String
-        // 最後にUserDefaultに保存
-        UserDefaults.standard.set(base64String, forKey: "iconImage")
-
-        //
-        print("UserDefaultへ画像の保存完了")
     }
 
 
@@ -147,6 +148,7 @@ class SettingViewController: UIViewController {
             // さらにUIImage型に変換
             let decodedImage = UIImage(data: dataImage! as Data)
             // settingIconImageViewに代入
+             print("UserDefaultからプロフィール画像を取得")
             settingIconImageView.image = decodedImage
         } else {
             // FIXME: 初期設定のアイコンを変えること!!
@@ -156,13 +158,13 @@ class SettingViewController: UIViewController {
         // 名前情報があればprofNameに格納
         if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
             // myNameLabelへ代入
+            print("UserDefaultから名前情報を取得")
             settingNameLabel.text = profName
         } else {
             // なければ匿名としておく
             settingNameLabel.text = "匿名"
         }
     }
-
 
     // settingNameLabelからフォーカスを外したときにキーボードを閉じる処理
     // タッチされたかを判断
