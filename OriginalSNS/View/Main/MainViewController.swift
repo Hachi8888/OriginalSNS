@@ -6,18 +6,19 @@
 //  Copyright © 2019 N-project. All rights reserved.
 //
 
-import BubbleTransition
 import UIKit
+import IBAnimatable
 
 
 class MainViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
     // WHAT: 対象を表示させるラベル
-    @IBOutlet weak var whatLabel: UILabel!
+    @IBOutlet weak var whatLabel: AnimatableLabel!
+
     // TO DO?: 動詞を表示させるラベル
-    @IBOutlet weak var toDoLabel: UILabel!
+    @IBOutlet weak var toDoLabel: AnimatableLabel!
     // HOW: 形容詞を表示させるラベル
-    @IBOutlet weak var howLabel: UILabel!
+    @IBOutlet weak var howLabel: AnimatableLabel!
 
     // ボタン、各ラベルの表示を切り替えるために使用する変数4つ
     var tapCount: Int = 0
@@ -39,8 +40,6 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         }
 
     // 【メイン機能】ボタンを押して、WHAT TODO? HOW の3要素を決定
@@ -115,8 +114,9 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
 
-    // 探すボタンを押したとき
-    @IBAction func せあrchButoon(_ sender: Any) {
+    // ★ボタンを押したとき
+    @IBAction func getThemeButoon(_ sender: Any) {
+    // FIXME: 何も起こらない でよい??
     }
 
     // プロフィールボタンを押したとき

@@ -21,7 +21,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-HO-Sqa">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0f-b2-ywS">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p0f-b2-ywS">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-v0-8cO">
@@ -36,17 +36,12 @@
                                                     <action selector="toPostButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="kLQ-8V-GZ5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWj-Aq-lwy">
-                                                <rect key="frame" x="40" y="0.0" width="374" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                                <state key="normal" title="Find" image="Find!ロゴ3">
-                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="toMainButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="xBk-we-HGY"/>
-                                                </connections>
-                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-1K-jJl">
+                                                <rect key="frame" x="50" y="0.0" width="364" height="40"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="MeV-hb-Oxq"/>
@@ -123,7 +118,7 @@
                                         <rect key="frame" x="0.0" y="778" width="414" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dh-Mr-fb8" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="103.5" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" image="icons8-home-50">
@@ -133,21 +128,16 @@
                                                     <action selector="toHomeButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="tPu-ZT-KWr"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBG-u6-rZt">
-                                                <rect key="frame" x="103.5" y="0.0" width="103.5" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBG-u6-rZt">
+                                                <rect key="frame" x="138" y="0.0" width="138" height="40"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uV0-WC-Hbc">
-                                                <rect key="frame" x="207" y="0.0" width="103.5" height="40"/>
-                                                <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                <state key="normal" title="Button" image="icons8-search-64"/>
+                                                <state key="normal" title="Button" image="icons8-star-96"/>
                                                 <connections>
-                                                    <action selector="searchButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="eCN-Cc-r0f"/>
+                                                    <action selector="getThemeButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="Umb-D8-NWl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-fy-Osg">
-                                                <rect key="frame" x="310.5" y="0.0" width="103.5" height="40"/>
+                                                <rect key="frame" x="276" y="0.0" width="138" height="40"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                 <state key="normal" title="Button" image="icons8-circled-user-64"/>
                                                 <connections>
@@ -172,7 +162,6 @@
                         <viewLayoutGuide key="safeArea" id="RfJ-Q2-0uv"/>
                     </view>
                     <connections>
-                        <outlet property="findImageButton" destination="YWj-Aq-lwy" id="vzP-Ol-W8o"/>
                         <outlet property="tableView" destination="St1-r9-nq4" id="VX7-Xz-GXB"/>
                     </connections>
                 </viewController>
@@ -182,11 +171,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Find!ロゴ3" width="1270" height="423"/>
         <image name="NO IMAGE" width="225" height="225"/>
         <image name="icons8-chat-room-100" width="100" height="100"/>
         <image name="icons8-circled-user-64" width="64" height="64"/>
         <image name="icons8-home-50" width="50" height="50"/>
-        <image name="icons8-search-64" width="64" height="64"/>
+        <image name="icons8-star-96" width="96" height="96"/>
     </resources>
 </document>

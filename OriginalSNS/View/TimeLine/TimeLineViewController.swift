@@ -14,9 +14,6 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
-    // FIXME: 必要か不明。ここに決まったお題を表示する?
-    // Find!ボタン
-    @IBOutlet weak var findImageButton: UIButton!
 
     // 投稿情報をすべて格納(データベースからとってくる)
     var items = [NSDictionary]()
@@ -49,24 +46,13 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         fetch()
     }
 
-    override func viewDidLayoutSubviews() {
-        // FIXME: お題画面への遷移ボタンの画像の位置について見直すこと!!
-        findImageButton.imageView?.contentMode = .scaleToFill
-        //        findImageButton.contentHorizontalAlignment = .fill
-        findImageButton.contentVerticalAlignment = .fill
-    }
-
     // 投稿ボタンを押したとき
     @IBAction func toPostButton(_ sender: Any) {
         // PostVC:投稿画面へ遷移
         present(PostViewController.makePostVC(), animated: true)
     }
 
-    // Find!ボタンを押したとき
-    @IBAction func toMainButton(_ sender: Any) {
-        // MainVC:お題決定画面へ遷移
-        present(MainViewController.makeMainVC(), animated: true)
-    }
+
 
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
@@ -75,9 +61,12 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     }
 
 
-    @IBAction func searchButton(_ sender: Any) {
-        /// FIXME: キーワード検索でひっかかった投稿をタイムラインに表示させる
+     // ★ボタンを押したとき
+    @IBAction func getThemeButton(_ sender: Any) {
+        // MainVC:お題決定画面へ遷移
+        present(MainViewController.makeMainVC(), animated: true)
     }
+
 
     // プロフィールボタンを押したとき
     @IBAction func toProfileButton(_ sender: Any) {
@@ -166,17 +155,34 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         // セルを選択不可にする
         cell.selectionStyle = .none
 
-        // Firebaseからぷプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する
-//        cell.timeLineIconImageView.image = items["iconImage"][indexPath.row] as? UIImage
-//
+        // Firebaseからプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する
+        // まず、itemsの中からindexpathのrow番目を取得するdictを定義
+        let dict = items[(indexPath as NSIndexPath).row]
 
-//        cell.fromLabel.text = likedFrom[indexPath.row]
-//        cell.xibImage.image = UIImage(named: likedName[indexPath.row])
+        // 画像情報
+        let profImage = dict["profileImage"]
+        // NSData型に変換
+        let dataProfImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+        // さらにUIImage型に変換
+        let decadedProfImage = UIImage(data: dataProfImage! as Data)
+        // profileImageViewへ代入
+        cell.timeLineIconImageView.image = decadedProfImage
 
+        // ②名前を反映
+        cell.timeLineNameLabel.text = dict["userName"] as? String
 
+        // ③投稿画像を反映
+        // 画像情報
+        let postImage = dict["postImage"]
+        // NSData型に変換
+        let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
+        // さらにUIImage型に変換
+        let decadedPostImage = UIImage(data: dataPostImage! as Data)
+        // postImageViewへ代入
+        cell.timeLinePostImageView.image = decadedPostImage
 
-
-
+        // ④投稿文を反映
+        cell.timeLineTextView.text = dict["comment"] as? String
 
         return cell
     }

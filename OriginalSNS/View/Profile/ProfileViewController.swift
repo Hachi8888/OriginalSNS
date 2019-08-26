@@ -29,9 +29,12 @@ class ProfileViewController: UIViewController {
         // タイムライン画面に遷移する
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
-    // 探すボタンを押したとき
-    @IBAction func searchButton(_ sender: Any) {
+    // ★ボタンを押したとき
+    @IBAction func getThemeButton(_ sender: Any) {
+        // MainVC:お題決定画面へ遷移
+        present(MainViewController.makeMainVC(), animated: true)
     }
+
     // プロフィールボタンを押したとき
     @IBAction func toProfile(_ sender: Any) {
         // リロードする
