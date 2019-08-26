@@ -12,7 +12,6 @@ import FirebaseFirestore // Firebaseへのデータ保存に使用
 // カメラ、ライブラリを開くので、クラスを2つ追加
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-
     // 自分のアイコンを表示
     @IBOutlet weak var postIconImageView: UIImageView!
     // ユーザー名を表示するラベル
@@ -23,14 +22,15 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // 投稿する画像を表示するimageView
     @IBOutlet weak var postImageView: UIImageView!
 
-   // インスタンス化
+   // Firestoreを使うためにインスタンス化
     let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // 投稿画像用のImageViewを隠す
         postImageView.isHidden = true
-
+        // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
+        getProfile()
     }
 
     // イメージボタンを押したとき
@@ -86,6 +86,33 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.dismiss(animated: true)
 
     }
+
+    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
+    func getProfile() {
+        // 画像情報があればprofImageに格納
+        if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
+            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
+            // NSData型に変換
+            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decodedImage = UIImage(data: dataImage! as Data)
+            // profileImageViewに代入
+            postIconImageView.image = decodedImage
+        } else {
+            // FIXME: 初期設定のアイコンを変えること!!
+            // なければアイコン画像をprofImageViewに格納
+            postIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+        }
+        // 名前情報があればprofNameに格納
+        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
+            // myNameLabelへ代入
+            postNameLabel.text = profName
+        } else {
+            // なければ匿名としておく
+            postNameLabel.text = "匿名"
+        }
+    }
+
 
     // FIXME: ProfileVCのsettingでも以下処理を使用。staticでまとめられないか?
     // カメラ・フォトライブラリへの遷移処理

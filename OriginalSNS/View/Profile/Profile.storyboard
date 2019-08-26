@@ -52,7 +52,7 @@
                                                 <inset key="imageEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
                                                 <state key="normal" title="Button" image="icons8-setting-100"/>
                                                 <connections>
-                                                    <action selector="settingButton:" destination="ksf-pN-nA1" eventType="touchUpInside" id="beK-iq-Z9s"/>
+                                                    <segue destination="CCh-0l-3f7" kind="show" id="bax-IU-UWI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -123,7 +123,6 @@
                     <connections>
                         <outlet property="profIconImageView" destination="t9d-jk-1Oy" id="7rt-4l-Kvr"/>
                         <outlet property="profNameLabel" destination="zN7-wY-kYv" id="Nht-6Y-ngZ"/>
-                        <segue destination="CCh-0l-3f7" kind="show" identifier="toSettingVC" id="I8A-9U-Hxn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGb-ak-nRw" userLabel="First Responder" sceneMemberID="firstResponder"/>

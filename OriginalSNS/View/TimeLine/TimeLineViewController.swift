@@ -10,22 +10,22 @@ import UIKit
 import FirebaseFirestore
 import IBAnimatable
 
-
 class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate  {
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
-
     // FIXME: 必要か不明。ここに決まったお題を表示する?
     // Find!ボタン
     @IBOutlet weak var findImageButton: UIButton!
-
 
     // 投稿情報をすべて格納(データベースからとってくる)
     var items = [NSDictionary]()
 
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
+
+    // 更新
+    let refreshControl = UIRefreshControl()
 
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
@@ -36,23 +36,24 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
 
         self.tableView.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
 
-        // FIXME: ProfileVCから設定してあるプロフィール画像と名前情報を取得して反映できない!!
-//        getProfile()
+        // アクションを指定
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        // tableViewに追加
+        tableView.addSubview(refreshControl)
+
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        // FireBaseから情報をとってくる
+        // FireBaseから最新情報をとってくる
+        fetch()
     }
 
-
     override func viewDidLayoutSubviews() {
-
+        // FIXME: お題画面への遷移ボタンの画像の位置について見直すこと!!
         findImageButton.imageView?.contentMode = .scaleToFill
         //        findImageButton.contentHorizontalAlignment = .fill
         findImageButton.contentVerticalAlignment = .fill
-
-
     }
 
     // 投稿ボタンを押したとき
@@ -84,9 +85,20 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         present(ProfileViewController.makeProfileVC(), animated: true)
     }
 
+    // 更新
+    @objc func refresh() {
+        // 初期化
+        items = [NSDictionary]()
+        // データをサーバから取得
+        fetch()
+        // リロード
+        tableView.reloadData()
+        // リフレッシュ終了
+        refreshControl.endRefreshing()
+    }
+
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {
-
         // 画像情報があればprofImageに格納
         if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
             // あればprofImageを型変換して投稿用のtimeLineIconImageViewに格納
@@ -113,10 +125,29 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         }
     }
 
+    // FIXME: リロードの処理で落ちる。。
+    // Firebaseからデータを取得
+    func fetch() {
+        // getで全件取得
+        db.collection("contents").getDocuments() {(querySnapshot, err) in
+            // tempItemsという変数を一時的に作成
+            var tempItems = [NSDictionary]()
+            // for文で回し`item`に格納
+            for item in querySnapshot!.documents {
+                // item内のデータをdictという変数に入れる
+                let dict = item.data()
+                // dictをtempItemsに入れる
+                tempItems.append(dict as NSDictionary)
+            }
+            // tempItemsをitems(クラスの変数として定義した)に入れる
+            self.items = tempItems
 
+            // リロード
+//            self.tableView.reloadData()
+        }
+    }
 
-
-    // タイムラインの表示に関すること
+    // MARK: タイムラインの表示に関すること
     // セクションの数
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -136,8 +167,12 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         cell.selectionStyle = .none
 
         // Firebaseからぷプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する
-//        cell.timeLineIconImageView.image = items[][indexPath.row] as? UIImage
+//        cell.timeLineIconImageView.image = items["iconImage"][indexPath.row] as? UIImage
 //
+
+//        cell.fromLabel.text = likedFrom[indexPath.row]
+//        cell.xibImage.image = UIImage(named: likedName[indexPath.row])
+
 
 
 

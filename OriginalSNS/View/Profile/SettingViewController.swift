@@ -31,7 +31,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         //  名前とプロフィール画像を①UserDefaultと②Firebaseに保存する
         /* Firebaseにもほ情報を保存する理由:タイムラインに戻ったときに、新たに投稿しなくても過去の自分の投稿に対して最新のプロフィール画像と名前が反映されるようにするため
           */
-        
         // ①UserDefaulへの保存
         //  名前ついて
         let userName = settingNameLabel.text

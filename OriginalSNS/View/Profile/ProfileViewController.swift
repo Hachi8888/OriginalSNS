@@ -20,18 +20,8 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        // SettingVCで選択したProfile画像を表示させる
-//        profImage.image = willPostImage
-
         // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
         getProfile()
-    }
-    // settingボタンを押したとき
-    @IBAction func settingButton(_ sender: Any) {
-        // SettingVC:プロフィール画像とユーザー名の設定画面に遷移
-     performSegue(withIdentifier: "toSettingVC"
-        , sender: nil)
-
     }
 
     // ホームボタンを押したとき
@@ -46,7 +36,6 @@ class ProfileViewController: UIViewController {
     @IBAction func toProfile(_ sender: Any) {
         // リロードする
     }
-
 
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {
