@@ -31,14 +31,13 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         tableView.delegate = self
         tableView.dataSource = self
 
-        self.tableView.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        // カスタムセルを紐付け
+//        self.tableView.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
 
-        // アクションを指定
+        // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
         tableView.addSubview(refreshControl)
-
-
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,14 +51,11 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         present(PostViewController.makePostVC(), animated: true)
     }
 
-
-
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
         /// FIXME: リロードする
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
-
 
      // ★ボタンを押したとき
     @IBAction func getThemeButton(_ sender: Any) {
@@ -80,39 +76,39 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         items = [NSDictionary]()
         // データをサーバから取得
         fetch()
-        // リロード
+//        // リロード
         tableView.reloadData()
         // リフレッシュ終了
         refreshControl.endRefreshing()
     }
 
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
-    func getProfile() {
-        // 画像情報があればprofImageに格納
-        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
-            // あればprofImageを型変換して投稿用のtimeLineIconImageViewに格納
-            // まずNSData型に変換
-            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-            // さらにUIImage型に変換
-            let decodedImage = UIImage(data: dataImage! as Data)
-            // FIXME: TimeLineTableViewCellの要素の指定方法が変??
-            // profileImageViewに代入
-            TimeLineTableViewCell()
-                .timeLineIconImageView.image = decodedImage
-        } else {
-            // FIXME: 初期設定のアイコンを変えること!!
-            // なければアイコン画像をprofImageViewに格納
-            TimeLineTableViewCell().timeLineIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
-        }
-        // 名前情報があればprofNameに格納
-        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
-            // myNameLabelへ代入
-            TimeLineTableViewCell().timeLineNameLabel.text = profName
-        } else {
-            // なければ匿名としておく
-            TimeLineTableViewCell().timeLineNameLabel.text = "匿名"
-        }
-    }
+//    func getProfile() {
+//        // 画像情報があればprofImageに格納
+//        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
+//            // あればprofImageを型変換して投稿用のtimeLineIconImageViewに格納
+//            // まずNSData型に変換
+//            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+//            // さらにUIImage型に変換
+//            let decodedImage = UIImage(data: dataImage! as Data)
+//            // FIXME: TimeLineTableViewCellの要素の指定方法が変??
+//            // profileImageViewに代入
+//         //   TimeLineTableViewCell()
+//         //       .timeLineIconImageView.image = decodedImage
+//        } else {
+//            // FIXME: 初期設定のアイコンを変えること!!
+//            // なければアイコン画像をprofImageViewに格納
+//            TimeLineTableViewCell().timeLineIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+//        }
+//        // 名前情報があればprofNameに格納
+//        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
+//            // myNameLabelへ代入
+//            TimeLineTableViewCell().timeLineNameLabel.text = profName
+//        } else {
+//            // なければ匿名としておく
+//            TimeLineTableViewCell().timeLineNameLabel.text = "匿名"
+//        }
+//    }
 
     // FIXME: リロードの処理で落ちる。。
     // Firebaseからデータを取得
@@ -131,8 +127,9 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
             // tempItemsをitems(クラスの変数として定義した)に入れる
             self.items = tempItems
 
+
             // リロード
-//            self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
 
@@ -150,7 +147,7 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
 
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TimeLineTableViewCell
+       let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineTableViewCell", for: indexPath) as! TimeLineTableViewCell
 
         // セルを選択不可にする
         cell.selectionStyle = .none
@@ -160,36 +157,49 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         let dict = items[(indexPath as NSIndexPath).row]
 
         // 画像情報
-        let profImage = dict["profileImage"]
-        // NSData型に変換
-        let dataProfImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-        // さらにUIImage型に変換
-        let decadedProfImage = UIImage(data: dataProfImage! as Data)
-        // profileImageViewへ代入
-        cell.timeLineIconImageView.image = decadedProfImage
+        if let profImage = dict["iconImage"] {
+            // NSData型に変換
+            let dataProfImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decadedProfImage = UIImage(data: dataProfImage! as Data)
+            // profileImageViewへ代入
+            cell.timeLineIconImageView.image = decadedProfImage
+        } else {
+
+            cell.timeLineIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+        }
 
         // ②名前を反映
         cell.timeLineNameLabel.text = dict["userName"] as? String
 
+        print(dict["postImage"],dict["userName"],dict["comment"],dict["iconImage"])
+
         // ③投稿画像を反映
         // 画像情報
-        let postImage = dict["postImage"]
-        // NSData型に変換
-        let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
-        // さらにUIImage型に変換
-        let decadedPostImage = UIImage(data: dataPostImage! as Data)
-        // postImageViewへ代入
-        cell.timeLinePostImageView.image = decadedPostImage
+        if let postImage = dict["postImage"] {
+            // NSData型に変換
+            let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decadedPostImage = UIImage(data: dataPostImage! as Data)
+            // postImageViewへ代入
+            cell.timeLinePostImageView.image = decadedPostImage
+        } else {
+            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
+        }
 
-        // ④投稿文を反映
-        cell.timeLineTextView.text = dict["comment"] as? String
+        if let comment = dict["comment"] as? String {
+            // ④投稿文を反映
+            cell.timeLineTextView.text = comment
+        } else {
+            cell.timeLineTextView.text = ""
+        }
 
         return cell
     }
 
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 400
     }
 }
 

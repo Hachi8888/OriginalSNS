@@ -19,11 +19,32 @@ class LoginViewController: UIViewController {
     // パスワード入力欄
     @IBOutlet weak var passwordTextField: UITextField!
 
-    // インスタンス化
+    // Firestoreをインスタンス化
     let db = Firestore.firestore()
+
+    /// ログイン状態の保持機能のオンオフを判断するのに使用する。
+    /// 偶数: loginState = false(保持しない)
+    /// 奇数: loginState = true(保持する)
+    var loginStateCount : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // FIXME: ログアウトしてこの画面に遷移すると、loginStateCountは0になって情報が引き継がれない
+        print(loginStateCount)
+        print("viewDidLoad呼びます!")
+        // ログイン状態を保持する設定の場合、UserDefaultからemailとpasswordの情報を読んで反映させる。
+        if loginStateCount % 2 != 0 {
+            // emailを反映
+            if let email = UserDefaults.standard.object(forKey: "registeredEmail") {
+                emailTextField.text = email as? String
+            }
+
+            // passwordを反映
+            if let password = UserDefaults.standard.object(forKey: "registeredPassword") {
+                passwordTextField.text = password as? String
+            }
+        }
     }
 
     // 新規登録ボタンを押したおとき
@@ -64,6 +85,27 @@ class LoginViewController: UIViewController {
             }
         })
     }
+
+    // ログイン状態を保持するかどうか
+    @IBAction func switchLoginStateButton(_ sender: Any) {
+        // カウントを進める
+        loginStateCount += 1
+        print("loginStateCount:\(loginStateCount)")
+
+
+        var registeredEmail = emailTextField.text
+        var registeredPassword = passwordTextField.text
+
+        // 奇数ならログイン情報を保持させるためにUserDefaultにemailとpasswordを登録する
+        if loginStateCount % 2 != 0 {
+            UserDefaults.standard.set(registeredEmail, forKey: "registeredEmail")
+            UserDefaults.standard.set(registeredPassword, forKey: "registeredPassword")
+            print("ログイン情報保持のためUserDefaultに保存しました")
+        }
+
+
+    }
+
 
     // エラーが返ってきた場合のアラート
     func showErrorAlert(error: Error?) {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TimeLineViewController.tableView(_:cellForRowAt:):TimeLineViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in TimeLineViewController.fetch():TimeLineViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

@@ -13,7 +13,6 @@ class ShowThemeViewController: UIViewController {
     // 決まったお題を表示させるラベル
     @IBOutlet weak var themeLabel: UILabel!
 
-
     // MainVCからsegueで送られたデータを格納する変数3つ
     var receiveWhat: String = ""
     var receiveTodo: String = ""

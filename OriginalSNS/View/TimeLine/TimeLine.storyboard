@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EIh-4n-eVg">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController storyboardIdentifier="TimeLine" id="EIh-4n-eVg" customClass="TimeLineViewController" customModule="OriginalSNS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dPF-Be-PLD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-HO-Sqa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p0f-b2-ywS">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-v0-8cO">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -37,10 +37,10 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-1K-jJl">
-                                                <rect key="frame" x="50" y="0.0" width="364" height="40"/>
+                                                <rect key="frame" x="50" y="0.0" width="270" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -48,21 +48,21 @@
                                         </constraints>
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="St1-r9-nq4">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="738"/>
+                                        <rect key="frame" x="0.0" y="40" width="320" height="468"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="497" id="gAo-UZ-Tfc" customClass="TimeLineTableViewCell" customModule="OriginalSNS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="414" height="497"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeLineTableViewCell" rowHeight="497" id="gAo-UZ-Tfc" customClass="TimeLineTableViewCell" customModule="OriginalSNS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="320" height="497"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gAo-UZ-Tfc" id="A3j-G6-gT9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="496.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="496.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Iae-t5-BYk">
-                                                            <rect key="frame" x="10" y="0.0" width="394" height="496.5"/>
+                                                            <rect key="frame" x="10" y="0.0" width="300" height="496.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w21-el-SO6">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="60"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NO IMAGE" translatesAutoresizingMaskIntoConstraints="NO" id="OHL-Ei-o3S" customClass="AnimatableImageView" customModule="IBAnimatable">
                                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
@@ -76,7 +76,10 @@
                                                                             </userDefinedRuntimeAttributes>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-lc-mF1">
-                                                                            <rect key="frame" x="70" y="0.0" width="324" height="60"/>
+                                                                            <rect key="frame" x="70" y="0.0" width="230" height="60"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="60" id="nF2-q1-ipC"/>
+                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -87,14 +90,39 @@
                                                                     </constraints>
                                                                 </stackView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NO IMAGE" translatesAutoresizingMaskIntoConstraints="NO" id="quA-9t-Ebp">
-                                                                    <rect key="frame" x="0.0" y="65" width="394" height="225"/>
+                                                                    <rect key="frame" x="0.0" y="65" width="300" height="241.5"/>
                                                                 </imageView>
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="投稿文が表示されます" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="muv-GP-7aM">
-                                                                    <rect key="frame" x="0.0" y="295" width="394" height="201.5"/>
+                                                                    <rect key="frame" x="0.0" y="311.5" width="300" height="150"/>
                                                                     <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="150" id="9vm-nn-oRZ"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                 </textView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-ou-xJZ" userLabel="goodButton Stack View">
+                                                                    <rect key="frame" x="0.0" y="466.5" width="300" height="30"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9af-pH-l0G">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="30"/>
+                                                                            <color key="backgroundColor" red="0.23520264900000001" green="0.90645239710000003" blue="0.41255559829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2S-Hl-MtI">
+                                                                            <rect key="frame" x="270" y="0.0" width="30" height="30"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="P2S-Hl-MtI" secondAttribute="height" multiplier="1:1" id="qbn-Cz-9gD"/>
+                                                                            </constraints>
+                                                                            <state key="normal" title="Button" image="icons8-facebook-like-24"/>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="a8k-Rl-iOV"/>
+                                                                    </constraints>
+                                                                </stackView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -115,13 +143,13 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NPS-fh-LZ1" userLabel="Bar Buttons Stack View">
-                                        <rect key="frame" x="0.0" y="778" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="508" width="320" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dh-Mr-fb8" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                <state key="normal" image="icons8-home-50">
+                                                <state key="normal" image="icons8-timeline-32">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -129,17 +157,17 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBG-u6-rZt">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="40"/>
+                                                <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                <state key="normal" title="Button" image="icons8-star-96"/>
+                                                <state key="normal" title="Button" image="icons8-christmas-star-24"/>
                                                 <connections>
                                                     <action selector="getThemeButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="Umb-D8-NWl"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75B-fy-Osg">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="40"/>
+                                                <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
                                                 <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                <state key="normal" title="Button" image="icons8-circled-user-64"/>
+                                                <state key="normal" title="Button" image="icons8-user-24"/>
                                                 <connections>
                                                     <action selector="toProfileButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="gBd-ZK-0ha"/>
                                                 </connections>
@@ -154,9 +182,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="o6f-HO-Sqa" firstAttribute="bottom" secondItem="RfJ-Q2-0uv" secondAttribute="bottom" id="4BW-0l-ypL"/>
                             <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="o6f-HO-Sqa" secondAttribute="trailing" id="69r-ms-Nwg"/>
                             <constraint firstItem="o6f-HO-Sqa" firstAttribute="top" secondItem="RfJ-Q2-0uv" secondAttribute="top" id="8Bx-wf-0jm"/>
-                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="bottom" secondItem="o6f-HO-Sqa" secondAttribute="bottom" id="AKo-dZ-Vvh"/>
                             <constraint firstItem="o6f-HO-Sqa" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="rdo-8R-ZNO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RfJ-Q2-0uv"/>
@@ -173,8 +201,9 @@
     <resources>
         <image name="NO IMAGE" width="225" height="225"/>
         <image name="icons8-chat-room-100" width="100" height="100"/>
-        <image name="icons8-circled-user-64" width="64" height="64"/>
-        <image name="icons8-home-50" width="50" height="50"/>
-        <image name="icons8-star-96" width="96" height="96"/>
+        <image name="icons8-christmas-star-24" width="24" height="24"/>
+        <image name="icons8-facebook-like-24" width="24" height="24"/>
+        <image name="icons8-timeline-32" width="32" height="32"/>
+        <image name="icons8-user-24" width="24" height="24"/>
     </resources>
 </document>

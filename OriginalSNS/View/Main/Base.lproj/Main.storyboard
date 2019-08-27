@@ -21,28 +21,28 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="黄色の星のグラデーション" translatesAutoresizingMaskIntoConstraints="NO" id="EU3-XR-xFI">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="bY2-kv-68P">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="bY2-kv-68P">
                                 <rect key="frame" x="20" y="40" width="280" height="468"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-Zj-pob">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="319.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="351"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOw-JP-Lbl" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="280" height="86.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="97"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO DO?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mL-ND-SjT" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="116.5" width="280" height="86.5"/>
+                                                <rect key="frame" x="0.0" y="127" width="280" height="97"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8f-ou-2bd" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="233" width="280" height="86.5"/>
+                                                <rect key="frame" x="0.0" y="254" width="280" height="97"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <nil key="textColor"/>
@@ -50,15 +50,37 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-3z-Gj9" customClass="AnimatableButton" customModule="IBAnimatable">
-                                        <rect key="frame" x="0.0" y="337.5" width="280" height="130.5"/>
-                                        <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                        <state key="normal" title="START"/>
-                                        <connections>
-                                            <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lMx-i6-be5"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="nXa-rr-OhS">
+                                        <rect key="frame" x="0.0" y="369" width="280" height="99"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-3z-Gj9" customClass="AnimatableButton" customModule="IBAnimatable">
+                                                <rect key="frame" x="90" y="0.0" width="100" height="50"/>
+                                                <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="4Dj-za-FGb"/>
+                                                    <constraint firstAttribute="width" constant="100" id="8er-x5-hso"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                                <state key="normal" title="START">
+                                                    <color key="titleColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="tappedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lMx-i6-be5"/>
+                                                </connections>
+                                            </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6J-vk-GVR">
+                                                <rect key="frame" x="115.5" y="68" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="selectModeSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="C9N-1b-a4L"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CeS-TT-S59">
@@ -68,7 +90,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" image="icons8-home-50">
+                                        <state key="normal" image="icons8-timeline-32">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -78,7 +100,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icU-6R-E0r">
                                         <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="icons8-star-96"/>
+                                        <state key="normal" title="Button" image="icons8-christmas-star-24"/>
                                         <connections>
                                             <action selector="getThemeButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0g-jM-og7"/>
                                         </connections>
@@ -86,7 +108,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-LT-vLI">
                                         <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="icons8-circled-user-64"/>
+                                        <state key="normal" title="Button" image="icons8-user-24"/>
                                         <connections>
                                             <action selector="toProfileButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ftj-Bh-QYb"/>
                                         </connections>
@@ -188,10 +210,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-circled-user-64" width="64" height="64"/>
-        <image name="icons8-home-50" width="50" height="50"/>
+        <image name="icons8-christmas-star-24" width="24" height="24"/>
         <image name="icons8-ok-100" width="100" height="100"/>
-        <image name="icons8-star-96" width="96" height="96"/>
+        <image name="icons8-timeline-32" width="32" height="32"/>
+        <image name="icons8-user-24" width="24" height="24"/>
         <image name="黄色い星2" width="225" height="225"/>
         <image name="黄色の星のグラデーション" width="960" height="960"/>
     </resources>

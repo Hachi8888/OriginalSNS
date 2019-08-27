@@ -26,6 +26,10 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
     var toDoCount: Int = 0
     var howCount: Int = 0
 
+    /// モード選択を决定する
+     ///  false: ノーマルモード,
+     ///  true: ハードモード(HOWを追加)
+     var selectMode: Bool = false
 
     // FIXME: データをfirebaseに持たせること
     // 各ラベルに表示させる語句の配列一覧(語句追加するのでvarで宣言)
@@ -40,9 +44,12 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 最初はノーマルモードなので、HOWの表示画面は隠しておく
+        print("ノーマルモードです")
+        howLabel.isHidden = true
         }
 
-    // 【メイン機能】ボタンを押して、WHAT TODO? HOW の3要素を決定
+    // MARK: メイン機能:ボタンを押して、WHAT TODO? HOW(ハードモード時のみ) の3要素を決定
     // FIXME: 関数にまとめる箇所がないかチェック!
     @IBAction func tappedButton(_ sender: UIButton) {
        // きボタンをおしたときの共通の処理を各
@@ -78,13 +85,22 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
             // TO DO? を表示する
             toDoLabel.text = toDoList[toDoCount]
 
-            // FIXME: 一瞬STOPに変更になったああと、すぐにSTARTに表示をもどしたい
+            // ノーマルモードなら、4回押したときにtapCount = 5 にして、お題決定画面へ遷移
+            if selectMode == false {
+             print("ノーマルモードなのでcase5に飛びます")
+             tapCount += 1
+             return
+            }
+            // FIXME: 一瞬STOPに変更になったあと、すぐにSTARTに表示をもどしたい
             // HOW に表示させるものを対象の配列から決定するための乱数を生成
             howCount = Int.random(in: 0..<howList.count)
 
-        case 4: // 4回押したとき
+        case 4: // ハードモードで4回押したとき
             // HOW を表示
             howLabel.text = howList[howCount]
+
+        case 5: // ハードモードで5回押したとき or ノーマルモードで4回押したとき
+
             // FIXME: ThemeVCへ画面遷移する
             performSegue(withIdentifier: "showTheme", sender: nil)
 
@@ -104,10 +120,33 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
         
         vc.receiveWhat = whatList[whatCount]
         vc.receiveTodo = toDoList[toDoCount]
+
+        if selectMode == false { // ノーマルモード
+            print("ノーマルモードなのでHOWの値を空にします")
+            vc.receiveHow = ""
+        } else {  // ハードモード
         vc.receiveHow = howList[howCount]
+        }
     }
 
 
+    // モード選択用のスイッチ
+    @IBAction func selectModeSwitch(_ sender: Any) {
+
+        if selectMode {
+            selectMode = false
+            print("ノーマルモード選択")
+           // HOWの表示ラベルを隠す
+             howLabel.isHidden = true
+        } else {
+            selectMode = true
+            print("ハードモード選択")
+          // HOWの表示ラベルを表示
+             howLabel.isHidden = false
+        }
+    }
+
+    // MARK: TabBarの処理
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
         // タイムライン画面へ遷移する

@@ -18,11 +18,17 @@ class ProfileViewController: UIViewController {
     // PostVCで投稿用に選択した画像を受け取る変数
     var willPostImage: UIImage = UIImage()
 
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
         getProfile()
     }
+
+
+
+
 
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {
