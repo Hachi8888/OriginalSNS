@@ -12,6 +12,6 @@ target 'OriginalSNS' do
      pod 'IQKeyboardManagerSwift'
      pod 'IBAnimatable'
      pod 'BubbleTransition', '~> 3.2.0'
-
+     pod 'XLPagerTabStrip'  
 use_frameworks!
 end

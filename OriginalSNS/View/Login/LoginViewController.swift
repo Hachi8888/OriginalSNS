@@ -9,11 +9,12 @@
 import UIKit
 import FirebaseFirestore
 import FirebaseAuth // ログイン機能
+import IBAnimatable // アニメーション
 
 class LoginViewController: UIViewController {
 
     // ロゴのimageView
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var logoImage: AnimatableImageView!
     // email入力欄
     @IBOutlet weak var emailTextField: UITextField!
     // パスワード入力欄
@@ -29,6 +30,8 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        logoImage.animate(.flip(along: .x))
 
         // FIXME: ログアウトしてこの画面に遷移すると、loginStateCountは0になって情報が引き継がれない
         print("ログイン保持:\(loginState) ※trueならログイン保持")

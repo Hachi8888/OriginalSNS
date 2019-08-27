@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseFirestore
 import IBAnimatable
+import XLPagerTabStrip // 横スクロール
 
-class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableViewDelegate  {
+class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
@@ -30,9 +31,6 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         //2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
-
-        // カスタムセルを紐付け
-//        self.tableView.register(UINib(nibName: "TimeLineTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
 
         // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -82,35 +80,6 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
         refreshControl.endRefreshing()
     }
 
-    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
-//    func getProfile() {
-//        // 画像情報があればprofImageに格納
-//        if let profImage = UserDefaults.standard.object(forKey: "iconImage")  {
-//            // あればprofImageを型変換して投稿用のtimeLineIconImageViewに格納
-//            // まずNSData型に変換
-//            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-//            // さらにUIImage型に変換
-//            let decodedImage = UIImage(data: dataImage! as Data)
-//            // FIXME: TimeLineTableViewCellの要素の指定方法が変??
-//            // profileImageViewに代入
-//         //   TimeLineTableViewCell()
-//         //       .timeLineIconImageView.image = decodedImage
-//        } else {
-//            // FIXME: 初期設定のアイコンを変えること!!
-//            // なければアイコン画像をprofImageViewに格納
-//            TimeLineTableViewCell().timeLineIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
-//        }
-//        // 名前情報があればprofNameに格納
-//        if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
-//            // myNameLabelへ代入
-//            TimeLineTableViewCell().timeLineNameLabel.text = profName
-//        } else {
-//            // なければ匿名としておく
-//            TimeLineTableViewCell().timeLineNameLabel.text = "匿名"
-//        }
-//    }
-
-    // FIXME: リロードの処理で落ちる。。
     // Firebaseからデータを取得
     func fetch() {
         // getで全件取得
@@ -126,8 +95,6 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
             }
             // tempItemsをitems(クラスの変数として定義した)に入れる
             self.items = tempItems
-
-
             // リロード
             self.tableView.reloadData()
         }
@@ -201,6 +168,18 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }
+
+
+//    // MARK: XLPagerTabStrip導入のための実装
+//
+//    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+//        //管理されるViewControllerを返す処理
+//        let firstVC = UIStoryboard(name: "TimeLine", bundle: nil).instantiateViewController(withIdentifier: "TimeLine")
+//        let secondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main")
+//        let thirdVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile")
+//        let childViewControllers:[UIViewController] = [firstVC, secondVC, thirdVC]
+//        return childViewControllers
+// }
 }
 
 extension TimeLineViewController {

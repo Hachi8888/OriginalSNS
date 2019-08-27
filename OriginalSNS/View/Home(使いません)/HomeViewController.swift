@@ -8,11 +8,17 @@
 
 import BubbleTransition
 import UIKit
+import IBAnimatable
 
 class HomeViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    @IBOutlet weak var testImageView: AnimatableImageView!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+testImageView.animate(.pop(repeatCount: 1))
+
     }
 
     // Mainボタンを押したとき
