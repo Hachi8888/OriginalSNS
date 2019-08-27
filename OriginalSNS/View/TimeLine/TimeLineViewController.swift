@@ -166,13 +166,13 @@ class TimeLineViewController: UIViewController,  UITableViewDataSource, UITableV
             cell.timeLineIconImageView.image = decadedProfImage
         } else {
 
-            cell.timeLineIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+            cell.timeLineIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-96")
         }
 
         // ②名前を反映
         cell.timeLineNameLabel.text = dict["userName"] as? String
 
-        print(dict["postImage"],dict["userName"],dict["comment"],dict["iconImage"])
+//        print(dict["postImage"],dict["userName"],dict["comment"],dict["iconImage"])
 
         // ③投稿画像を反映
         // 画像情報

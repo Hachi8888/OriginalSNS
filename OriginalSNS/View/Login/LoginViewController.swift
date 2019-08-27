@@ -25,16 +25,15 @@ class LoginViewController: UIViewController {
     /// ログイン状態の保持機能のオンオフを判断するのに使用する。
     /// 偶数: loginState = false(保持しない)
     /// 奇数: loginState = true(保持する)
-    var loginStateCount : Int = 0
+    var loginState : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // FIXME: ログアウトしてこの画面に遷移すると、loginStateCountは0になって情報が引き継がれない
-        print(loginStateCount)
-        print("viewDidLoad呼びます!")
+        print("ログイン保持:\(loginState) ※trueならログイン保持")
         // ログイン状態を保持する設定の場合、UserDefaultからemailとpasswordの情報を読んで反映させる。
-        if loginStateCount % 2 != 0 {
+        if loginState { // trueのときはログイン情報を保持
             // emailを反映
             if let email = UserDefaults.standard.object(forKey: "registeredEmail") {
                 emailTextField.text = email as? String
@@ -44,6 +43,9 @@ class LoginViewController: UIViewController {
             if let password = UserDefaults.standard.object(forKey: "registeredPassword") {
                 passwordTextField.text = password as? String
             }
+        } else {  // falseのとき、初期化する
+             emailTextField.text = ""
+             passwordTextField.text = ""
         }
     }
 
@@ -61,6 +63,8 @@ class LoginViewController: UIViewController {
                 self.showErrorAlert(error: error)
             } else { // 成功した場合の処理
                 print("新規登録成功")
+                // ログイン情報を保持
+                self.registerLoginInfo()
                 // TimeLineVCへ画面遷移(タイムライン画面へ)
                 self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
             }
@@ -72,6 +76,7 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
         }
+
         // FirebaseAuthのログイン処理
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
@@ -80,32 +85,40 @@ class LoginViewController: UIViewController {
                 self.showErrorAlert(error: error)
             } else {  // 認証成功
                 print("ログイン成功")
+                // ログイン情報を保持
+                self.registerLoginInfo()
                 // TimeLineVCへ画面遷移(タイムライン画面へ)
-         self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
+              self.present(TimeLineViewController.makeTimeLineVC(), animated: true)
             }
         })
     }
 
     // ログイン状態を保持するかどうか
     @IBAction func switchLoginStateButton(_ sender: Any) {
-        // カウントを進める
-        loginStateCount += 1
-        print("loginStateCount:\(loginStateCount)")
-
-
-        var registeredEmail = emailTextField.text
-        var registeredPassword = passwordTextField.text
-
-        // 奇数ならログイン情報を保持させるためにUserDefaultにemailとpasswordを登録する
-        if loginStateCount % 2 != 0 {
-            UserDefaults.standard.set(registeredEmail, forKey: "registeredEmail")
-            UserDefaults.standard.set(registeredPassword, forKey: "registeredPassword")
-            print("ログイン情報保持のためUserDefaultに保存しました")
+        // FIXME: ボタンの画像の切り替え処理も追加!!
+        // ログイン保持の選択を切り替える
+        if loginState {
+            loginState = false
+            print("ログイン情報は保持しません")
+        } else {
+            loginState = true
+            print("ログイン情報を保持します")
         }
-
-
     }
 
+
+    // emailとpasswoedをFirebaseに保存する
+    func registerLoginInfo() {
+        let registeredEmail = emailTextField.text
+        let registeredPassword = passwordTextField.text
+
+        // trueならログイン情報を保持させるためにUserDefaultにemailとpasswordを登録する
+        if loginState {
+            UserDefaults.standard.set(registeredEmail, forKey: "registeredEmail")
+            UserDefaults.standard.set(registeredPassword, forKey: "registeredPassword")
+            print("ログイン情報をUserDefaultに保存完了")
+        }
+    }
 
     // エラーが返ってきた場合のアラート
     func showErrorAlert(error: Error?) {
