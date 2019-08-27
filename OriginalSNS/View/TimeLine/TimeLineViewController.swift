@@ -23,19 +23,10 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     // 更新
     let refreshControl = UIRefreshControl()
 
-    // ★ロード中のインジゲータを取得
+    // ロード中のインジゲータを取得
     private var activityIndicator: NVActivityIndicatorView!
     // toTimeLineButtonを押したときインジケータの背景として表示させるView
     let grayView = UIView()
-
-//    /// menuViewの開閉を決める変数
-//    /// false: 閉じている、true: 開いている
-//    var menuViewState = false
-//   // menuView上に表示するボタン3つ
-//    // ①goodした投稿一覧に遷移するボタン
-//    let GoodListButton = AnimatableButton(type: AnimatableButton.ButtonType.system)
-//    // ②goodした投稿一覧に遷移するボタン
-////    let GoodListButton = AnimatableButton(type: AnimatableButton.ButtonType.system)
 
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
@@ -53,8 +44,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // grayViewは最初に隠す
         grayView.isHidden = true
 
-
-        // ★activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
+        // activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
         activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballBeat, color: UIColor.white, padding: 0)
 
         // refreshControlのアクションを指定
@@ -70,18 +60,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // goodボタン(右上)を押したとき
     @IBAction func goodListButton(_ sender: Any) {
-
-
-        // FIXME: メニューバーにするなら以下コメントアウトを使用
-//        if menuViewState { // trueのとき:メニューが開いている
-//            // メニューを閉じる
-//            menuView.isHidden = true
-//            menuViewState = false
-//        } else { // falseのとき:メニューが閉じている
-//            // メニューを開く
-//            menuView.isHidden = false
-//            menuViewState = true
-//        }
+        // goodListVCへ遷移
     }
 
     // タイムラインを押したとき
@@ -132,7 +111,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         items = [NSDictionary]()
         // データをサーバから取得
         fetch()
-//        // リロード
+        // リロード
         tableView.reloadData()
         // リフレッシュ終了
         refreshControl.endRefreshing()
@@ -158,15 +137,11 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
-    // MARK: タイムラインの表示に関すること
-    // セクションの数
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+    // MARK: TableViewCellの表示に関すること
 
     // セクションの中のセルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 投稿情報の数に設定する
+        // 投稿情報の数に設定
         return items.count
     }
 
@@ -211,7 +186,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
         }
-
         if let comment = dict["comment"] as? String {
             // ④投稿文を反映
             cell.timeLineTextView.text = comment
@@ -226,18 +200,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
     }
-
-
-//    // MARK: XLPagerTabStrip導入のための実装
-//
-//    override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-//        //管理されるViewControllerを返す処理
-//        let firstVC = UIStoryboard(name: "TimeLine", bundle: nil).instantiateViewController(withIdentifier: "TimeLine")
-//        let secondVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main")
-//        let thirdVC = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile")
-//        let childViewControllers:[UIViewController] = [firstVC, secondVC, thirdVC]
-//        return childViewControllers
-// }
 }
 
 extension TimeLineViewController {
