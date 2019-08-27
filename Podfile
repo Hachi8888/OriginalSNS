@@ -13,5 +13,8 @@ target 'OriginalSNS' do
      pod 'IBAnimatable'
      pod 'BubbleTransition', '~> 3.2.0'
      pod 'XLPagerTabStrip'  
+     pod 'NVActivityIndicatorView'
+
+
 use_frameworks!
 end
