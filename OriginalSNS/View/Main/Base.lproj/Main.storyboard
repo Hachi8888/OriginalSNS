@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="528" width="320" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-Tx-zO9">
-                                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                                         <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         <state key="normal" image="icons8-timeline-32">
@@ -98,15 +98,23 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icU-6R-E0r">
-                                        <rect key="frame" x="106.5" y="0.0" width="107" height="40"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                         <state key="normal" title="Button" image="icons8-christmas-star-24"/>
                                         <connections>
                                             <action selector="getThemeButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0g-jM-og7"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv2-ZP-afO">
+                                        <rect key="frame" x="160" y="0.0" width="80" height="40"/>
+                                        <state key="normal" title="Button" image="icons8-chat-bubble-24"/>
+                                        <connections>
+                                            <action selector="toPostButton:" destination="rzP-jw-YFs" eventType="touchUpInside" id="FZK-BQ-JzA"/>
+                                            <action selector="toPostButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nwO-et-bRT"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-LT-vLI">
-                                        <rect key="frame" x="213.5" y="0.0" width="106.5" height="40"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="40"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                         <state key="normal" title="Button" image="icons8-user-24"/>
                                         <connections>
@@ -114,8 +122,8 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="qRS-LT-vLI" firstAttribute="leading" secondItem="icU-6R-E0r" secondAttribute="trailing" id="Chu-oI-MRK"/>
                                     <constraint firstAttribute="height" constant="40" id="Rc1-zj-Tp2"/>
                                 </constraints>
                             </stackView>
@@ -145,6 +153,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="rzP-jw-YFs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="91.741071428571431"/>
         </scene>
@@ -210,6 +219,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icons8-chat-bubble-24" width="24" height="24"/>
         <image name="icons8-christmas-star-24" width="24" height="24"/>
         <image name="icons8-ok-100" width="100" height="100"/>
         <image name="icons8-timeline-32" width="32" height="32"/>

@@ -158,6 +158,13 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
     // FIXME: 何も起こらない でよい??
     }
 
+    @IBAction func toPostButton(_ sender: Any) {
+        // PodtVCへ画面遷移する
+        present(PostViewController.makePostVC(), animated: true)
+
+    }
+
+
     // プロフィールボタンを押したとき
     @IBAction func toProfileButoon(_ sender: Any) {
         // ProfileVCへ画面遷移する

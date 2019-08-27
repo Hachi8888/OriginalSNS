@@ -43,10 +43,10 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         fetch()
     }
 
-    // 投稿ボタンを押したとき
-    @IBAction func toPostButton(_ sender: Any) {
-        // PostVC:投稿画面へ遷移
-        present(PostViewController.makePostVC(), animated: true)
+    // バーボタンを押したとき
+    @IBAction func openBar(_ sender: Any) {
+        // バーが開く
+
     }
 
     // ホームボタンを押したとき
@@ -55,11 +55,18 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
 
-     // ★ボタンを押したとき
+    // ★ボタンを押したとき
     @IBAction func getThemeButton(_ sender: Any) {
         // MainVC:お題決定画面へ遷移
         present(MainViewController.makeMainVC(), animated: true)
     }
+
+    // 投稿ボタンを押したとき
+    @IBAction func toPostButton(_ sender: Any) {
+        // PostVC:投稿画面へ遷移
+        present(PostViewController.makePostVC(), animated: true)
+    }
+
 
 
     // プロフィールボタンを押したとき

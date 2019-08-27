@@ -17,10 +17,10 @@ class TimeLineTableViewCell: UITableViewCell {
     // ユーザ名を表示するLabel
     @IBOutlet weak var timeLineNameLabel: UILabel!
     // 投稿した画像を表示させるImageView
-    @IBOutlet weak var timeLinePostImageView: UIImageView!
+    @IBOutlet weak var timeLinePostImageView: AnimatableImageView!
     // 投稿文をのせるTextView
-    @IBOutlet weak var timeLineTextView: UITextView!
-   // いいねボタンを紐付け
+    @IBOutlet weak var timeLineTextView: AnimatableTextView!
+    // いいねボタンを紐付け
     @IBOutlet weak var goodButton: AnimatableButton!
 
    // いいねボタンの切り替えを判断する変数
