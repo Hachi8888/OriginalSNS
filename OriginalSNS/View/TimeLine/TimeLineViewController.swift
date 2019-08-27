@@ -15,15 +15,17 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
-
     // 投稿情報をすべて格納(データベースからとってくる)
     var items = [NSDictionary]()
-
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
-
     // 更新
     let refreshControl = UIRefreshControl()
+    // メニューバーを押したときにメニューを表示させるView
+    let menuView = UIView()
+    /// menuViewの開閉を決める変数
+    /// false: 閉じている、true: 開いている
+    var menuViewState = false
 
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
@@ -31,6 +33,15 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         //2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
+
+        // menuViewのサイズを確定
+        menuView.frame = CGRect(x: 0, y: 60, width: self.view.frame.width / 2, height: self.view.frame.height)
+        // menuViewの背景色を薄いグレーに設定
+        menuView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+       // menuViewをViewに追加
+        self.view.addSubview(menuView)
+        // menuViewは最初に隠す
+        menuView.isHidden = true
 
         // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -43,10 +54,18 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         fetch()
     }
 
-    // バーボタンを押したとき
-    @IBAction func openBar(_ sender: Any) {
-        // バーが開く
+    // メニューボタン(左上)を押したとき
+    @IBAction func openMenuViewButton(_ sender: Any) {
 
+        if menuViewState { // trueのとき:メニューが開いている
+            // メニューを閉じる
+            menuView.isHidden = true
+            menuViewState = false
+        } else { // falseのとき:メニューが閉じている
+            // メニューを開く
+            menuView.isHidden = false
+            menuViewState = true
+        }
     }
 
     // ホームボタンを押したとき

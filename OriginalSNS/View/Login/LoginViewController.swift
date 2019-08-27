@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Find!ロゴにアニメーションをつける
         logoImage.animate(.flip(along: .x))
 
         // FIXME: ログアウトしてこの画面に遷移すると、loginStateCountは0になって情報が引き継がれない

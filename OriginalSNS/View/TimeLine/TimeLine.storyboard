@@ -30,7 +30,7 @@
                                         <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" image="icons8-menu-24"/>
                                         <connections>
-                                            <action selector="openBar:" destination="EIh-4n-eVg" eventType="touchUpInside" id="kLQ-8V-GZ5"/>
+                                            <action selector="openMenuViewButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="kLQ-8V-GZ5"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-1K-jJl">
@@ -84,25 +84,25 @@
                                                             </constraints>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="quA-9t-Ebp" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="52" width="320" height="260.5"/>
+                                                            <rect key="frame" x="0.0" y="52" width="320" height="310.5"/>
                                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="30"/>
+                                                                    <real key="value" value="20"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="投稿文が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="muv-GP-7aM" customClass="AnimatableTextView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="314.5" width="320" height="150"/>
+                                                            <rect key="frame" x="0.0" y="364.5" width="320" height="100"/>
                                                             <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="150" id="9vm-nn-oRZ"/>
+                                                                <constraint firstAttribute="height" constant="100" id="9vm-nn-oRZ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="30"/>
+                                                                    <real key="value" value="20"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </textView>

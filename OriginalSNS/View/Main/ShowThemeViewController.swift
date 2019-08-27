@@ -8,8 +8,13 @@
 
 import UIKit
 import FirebaseFirestore
+import IBAnimatable
 
 class ShowThemeViewController: UIViewController {
+
+
+   // 決まったお題を表示させるStackView
+    @IBOutlet weak var showThemeStackView: AnimatableStackView!
 
     // 決まったお題を表示させるラベル
     @IBOutlet weak var themeLabel: UILabel!
@@ -24,6 +29,10 @@ class ShowThemeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // FIXME: 反映されない。そもそも不要かもしれない
+    // アニメーションをつける
+        showThemeStackView.animate(.flip(along: .x))
      // ラベルにお題を表示
      themeLabel.text = "\n\(receiveWhat)" + "\n\(receiveTodo)" + "\n\(receiveHow)"
     }
