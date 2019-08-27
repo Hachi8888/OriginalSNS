@@ -28,6 +28,8 @@
 		D1CB1E1B230ECE20008C3855 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1E1A230ECE20008C3855 /* ProfileViewController.swift */; };
 		D1D5E83C231005D1004F2A34 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E83B231005D1004F2A34 /* SettingViewController.swift */; };
 		D1D5E840231269BA004F2A34 /* TimeLineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E83F231269BA004F2A34 /* TimeLineTableViewCell.swift */; };
+		D1D5E8422315507E004F2A34 /* GoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E8412315507E004F2A34 /* GoodListViewController.swift */; };
+		D1D5E8442315560F004F2A34 /* GoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E8432315560F004F2A34 /* GoodListTableViewCell.swift */; };
 		E82702A8E565F09338C09786 /* Pods_OriginalSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0DF0EAFE3E2F1E91F96C56 /* Pods_OriginalSNS.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		D1CB1E1A230ECE20008C3855 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D1D5E83B231005D1004F2A34 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D1D5E83F231269BA004F2A34 /* TimeLineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineTableViewCell.swift; sourceTree = "<group>"; };
+		D1D5E8412315507E004F2A34 /* GoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodListViewController.swift; sourceTree = "<group>"; };
+		D1D5E8432315560F004F2A34 /* GoodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodListTableViewCell.swift; sourceTree = "<group>"; };
 		D6F0A2C68411E0228729917E /* Pods-OriginalSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalSNS.release.xcconfig"; path = "Target Support Files/Pods-OriginalSNS/Pods-OriginalSNS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,6 +179,8 @@
 				D1CB1E13230EBE7B008C3855 /* TimeLine.storyboard */,
 				D1CB1E15230EBEC2008C3855 /* TimeLineViewController.swift */,
 				D1D5E83F231269BA004F2A34 /* TimeLineTableViewCell.swift */,
+				D1D5E8412315507E004F2A34 /* GoodListViewController.swift */,
+				D1D5E8432315560F004F2A34 /* GoodListTableViewCell.swift */,
 			);
 			path = TimeLine;
 			sourceTree = "<group>";
@@ -341,6 +347,8 @@
 				D1CB1DF1230ABEA7008C3855 /* LoginViewController.swift in Sources */,
 				D1CB1E07230CE465008C3855 /* PostViewController.swift in Sources */,
 				D1CB1E0F230E6895008C3855 /* TestViewController.swift in Sources */,
+				D1D5E8442315560F004F2A34 /* GoodListTableViewCell.swift in Sources */,
+				D1D5E8422315507E004F2A34 /* GoodListViewController.swift in Sources */,
 				D1CB1DDB230AB589008C3855 /* MainViewController.swift in Sources */,
 				D1CB1DF3230BE5FE008C3855 /* ShowThemeViewController.swift in Sources */,
 				D1D5E83C231005D1004F2A34 /* SettingViewController.swift in Sources */,
