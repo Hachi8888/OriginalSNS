@@ -43,7 +43,7 @@ class LoginViewController: UIViewController {
         }
 
         print("ログイン保持:\(loginState) ※trueならログイン保持")
-        // ログイン状態を保持する設定の場合、UserDefaultからemailとpasswordの情報を読んで反映させる。
+        // ログイン状態を保持する設定(true)の場合、UserDefaultからemailとpasswordの情報を読んで反映させる。
         if loginState { // trueのときはログイン情報を保持
 
             // emailを反映
@@ -56,7 +56,6 @@ class LoginViewController: UIViewController {
                 passwordTextField.text = password as? String
             }
         } else {  // falseのとき、初期化する
-
              emailTextField.text = ""
              passwordTextField.text = ""
         }

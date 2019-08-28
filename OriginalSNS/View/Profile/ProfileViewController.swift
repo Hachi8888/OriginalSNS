@@ -43,11 +43,12 @@ class ProfileViewController: UIViewController {
         // いいね数が0でも下の条件式に当てはまってしまう!!
         // いいね数が10個貯まるごとに、お題を増やせるようにする
         if Int(getGoodNum.text!) ?? 0 % 10 == 0 {
+            // FIXME: お題追加できるアナウンスを表示
+
+            // お題追加ボタンを表示
            addThemeButton.isHidden = true
         }
-
     }
-
 
     // ホームボタンを押したとき
     @IBAction func toHomeButton(_ sender: Any) {

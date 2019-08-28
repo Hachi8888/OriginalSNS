@@ -130,8 +130,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
 
-    // MARK: TableViewCellの表示に関すること
-
     // セクションの中のセルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 投稿情報の数に設定
@@ -150,7 +148,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         let dict = items[(indexPath as NSIndexPath).row]
 
 
-       // プロフィール設定変更の際に保存された情報(プロフ画像と名前だけの情報で、投稿文も投稿画像もどちらもない場合)は表示されないようにする
+       // プロフィール設定変更の際に保存された情報(プロフ画像と名前だけの情報で、投稿文も投稿画像もどちらもない場合)を以下を判断し、合致すればタイムラインに表示されないようにする。
         if dict["postImage"] as? String == "プロフィール設定用", dict["comment"] as? String == "プロフィール設定用" {
             print("プロフィール設定変更の情報なのでタイムラインには反映させません")
             return cell
@@ -165,14 +163,11 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             // profileImageViewへ代入
             cell.timeLineIconImageView.image = decadedProfImage
         } else {
-
             cell.timeLineIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-96")
         }
 
         // ②名前を反映
         cell.timeLineNameLabel.text = dict["userName"] as? String
-
-//        print(dict["postImage"],dict["userName"],dict["comment"],dict["iconImage"])
 
         // ③投稿画像を反映
         if let postImage = dict["postImage"] {
@@ -200,7 +195,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.timeLineTextView.text = ""
         }
         return cell
-
 }
 
     // セルの高さ
@@ -209,8 +203,9 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 }
 
+// TimeLineVCへの画面遷移に使う
 extension TimeLineViewController {
-    // TimeLineVCを返す関数(TimeLineVCへの画面遷移に使う)
+    // TimeLineVCを返す関数
     static func makeTimeLineVC() -> UIViewController {
         // storyboardのfileの特定
         let storyboard: UIStoryboard = UIStoryboard(name: "TimeLine", bundle: nil)
