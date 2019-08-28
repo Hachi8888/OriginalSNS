@@ -143,9 +143,12 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // セルを選択不可にする
         cell.selectionStyle = .none
 
+        cell.goodButton.tag = indexPath.row
+
         // Firebaseから全投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義
         let dict = items[(indexPath as NSIndexPath).row]
+
 
 
        // プロフィール設定変更の際に保存された情報(プロフ画像と名前だけの情報で、投稿文も投稿画像もどちらもない場合)を以下を判断し、合致すればタイムラインに表示されないようにする。

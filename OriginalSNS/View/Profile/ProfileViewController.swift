@@ -19,9 +19,8 @@ class ProfileViewController: UIViewController {
 
     // 決定したお題を表示するラベル
     @IBOutlet weak var showThemeTextView: AnimatableTextView!
-
-    // いいねの獲得数
-    @IBOutlet weak var getGoodNum: UILabel!
+    // いいねの獲得数を表すラベル
+    @IBOutlet weak var showGetGoodNumLabel: UILabel!
     // お題を増やすボタンの紐付け(押すと、お題追加画面に遷移)
     @IBOutlet weak var addThemeButton: AnimatableButton!
 
@@ -34,15 +33,16 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // UserDefaultからプロフィ-ル画像、名前、最新のお題を取得、反映
-        getProfile()
-        fetch()
+        getInfo()
+
+//        showGetGoodNumLabel.text = "ああああああ"
 
         // お題を増やすボタンは最初は非表示にしておく
          addThemeButton.isHidden = false
 
         // いいね数が0でも下の条件式に当てはまってしまう!!
         // いいね数が10個貯まるごとに、お題を増やせるようにする
-        if Int(getGoodNum.text!) ?? 0 % 10 == 0 {
+        if Int(showGetGoodNumLabel.text!) ?? 0 % 10 == 0 {
             // FIXME: お題追加できるアナウンスを表示
 
             // お題追加ボタンを表示
@@ -67,11 +67,9 @@ class ProfileViewController: UIViewController {
     }
 
 
-
-
-    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
-    func getProfile() {
-        // 画像情報があればprofImageに格納
+    // UserDefaultに保存している①プロフィール画像、②名前情報、③お題、④いいね獲得数を反映させる関数
+    func getInfo() {
+        // ①プロフィール画像
         if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
             // あればprofImageを型変換して投稿用のmyIconImageViewに格納
             // NSData型に変換
@@ -85,7 +83,8 @@ class ProfileViewController: UIViewController {
             // なければアイコン画像をprofImageViewに格納
             profIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
         }
-        // 名前情報があればprofNameに格納
+
+        // ②名前情報
         if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
             // myNameLabelへ代入
             profNameLabel.text = profName
@@ -93,12 +92,18 @@ class ProfileViewController: UIViewController {
             // なければ匿名としておく
             profNameLabel.text = "匿名"
         }
-    }
 
- // UserDefaultから最新のお題をとってくる
-    func fetch() {
+        // ③現在のお題
         if let showCurrentTheme =  UserDefaults.standard.object(forKey: "currentTheme") as? String {
             showThemeTextView.text = showCurrentTheme
+        }
+
+        // ④現在のいいね獲得数
+        if let goodNum = UserDefaults.standard.object( forKey: "currentGetGoodNum") as? String {
+            showGetGoodNumLabel.text = goodNum
+            print("現在のいいね数:\(goodNum)")
+        } else {
+            print("いいね数をUDから取得失敗")
         }
     }
 
