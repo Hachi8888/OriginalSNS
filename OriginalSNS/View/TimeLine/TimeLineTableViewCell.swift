@@ -24,6 +24,8 @@ class TimeLineTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLinePostImageView: AnimatableImageView!
     // 投稿文をのせるTextView
     @IBOutlet weak var timeLineTextView: AnimatableTextView!
+    // いいね獲得数を表すラベル
+    @IBOutlet weak var showGoodNumLabel: UILabel!
     // いいねボタンを紐付け
     @IBOutlet weak var goodButton: AnimatableButton!
 
@@ -39,8 +41,13 @@ class TimeLineTableViewCell: UITableViewCell {
         // 背景色を黄色に変更
         sender.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
 
-        // いいね数を +1 する
+        // 全体のいいね数を +1 する
         getGoodNum += 1
+
+       // indexPath.row順にいいね数を記録する
+       // いいねされた投稿単体のいいね数
+        var tappedGoodNum = eachGoodNumArray[goodButton.tag]
+       eachGoodNumArray.append[]
 
         print(goodButton.tag)
 
@@ -105,5 +112,9 @@ class TimeLineTableViewCell: UITableViewCell {
 }
 
 // やむを得ずここで宣言します
+
+// 全体で獲得したいいね数
 var getGoodNum: Int = 0
+// 獲得したいいね数を投稿順に格納する配列
+var eachGoodNumArray:  [Int] = []
 

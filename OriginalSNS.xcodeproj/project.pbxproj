@@ -16,12 +16,8 @@
 		D1CB1DEF230ABDDF008C3855 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1DEE230ABDDF008C3855 /* Login.storyboard */; };
 		D1CB1DF1230ABEA7008C3855 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */; };
 		D1CB1DF3230BE5FE008C3855 /* ShowThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1DF2230BE5FE008C3855 /* ShowThemeViewController.swift */; };
-		D1CB1E01230CDFB0008C3855 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1E00230CDFB0008C3855 /* HomeViewController.swift */; };
-		D1CB1E03230CDFE2008C3855 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1E02230CDFE2008C3855 /* Home.storyboard */; };
 		D1CB1E05230CE42B008C3855 /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1E04230CE42B008C3855 /* Post.storyboard */; };
 		D1CB1E07230CE465008C3855 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1E06230CE465008C3855 /* PostViewController.swift */; };
-		D1CB1E0D230E686F008C3855 /* Test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1E0C230E686F008C3855 /* Test.storyboard */; };
-		D1CB1E0F230E6895008C3855 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1E0E230E6895008C3855 /* TestViewController.swift */; };
 		D1CB1E14230EBE7B008C3855 /* TimeLine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1E13230EBE7B008C3855 /* TimeLine.storyboard */; };
 		D1CB1E16230EBEC2008C3855 /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1E15230EBEC2008C3855 /* TimeLineViewController.swift */; };
 		D1CB1E19230ECDDD008C3855 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1CB1E18230ECDDD008C3855 /* Profile.storyboard */; };
@@ -31,6 +27,7 @@
 		D1D5E8422315507E004F2A34 /* GoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E8412315507E004F2A34 /* GoodListViewController.swift */; };
 		D1D5E8442315560F004F2A34 /* GoodListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E8432315560F004F2A34 /* GoodListTableViewCell.swift */; };
 		D1D5E8462316453E004F2A34 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E8452316453E004F2A34 /* CommonData.swift */; };
+		D1D5E8482316DA47004F2A34 /* AddThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D5E8472316DA47004F2A34 /* AddThemeViewController.swift */; };
 		E82702A8E565F09338C09786 /* Pods_OriginalSNS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0DF0EAFE3E2F1E91F96C56 /* Pods_OriginalSNS.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,12 +45,8 @@
 		D1CB1DEE230ABDDF008C3855 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		D1CB1DF0230ABEA7008C3855 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D1CB1DF2230BE5FE008C3855 /* ShowThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowThemeViewController.swift; sourceTree = "<group>"; };
-		D1CB1E00230CDFB0008C3855 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		D1CB1E02230CDFE2008C3855 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		D1CB1E04230CE42B008C3855 /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		D1CB1E06230CE465008C3855 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		D1CB1E0C230E686F008C3855 /* Test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Test.storyboard; sourceTree = "<group>"; };
-		D1CB1E0E230E6895008C3855 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D1CB1E13230EBE7B008C3855 /* TimeLine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TimeLine.storyboard; sourceTree = "<group>"; };
 		D1CB1E15230EBEC2008C3855 /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineViewController.swift; sourceTree = "<group>"; };
 		D1CB1E18230ECDDD008C3855 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -63,6 +56,7 @@
 		D1D5E8412315507E004F2A34 /* GoodListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodListViewController.swift; sourceTree = "<group>"; };
 		D1D5E8432315560F004F2A34 /* GoodListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodListTableViewCell.swift; sourceTree = "<group>"; };
 		D1D5E8452316453E004F2A34 /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
+		D1D5E8472316DA47004F2A34 /* AddThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddThemeViewController.swift; sourceTree = "<group>"; };
 		D6F0A2C68411E0228729917E /* Pods-OriginalSNS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalSNS.release.xcconfig"; path = "Target Support Files/Pods-OriginalSNS/Pods-OriginalSNS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,11 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				D1CB1E17230ECDA3008C3855 /* Profile */,
-				D1CB1E0B230E684F008C3855 /* Test(仮) */,
 				D1CB1E12230E82C5008C3855 /* Login */,
 				D1CB1E08230CE471008C3855 /* Post */,
 				D1CB1DFB230CDEEA008C3855 /* TimeLine */,
-				D1CB1DFA230CDE94008C3855 /* Home(使いません) */,
 				D1CB1DF7230CDE53008C3855 /* Main */,
 			);
 			path = View;
@@ -167,15 +159,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		D1CB1DFA230CDE94008C3855 /* Home(使いません) */ = {
-			isa = PBXGroup;
-			children = (
-				D1CB1E00230CDFB0008C3855 /* HomeViewController.swift */,
-				D1CB1E02230CDFE2008C3855 /* Home.storyboard */,
-			);
-			path = "Home(使いません)";
-			sourceTree = "<group>";
-		};
 		D1CB1DFB230CDEEA008C3855 /* TimeLine */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,15 +180,6 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		D1CB1E0B230E684F008C3855 /* Test(仮) */ = {
-			isa = PBXGroup;
-			children = (
-				D1CB1E0C230E686F008C3855 /* Test.storyboard */,
-				D1CB1E0E230E6895008C3855 /* TestViewController.swift */,
-			);
-			path = "Test(仮)";
-			sourceTree = "<group>";
-		};
 		D1CB1E12230E82C5008C3855 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +195,7 @@
 				D1CB1E18230ECDDD008C3855 /* Profile.storyboard */,
 				D1CB1E1A230ECE20008C3855 /* ProfileViewController.swift */,
 				D1D5E83B231005D1004F2A34 /* SettingViewController.swift */,
+				D1D5E8472316DA47004F2A34 /* AddThemeViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -285,7 +260,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1CB1E03230CDFE2008C3855 /* Home.storyboard in Resources */,
 				D1CB1DE3230AB58A008C3855 /* LaunchScreen.storyboard in Resources */,
 				D1CB1E19230ECDDD008C3855 /* Profile.storyboard in Resources */,
 				D1CB1E14230EBE7B008C3855 /* TimeLine.storyboard in Resources */,
@@ -293,7 +267,6 @@
 				D1CB1DE0230AB58A008C3855 /* Assets.xcassets in Resources */,
 				D1CB1E05230CE42B008C3855 /* Post.storyboard in Resources */,
 				D1CB1DEF230ABDDF008C3855 /* Login.storyboard in Resources */,
-				D1CB1E0D230E686F008C3855 /* Test.storyboard in Resources */,
 				D1CB1DDE230AB589008C3855 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +323,6 @@
 				D1CB1DF1230ABEA7008C3855 /* LoginViewController.swift in Sources */,
 				D1D5E8462316453E004F2A34 /* CommonData.swift in Sources */,
 				D1CB1E07230CE465008C3855 /* PostViewController.swift in Sources */,
-				D1CB1E0F230E6895008C3855 /* TestViewController.swift in Sources */,
 				D1D5E8442315560F004F2A34 /* GoodListTableViewCell.swift in Sources */,
 				D1D5E8422315507E004F2A34 /* GoodListViewController.swift in Sources */,
 				D1CB1DDB230AB589008C3855 /* MainViewController.swift in Sources */,
@@ -359,8 +331,8 @@
 				D1D5E840231269BA004F2A34 /* TimeLineTableViewCell.swift in Sources */,
 				D1CB1DD9230AB589008C3855 /* AppDelegate.swift in Sources */,
 				D1CB1E1B230ECE20008C3855 /* ProfileViewController.swift in Sources */,
-				D1CB1E01230CDFB0008C3855 /* HomeViewController.swift in Sources */,
 				D1CB1E16230EBEC2008C3855 /* TimeLineViewController.swift in Sources */,
+				D1D5E8482316DA47004F2A34 /* AddThemeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/TimeLine/TimeLineViewController.swift"
-            timestampString = "588696044.786676"
+            timestampString = "588697286.741444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -198,7 +198,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Profile/ProfileViewController.swift"
-            timestampString = "588696044.787663"
+            timestampString = "588697286.743287"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "7"
@@ -262,28 +262,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Main/ShowThemeViewController.swift"
-            timestampString = "588696044.787915"
+            timestampString = "588697286.743745"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "batsuButton(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OriginalSNS/View/TimeLine/TimeLineTableViewCell.swift"
-            timestampString = "588696044.788445"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "tappedGoodButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

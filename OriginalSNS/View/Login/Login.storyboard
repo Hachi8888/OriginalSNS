@@ -56,9 +56,9 @@
                                                     <action selector="userLogin:" destination="9iD-DV-IMc" eventType="touchUpInside" id="Nca-77-vcR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6M-55-eb1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6M-55-eb1">
                                                 <rect key="frame" x="130" y="0.0" width="70" height="30"/>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button" image="icons8-unchecked-checkbox-16"/>
                                                 <connections>
                                                     <action selector="switchLoginStateButton:" destination="9iD-DV-IMc" eventType="touchUpInside" id="5NG-y9-Bzp"/>
                                                 </connections>
@@ -104,6 +104,7 @@
     </scenes>
     <resources>
         <image name="Find!ロゴ3" width="1270" height="423"/>
+        <image name="icons8-unchecked-checkbox-16" width="16" height="16"/>
         <image name="黄色い星2" width="225" height="225"/>
     </resources>
 </document>

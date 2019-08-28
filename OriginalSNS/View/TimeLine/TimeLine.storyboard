@@ -167,6 +167,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="goodButton" destination="P2S-Hl-MtI" id="uNy-OD-mhF"/>
+                                            <outlet property="showGoodNumLabel" destination="3cE-kn-iUe" id="p8W-w2-WPR"/>
                                             <outlet property="timeLineIconImageView" destination="OHL-Ei-o3S" id="MDA-EK-Nsf"/>
                                             <outlet property="timeLineNameLabel" destination="zPZ-lc-mF1" id="gKJ-JT-5iv"/>
                                             <outlet property="timeLinePostImageView" destination="quA-9t-Ebp" id="Rqj-pA-utm"/>
