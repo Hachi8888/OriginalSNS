@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import IBAnimatable
+import FirebaseFirestore
 
 class ProfileViewController: UIViewController {
 
@@ -15,19 +17,22 @@ class ProfileViewController: UIViewController {
     // ユーザー名を表示するLabel
     @IBOutlet weak var profNameLabel: UILabel!
 
+    // 決定したお題を表示するラベル
+    @IBOutlet weak var showThemeTextView: AnimatableTextView!
+
+    // Firestoreをインスタンス化
+    let db = Firestore.firestore()
+
     // PostVCで投稿用に選択した画像を受け取る変数
     var willPostImage: UIImage = UIImage()
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
+        // UserDefaultからプロフィ-ル画像、名前、最新のお題を取得、反映
         getProfile()
+        fetch()
+
     }
-
-
-
 
 
     // ホームボタンを押したとき
@@ -71,6 +76,35 @@ class ProfileViewController: UIViewController {
             profNameLabel.text = "匿名"
         }
     }
+
+ // UserDefaultから最新のお題をとってくる
+    func fetch() {
+        if let showCurrentTheme =  UserDefaults.standard.object(forKey: "currentTheme") as? String {
+            showThemeTextView.text = showCurrentTheme
+        }
+    }
+
+//    // Firebaseからお題のデータを取得
+//    func fetch() {
+//        // getで全件取得
+//        db.collection("themes").getDocuments() {(querySnapshot, err) in
+//            // tempThemeという変数を一時的に作成
+//            var tempTheme = [NSDictionary]()
+//            // for文で回し`item`に格納
+//            for theme in querySnapshot!.documents {
+//                // item内のデータをdictという変数に入れる
+//                let dict = theme.data()
+//                // dictをtempItemsに入れる
+//                tempTheme.append(dict as NSDictionary)
+//            }
+//            // tempItemsをitems(クラスの変数として定義した)に入れる
+//            self.items = tempTheme
+//            // リロード
+//            self.tableView.reloadData()
+//        }
+
+
+
 }
 
 extension ProfileViewController {

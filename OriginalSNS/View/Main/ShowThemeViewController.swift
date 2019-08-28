@@ -40,12 +40,22 @@ class ShowThemeViewController: UIViewController {
 
     @IBAction func batsuButton(_ sender: UIButton) {
 
-   // お題をFirebaseに保存する
-        // Firestoreに飛ばす箱を用意
-        let myTheme: NSDictionary = ["what": receiveWhat, "toDo": receiveTodo, "how": receiveHow]
-        // userごとFirestoreへpost
-        db.collection("themes").addDocument(data: myTheme as! [String : String])
-        print("Firebaseへお題の保存完了")
+
+   // お題をUserDefaultに保存する
+        let currentTheme = "\(receiveWhat)" + "\(receiveTodo)" + "\(receiveHow)"
+
+   // 保存
+    UserDefaults.standard.set(currentTheme, forKey: "currentTheme")
+        print("UserDefaultに最新のお題の保存完了")
+
+
+
+//   // お題をFirebaseに保存する
+//        // Firestoreに飛ばす箱を用意
+//        let myTheme: NSDictionary = ["what": receiveWhat, "toDo": receiveTodo, "how": receiveHow]
+//        // userごとFirestoreへpost
+//        db.collection("themes").addDocument(data: myTheme as! [String : String])
+//        print("Firebaseへお題の保存完了")
 
 
    // ホーム画面へ遷移する

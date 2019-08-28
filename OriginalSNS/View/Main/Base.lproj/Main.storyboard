@@ -180,17 +180,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Fn6-1W-TIy" customClass="AnimatableStackView" customModule="IBAnimatable">
-                                <rect key="frame" x="23.5" y="120" width="273" height="102"/>
+                                <rect key="frame" x="0.0" y="120" width="320" height="102"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題は..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
-                                        <rect key="frame" x="79" y="0.0" width="115" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題発表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
+                                        <rect key="frame" x="89.5" y="0.0" width="141.5" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r">
-                                        <rect key="frame" x="0.0" y="66" width="273" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <rect key="frame" x="46" y="72" width="228" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -201,8 +201,10 @@
                         <constraints>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" secondItem="eYm-gI-o9l" secondAttribute="bottom" constant="100" id="5GW-0J-AwR"/>
                             <constraint firstItem="Fn6-1W-TIy" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="100" id="Gwg-Gz-PnZ"/>
+                            <constraint firstItem="Fn6-1W-TIy" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="Mja-0o-OF4"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="bBC-g9-hHn"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" id="cWx-El-bHG"/>
+                            <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="Fn6-1W-TIy" secondAttribute="trailing" id="clo-o4-mJU"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="f9q-lU-F6v" secondAttribute="trailing" id="dFa-t9-RIc"/>
                             <constraint firstItem="eYm-gI-o9l" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="e3v-i5-p8a"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="bottom" secondItem="fRo-eL-lbj" secondAttribute="bottom" id="gbj-Ty-r9g"/>

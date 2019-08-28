@@ -16,7 +16,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
-    // 投稿情報をすべて格納(データベースからとってくる)
+    // 投稿情報をすべて格納(Firebaseからとってくる)
     var items = [NSDictionary]()
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
@@ -35,6 +35,9 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
 
+        // FireBaseから最新情報をとってくる
+        fetch()
+
         // grayViewのサイズを確定
         grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         // grayViewの背景色を薄いグレーに設定
@@ -51,11 +54,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
         tableView.addSubview(refreshControl)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        // FireBaseから最新情報をとってくる
-        fetch()
     }
 
     // goodボタン(右上)を押したとき
@@ -117,7 +115,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         refreshControl.endRefreshing()
     }
 
-    // Firebaseからデータを取得
+    // Firebaseから投稿データを取得
     func fetch() {
         // getで全件取得
         db.collection("contents").getDocuments() {(querySnapshot, err) in
@@ -152,7 +150,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // セルを選択不可にする
         cell.selectionStyle = .none
 
-        // Firebaseからプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する
+        // Firebaseから全投稿のプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する(コレクション名:contentsでfireBaseに保管)
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義
         let dict = items[(indexPath as NSIndexPath).row]
 
@@ -186,8 +184,9 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
         }
+
+         // ④投稿文を反映
         if let comment = dict["comment"] as? String {
-            // ④投稿文を反映
             cell.timeLineTextView.text = comment
         } else {
             cell.timeLineTextView.text = ""

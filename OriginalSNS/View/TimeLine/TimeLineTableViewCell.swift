@@ -8,6 +8,7 @@
 
 import UIKit
 import IBAnimatable // アニメーションをつけるライブラリ
+import FirebaseFirestore // Firebaseへのデータ保存に使用
 
 // TableViewCellの中の要素に関する処理を書くクラス
 class TimeLineTableViewCell: UITableViewCell {
@@ -23,6 +24,11 @@ class TimeLineTableViewCell: UITableViewCell {
     // いいねボタンを紐付け
     @IBOutlet weak var goodButton: AnimatableButton!
 
+    // Firestoreを使うためにインスタンス化
+    let db = Firestore.firestore()
+    // いいねした投稿情報のみ格納(Firebaseへ送る)
+    var goodListItems = [NSDictionary]()
+
    // いいねボタンの切り替えを判断する変数
     var iThinkGood: Bool = false
 
@@ -34,8 +40,10 @@ class TimeLineTableViewCell: UITableViewCell {
             sender.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             iThinkGood = false
 
+            // FIXME: 難しい!?
             // いいね一覧から削除する
             print("いいね一覧から削除しました")
+
 
        } else{
          // いいねをつける
@@ -44,7 +52,15 @@ class TimeLineTableViewCell: UITableViewCell {
         iThinkGood = true
 
         // いいね一覧の箱に追加
+        let goodUserName = timeLineNameLabel.text
+        let goodComment = timeLineTextView.text
+
+            let goodList: NSDictionary = ["goodUserName": goodUserName ?? "空です", "goodComment": goodComment ?? "空です"]
+
+            db.collection("goodContents").addDocument(data: goodList as! [String : Any])
+
         print("いいね一覧に追加しました")
+        print(goodList)
 
         }
 

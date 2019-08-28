@@ -36,7 +36,7 @@
                                         <state key="normal" image="icons8-easy-50"/>
                                         <connections>
                                             <action selector="goodListButton:" destination="EIh-4n-eVg" eventType="touchUpInside" id="kLQ-8V-GZ5"/>
-                                            <segue destination="Jc4-Aj-C1p" kind="show" identifier="showGoodList" id="vJ0-4T-kwT"/>
+                                            <segue destination="Jc4-Aj-C1p" kind="presentation" id="trj-9n-1LH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -239,6 +239,9 @@
                                             <constraint firstAttribute="width" secondItem="e0S-Tt-Fpc" secondAttribute="height" multiplier="1:1" id="xJx-6M-ayH"/>
                                         </constraints>
                                         <state key="normal" image="icons8-back-96"/>
+                                        <connections>
+                                            <segue destination="EIh-4n-eVg" kind="custom" customClass="DismissSegue" customModule="IBAnimatable" id="lcu-Bw-kdW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="             いいね一覧" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbA-aD-eyg">
                                         <rect key="frame" x="50" y="0.0" width="270" height="40"/>
@@ -421,6 +424,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yMt-lE-ABa"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="R1P-Wt-iQu" id="Maz-5s-GhH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLu-ZG-Xek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
