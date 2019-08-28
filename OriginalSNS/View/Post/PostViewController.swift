@@ -17,8 +17,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // ユーザー名を表示するラベル
     @IBOutlet weak var postNameLabel: UILabel!
 
-    // 投稿文を記入するテキストラベル
-    @IBOutlet weak var postTextLabel: UITextView!
+    // 投稿文を記入するテキストビュー
+    @IBOutlet weak var postTextView: UITextView!
+
+    // お題を表示するラベル
+    @IBOutlet weak var postThemeLabel: UILabel!
+
     // 投稿する画像を表示するimageView
     @IBOutlet weak var postImageView: UIImageView!
 
@@ -30,7 +34,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // 投稿画像用のImageViewを隠す
         postImageView.isHidden = true
         // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
-        getProfile()
+        getProfandTheme()
     }
 
     // イメージボタンを押したとき
@@ -53,12 +57,14 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     // 投稿(Find!)ボタンを押したときの処理
     @IBAction func postButton(_ sender: Any) {
-        // Firebaseに名前・コメント・投稿画像・プロフィール画像を送信する
+        // Firebaseにプロフィール画像・名前・お題・コメント・投稿画像を送信する
         // ①各情報を定数化 
-        // FIXME: 名前もfirebaseにpostする必要ある?
+        // 名前
         let userName = postNameLabel.text
         // コメント(投稿文)
-        let comment = postTextLabel.text
+        let comment = postTextView.text
+        // お題
+        let theme = postThemeLabel.text
 
         // 投稿画像
         var ImageData: NSData = NSData()
@@ -69,7 +75,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // 送信するためにbase64Stringという形式に変換
         let base64PostImage = ImageData.base64EncodedString(options: .lineLength64Characters) as String
 
-        // FIXME: プロフィール画像(firebaseに送る必要ある?)
+        // プロフィール画像
         var iconImageData: NSData = NSData()
         if let iconImage = postIconImageView.image {
             iconImageData = iconImage.jpegData(compressionQuality: 0.1)! as NSData
@@ -77,18 +83,19 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let base64IconImage = iconImageData.base64EncodedString(options: .lineLength64Characters) as String
 
         // ②Firestoreに飛ばす箱を用意
-        let user: NSDictionary = ["userName": userName ?? "" , "comment": comment ?? "", "postImage": base64PostImage, "iconImage": base64IconImage]
+        let user: NSDictionary = ["userName": userName ?? "" , "comment": comment ?? "","theme": theme ?? "", "postImage": base64PostImage, "iconImage": base64IconImage]
 
         // ③userごとFirestoreへpost
         db.collection("contents").addDocument(data: user as! [String : Any])
+        print("firebaseに5つの情報を保管しました!")
 
         // ④画面を消す
         self.dismiss(animated: true)
 
     }
 
-    // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
-    func getProfile() {
+    // UserDefaultに保存しているプロフィール画像と名前、最新のお題を反映させる関数
+    func getProfandTheme() {
         // 画像情報があればprofImageに格納
         if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
             // あればprofImageを型変換して投稿用のmyIconImageViewに格納
@@ -103,6 +110,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             // なければアイコン画像をprofImageViewに格納
             postIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
         }
+
         // 名前情報があればprofNameに格納
         if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
             // myNameLabelへ代入
@@ -110,6 +118,16 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         } else {
             // なければ匿名としておく
             postNameLabel.text = "匿名"
+        }
+
+        // お題情報があればpostThemeに格納
+        if let postTheme = UserDefaults.standard.object(forKey: "currentTheme") as? String {
+            print(postTheme)
+            // postThemeLabelへ代入
+            postThemeLabel.text = "お題 : \(postTheme)"
+        } else {
+            // なければ空白としておく
+            postThemeLabel.text = ""
         }
     }
 
@@ -150,9 +168,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // タッチされたかを判断
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // キーボードが開いていたら
-        if (postTextLabel.isFirstResponder) {
+        if (postTextView.isFirstResponder) {
             // 閉じる
-            postTextLabel.resignFirstResponder()
+            postTextView.resignFirstResponder()
         }
     }
 }

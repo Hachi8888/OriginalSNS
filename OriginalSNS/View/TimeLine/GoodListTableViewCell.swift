@@ -16,6 +16,10 @@ class GoodListTableViewCell: UITableViewCell {
     @IBOutlet weak var gooListIconImageView: AnimatableImageView!
     // 名前ラベル
     @IBOutlet weak var goodListNameLabel: UILabel!
+
+    // お題表示ラベル
+    @IBOutlet weak var goodListShowTheme: AnimatableLabel!
+
     // 投稿画像
     @IBOutlet weak var goodListPostImageView: AnimatableImageView!
     // 投稿文

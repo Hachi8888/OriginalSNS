@@ -17,6 +17,10 @@ class TimeLineTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLineIconImageView: AnimatableImageView!
     // ユーザ名を表示するLabel
     @IBOutlet weak var timeLineNameLabel: UILabel!
+
+    // 自分のお題を表示させるラベル
+    @IBOutlet weak var timeLineShowTheme: AnimatableLabel!
+
     // 投稿した画像を表示させるImageView
     @IBOutlet weak var timeLinePostImageView: AnimatableImageView!
     // 投稿文をのせるTextView

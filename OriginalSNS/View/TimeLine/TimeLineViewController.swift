@@ -192,8 +192,15 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.timeLineTextView.text = ""
         }
 
+        // ⑤お題を反映
+        if let theme = dict["theme"] as? String {
+            cell.timeLineShowTheme.text = theme
+        } else {
+            cell.timeLineTextView.text = ""
+        }
         return cell
-    }
+
+}
 
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

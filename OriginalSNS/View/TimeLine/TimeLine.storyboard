@@ -19,16 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="p0f-b2-ywS" userLabel="Top Stack View">
-                                <rect key="frame" x="0.0" y="20" width="320" height="40"/>
+                                <rect key="frame" x="5" y="20" width="310" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f6V-1K-jJl">
-                                        <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssY-v0-8cO">
-                                        <rect key="frame" x="280" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="270" y="0.0" width="40" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ssY-v0-8cO" secondAttribute="height" multiplier="1:1" id="FlO-uQ-Phy"/>
@@ -45,8 +45,11 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="St1-r9-nq4">
-                                <rect key="frame" x="0.0" y="60" width="320" height="468"/>
+                                <rect key="frame" x="10" y="70" width="320" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="cSR-qX-KjT"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeLineTableViewCell" rowHeight="497" id="gAo-UZ-Tfc" customClass="TimeLineTableViewCell" customModule="OriginalSNS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="497"/>
@@ -83,8 +86,14 @@
                                                                 <constraint firstAttribute="height" constant="50" id="61F-gM-PI7"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvV-Et-mTQ" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                                            <rect key="frame" x="0.0" y="52" width="320" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="quA-9t-Ebp" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="52" width="320" height="310.5"/>
+                                                            <rect key="frame" x="0.0" y="70" width="320" height="292.5"/>
                                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -150,6 +159,7 @@
                                             <outlet property="timeLineIconImageView" destination="OHL-Ei-o3S" id="MDA-EK-Nsf"/>
                                             <outlet property="timeLineNameLabel" destination="zPZ-lc-mF1" id="gKJ-JT-5iv"/>
                                             <outlet property="timeLinePostImageView" destination="quA-9t-Ebp" id="Rqj-pA-utm"/>
+                                            <outlet property="timeLineShowTheme" destination="SvV-Et-mTQ" id="vFD-gk-cdY"/>
                                             <outlet property="timeLineTextView" destination="muv-GP-7aM" id="Qov-RN-obN"/>
                                         </connections>
                                     </tableViewCell>
@@ -200,16 +210,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="St1-r9-nq4" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="F33-aq-QG5"/>
-                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="bottom" secondItem="NPS-fh-LZ1" secondAttribute="bottom" id="HFy-7A-76R"/>
-                            <constraint firstItem="St1-r9-nq4" firstAttribute="trailing" secondItem="RfJ-Q2-0uv" secondAttribute="trailing" id="Mwg-fH-qeY"/>
-                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="p0f-b2-ywS" secondAttribute="trailing" id="bJB-WT-Zip"/>
-                            <constraint firstItem="St1-r9-nq4" firstAttribute="top" secondItem="p0f-b2-ywS" secondAttribute="bottom" id="eI1-Dp-98p"/>
-                            <constraint firstItem="p0f-b2-ywS" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="gvT-2m-faX"/>
-                            <constraint firstItem="NPS-fh-LZ1" firstAttribute="top" secondItem="St1-r9-nq4" secondAttribute="bottom" id="qTU-FB-Gda"/>
-                            <constraint firstItem="NPS-fh-LZ1" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="qd5-U9-Bqk"/>
-                            <constraint firstItem="p0f-b2-ywS" firstAttribute="top" secondItem="RfJ-Q2-0uv" secondAttribute="top" id="zbn-tv-VhG"/>
-                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="NPS-fh-LZ1" secondAttribute="trailing" id="zea-s4-nwK"/>
+                            <constraint firstItem="NPS-fh-LZ1" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" id="1ai-pl-gVe"/>
+                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="p0f-b2-ywS" secondAttribute="trailing" constant="5" id="NAi-cU-6sI"/>
+                            <constraint firstItem="St1-r9-nq4" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" constant="10" id="Pgu-gl-3CY"/>
+                            <constraint firstItem="St1-r9-nq4" firstAttribute="trailing" secondItem="RfJ-Q2-0uv" secondAttribute="trailing" constant="10" id="RaL-rS-dYL"/>
+                            <constraint firstItem="p0f-b2-ywS" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" constant="5" id="Wm4-IP-qla"/>
+                            <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="NPS-fh-LZ1" secondAttribute="trailing" id="cYo-kI-K6Y"/>
+                            <constraint firstItem="NPS-fh-LZ1" firstAttribute="bottom" secondItem="RfJ-Q2-0uv" secondAttribute="bottom" id="etk-nz-T58"/>
+                            <constraint firstItem="p0f-b2-ywS" firstAttribute="top" secondItem="RfJ-Q2-0uv" secondAttribute="top" id="h3i-YA-1JM"/>
+                            <constraint firstItem="St1-r9-nq4" firstAttribute="top" secondItem="p0f-b2-ywS" secondAttribute="bottom" constant="10" id="hN5-CC-gww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RfJ-Q2-0uv"/>
                     </view>
@@ -336,8 +345,14 @@
                                                                 <constraint firstAttribute="height" constant="50" id="n2a-N7-Xix"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-tC-rHa" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                                            <rect key="frame" x="0.0" y="52" width="320" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-3N-Sx4" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="52" width="320" height="310.5"/>
+                                                            <rect key="frame" x="0.0" y="68.5" width="320" height="294"/>
                                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -403,6 +418,7 @@
                                             <outlet property="goodButton" destination="Nxe-Fa-BYr" id="BfK-wD-E9c"/>
                                             <outlet property="goodListNameLabel" destination="bUy-3l-uaB" id="82S-Wb-QJ7"/>
                                             <outlet property="goodListPostImageView" destination="Ahf-3N-Sx4" id="3qM-Va-GoQ"/>
+                                            <outlet property="goodListShowTheme" destination="7HL-tC-rHa" id="gR9-q8-aOW"/>
                                             <outlet property="goodListTextView" destination="e7j-4x-ePP" id="toH-MR-xiF"/>
                                         </connections>
                                     </tableViewCell>
