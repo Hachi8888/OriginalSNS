@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/TimeLine/TimeLineViewController.swift"
-            timestampString = "588666867.641845"
+            timestampString = "588677875.134288"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -214,7 +214,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Profile/SettingViewController.swift"
-            timestampString = "588666867.642742"
+            timestampString = "588677875.135576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -230,7 +230,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Profile/SettingViewController.swift"
-            timestampString = "588666867.642807"
+            timestampString = "588677875.135795"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
@@ -246,7 +246,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Profile/SettingViewController.swift"
-            timestampString = "588666867.642862"
+            timestampString = "588677875.135919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -278,28 +278,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Login/LoginViewController.swift"
-            timestampString = "588666867.642962"
+            timestampString = "588677875.137566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "LoginViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OriginalSNS/View/TimeLine/GoodListViewController.swift"
-            timestampString = "588649598.516217"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "fetch()"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "userLogin(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -310,7 +294,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OriginalSNS/View/Main/ShowThemeViewController.swift"
-            timestampString = "588666867.643067"
+            timestampString = "588677875.137702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"

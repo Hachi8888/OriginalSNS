@@ -56,11 +56,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.addSubview(refreshControl)
     }
 
-    // goodボタン(右上)を押したとき
-    @IBAction func goodListButton(_ sender: Any) {
-        // goodListVCへ遷移
-    }
-
     // タイムラインを押したとき
     @IBAction func toTimeLineButton(_ sender: Any) {
         // リロード
@@ -150,7 +145,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // セルを選択不可にする
         cell.selectionStyle = .none
 
-        // Firebaseから全投稿のプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する(コレクション名:contentsでfireBaseに保管)
+        // Firebaseから全投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義
         let dict = items[(indexPath as NSIndexPath).row]
 
@@ -161,7 +156,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             return cell
         }
 
-        // 画像情報
+        // ①プロフィール画像情報
         if let profImage = dict["iconImage"] {
             // NSData型に変換
             let dataProfImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
@@ -180,7 +175,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 //        print(dict["postImage"],dict["userName"],dict["comment"],dict["iconImage"])
 
         // ③投稿画像を反映
-        // 画像情報
         if let postImage = dict["postImage"] {
             // NSData型に変換
             let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)

@@ -56,12 +56,33 @@ class TimeLineTableViewCell: UITableViewCell {
         iThinkGood = true
 
         // いいね一覧の箱に追加
+        // ①名前
         let goodUserName = timeLineNameLabel.text
+        // ②投稿文
         let goodComment = timeLineTextView.text
 
-            let goodList: NSDictionary = ["goodUserName": goodUserName ?? "空です", "goodComment": goodComment ?? "空です"]
+        // ③投稿画像
+            var ImageData: NSData = NSData()
+            if let postImage = timeLinePostImageView.image {
+                // クオリティを10パーセントに下げる
+                ImageData = postImage.jpegData(compressionQuality: 0.1)! as NSData
+            }
+            // 送信するためにbase64Stringという形式に変換
+            let base64PostImage = ImageData.base64EncodedString(options: .lineLength64Characters) as String
 
-            db.collection("goodContents").addDocument(data: goodList as! [String : Any])
+        // ④プロフィール画像
+            var iconImageData: NSData = NSData()
+            if let iconImage = timeLineIconImageView.image {
+                iconImageData = iconImage.jpegData(compressionQuality: 0.1)! as NSData
+            }
+            let base64IconImage = iconImageData.base64EncodedString(options: .lineLength64Characters) as String
+
+       // ⑤お題
+            let theme = timeLineShowTheme.text
+
+            let goodList: NSDictionary = ["goodUserName": goodUserName ?? "空です", "goodComment": goodComment ?? "空です", "goodPostImage": base64PostImage, "goodIconImage": base64IconImage, "goodTheme": theme ?? "空です"]
+
+        db.collection("goodContents").addDocument(data: goodList as! [String : Any])
 
         print("いいね一覧に追加しました")
         print(goodList)

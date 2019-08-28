@@ -50,8 +50,9 @@ class LoginViewController: UIViewController {
                 passwordTextField.text = password as? String
             }
         } else {  // falseのとき、初期化する
-             emailTextField.text = ""
-             passwordTextField.text = ""
+            /// 後で消す
+             emailTextField.text = "hachi@info.jp"
+             passwordTextField.text = "123456"
         }
     }
 

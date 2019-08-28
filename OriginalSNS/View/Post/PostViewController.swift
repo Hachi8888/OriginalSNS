@@ -34,7 +34,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // 投稿画像用のImageViewを隠す
         postImageView.isHidden = true
         // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
-        getProfandTheme()
+        getProfAndTheme()
     }
 
     // イメージボタンを押したとき
@@ -95,7 +95,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 
     // UserDefaultに保存しているプロフィール画像と名前、最新のお題を反映させる関数
-    func getProfandTheme() {
+    func getProfAndTheme() {
         // 画像情報があればprofImageに格納
         if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
             // あればprofImageを型変換して投稿用のmyIconImageViewに格納

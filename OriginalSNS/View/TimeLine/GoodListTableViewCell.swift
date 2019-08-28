@@ -13,7 +13,7 @@ class GoodListTableViewCell: UITableViewCell {
 
     // いいねされた投稿を表すための書く要素の紐付け
     // プロフィール画像
-    @IBOutlet weak var gooListIconImageView: AnimatableImageView!
+    @IBOutlet weak var goodListIconImageView: AnimatableImageView!
     // 名前ラベル
     @IBOutlet weak var goodListNameLabel: UILabel!
 

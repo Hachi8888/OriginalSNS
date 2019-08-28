@@ -21,6 +21,10 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.delegate = self
+        tableView.dataSource = self
+
         // FireBaseから最新情報をとってくる
         fetch()
     }
@@ -61,15 +65,39 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         // セルを選択不可にする
         cell.selectionStyle = .none
 
+        print(goodListItems.count)
 
-        // FIXME: 処理を書く!!!
-        // Firebaseからいいねを押した投稿のプロフィール画像、ユーザー名、投稿文、投稿画像を取得して反映する(コレクション名:goodContentsでFirebaseに保管)
+        // Firebaseからいいねを押した投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する(コレクション名:goodContentsでFirebaseに保管)
         // まず、goodItemsの中からindexpathのrow番目を取得するdictを定義
         let dict = goodListItems[(indexPath as NSIndexPath).row]
+
+        // ①プロフィール画像情報
+        if let profImage = dict["goodIconImage"] {
+            // NSData型に変換
+            let dataProfImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decadedProfImage = UIImage(data: dataProfImage! as Data)
+            // gooListIconImageViewへ代入
+            cell.goodListIconImageView.image = decadedProfImage
+        } else {
+
+            cell.goodListIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-96")
+        }
 
         // ②名前を反映
         cell.goodListNameLabel.text = dict["goodUserName"] as? String
 
+        // ③投稿画像を反映
+        if let postImage = dict["goodPostImage"] {
+            // NSData型に変換
+            let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decadedPostImage = UIImage(data: dataPostImage! as Data)
+            // postImageViewへ代入
+            cell.goodListPostImageView.image = decadedPostImage
+        } else {
+            cell.goodListPostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
+        }
 
         // ④投稿文を反映
         if let comment = dict["goodComment"] as? String {
@@ -78,6 +106,12 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.goodListTextView.text = ""
         }
 
+        // ⑤お題を表示
+        if let theme = dict["goodTheme"] as? String {
+            cell.goodListShowTheme.text = theme
+        } else {
+            cell.goodListShowTheme.text = ""
+        }
 
         return cell
     }
