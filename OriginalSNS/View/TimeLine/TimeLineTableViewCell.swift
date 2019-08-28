@@ -80,17 +80,15 @@ class TimeLineTableViewCell: UITableViewCell {
        // ⑤お題
             let theme = timeLineShowTheme.text
 
+        // goodListの辞書に①〜⑤を入れる
             let goodList: NSDictionary = ["goodUserName": goodUserName ?? "空です", "goodComment": goodComment ?? "空です", "goodPostImage": base64PostImage, "goodIconImage": base64IconImage, "goodTheme": theme ?? "空です"]
 
+        // firebaseにgoodListの情報を保存する
         db.collection("goodContents").addDocument(data: goodList as! [String : Any])
 
         print("いいね一覧に追加しました")
         print(goodList)
-
         }
-
-
-
 
     }
 

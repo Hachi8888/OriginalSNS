@@ -143,6 +143,9 @@
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="tAY-jH-ERl" kind="show" id="fGc-tz-qub"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -166,6 +169,8 @@
                         <viewLayoutGuide key="safeArea" id="B9k-9j-sRL"/>
                     </view>
                     <connections>
+                        <outlet property="addThemeButton" destination="Ls9-Nd-GGT" id="kGb-yo-8a0"/>
+                        <outlet property="getGoodNum" destination="1vG-n9-CXv" id="uSJ-JG-3ch"/>
                         <outlet property="profIconImageView" destination="t9d-jk-1Oy" id="7rt-4l-Kvr"/>
                         <outlet property="profNameLabel" destination="zN7-wY-kYv" id="Nht-6Y-ngZ"/>
                         <outlet property="showThemeTextView" destination="EYm-eY-nBq" id="Nu4-ch-IUr"/>
@@ -287,6 +292,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9SY-n1-6Md" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="714.375" y="81.338028169014081"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tR1-7P-rsO">
+            <objects>
+                <viewController id="tAY-jH-ERl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cjq-sx-xgz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bE7-Ab-i4C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7F1-HX-N4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="678" y="745"/>
         </scene>
     </scenes>
     <resources>

@@ -37,9 +37,15 @@ class LoginViewController: UIViewController {
         logoImage.animate(.flip(along: .x))
 
         // FIXME: ログアウトしてこの画面に遷移すると、loginStateCountは0になって情報が引き継がれない
+        // 最新のloginStateを反映させる
+        if let state = UserDefaults.standard.object(forKey: "currentLoginState") {
+            loginState = state as? Bool ?? false
+        }
+
         print("ログイン保持:\(loginState) ※trueならログイン保持")
         // ログイン状態を保持する設定の場合、UserDefaultからemailとpasswordの情報を読んで反映させる。
         if loginState { // trueのときはログイン情報を保持
+
             // emailを反映
             if let email = UserDefaults.standard.object(forKey: "registeredEmail") {
                 emailTextField.text = email as? String
@@ -50,9 +56,9 @@ class LoginViewController: UIViewController {
                 passwordTextField.text = password as? String
             }
         } else {  // falseのとき、初期化する
-            /// 後で消す
-             emailTextField.text = "hachi@info.jp"
-             passwordTextField.text = "123456"
+
+             emailTextField.text = ""
+             passwordTextField.text = ""
         }
     }
 
@@ -109,10 +115,14 @@ class LoginViewController: UIViewController {
         // ログイン保持の選択を切り替える
         if loginState {
             loginState = false
-            print("ログイン情報は保持しません")
+            // UserDefaltにloginStateの情報を保存
+            UserDefaults.standard.set(loginState, forKey: "currentLoginState")
+            print("「ログイン情報:保持しない」でUserDefaultに保存しました")
         } else {
             loginState = true
-            print("ログイン情報を保持します")
+            // UserDefaltにloginStateの情報を保存
+            UserDefaults.standard.set(loginState, forKey: "currentLoginState")
+            print("「ログイン情報:保持する」でUserDefaultに保存しました")
         }
     }
 

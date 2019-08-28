@@ -20,6 +20,11 @@ class ProfileViewController: UIViewController {
     // 決定したお題を表示するラベル
     @IBOutlet weak var showThemeTextView: AnimatableTextView!
 
+    // いいねの獲得数
+    @IBOutlet weak var getGoodNum: UILabel!
+    // お題を増やすボタンの紐付け(押すと、お題追加画面に遷移)
+    @IBOutlet weak var addThemeButton: AnimatableButton!
+
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
 
@@ -31,6 +36,15 @@ class ProfileViewController: UIViewController {
         // UserDefaultからプロフィ-ル画像、名前、最新のお題を取得、反映
         getProfile()
         fetch()
+
+        // お題を増やすボタンは最初は非表示にしておく
+         addThemeButton.isHidden = false
+
+        // いいね数が0でも下の条件式に当てはまってしまう!!
+        // いいね数が10個貯まるごとに、お題を増やせるようにする
+        if Int(getGoodNum.text!) ?? 0 % 10 == 0 {
+           addThemeButton.isHidden = true
+        }
 
     }
 
@@ -48,8 +62,11 @@ class ProfileViewController: UIViewController {
 
     // プロフィールボタンを押したとき
     @IBAction func toProfile(_ sender: Any) {
-        // リロードする
+        // FIXME: リロードする or してるようにみせかける
     }
+
+
+
 
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {
