@@ -53,8 +53,11 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("UserDefaultへicon画像の保存完了")
 
         // ②Firebaseへの保存
+
+        let postImage = "プロフィール設定用"
+        let comment = "プロフィール設定用"
         // Firestoreに飛ばす箱を用意
-        let user: NSDictionary = ["userName": userName ?? "", "iconImage": base64IconImage]
+        let user: NSDictionary = ["userName": userName ?? "", "iconImage": base64IconImage, "postImage": postImage , "comment": comment]
         // userごとFirestoreへpost
         db.collection("contents").addDocument(data: user as! [String : Any])
         print("Firebaseへ名前とicon画像の保存完了")

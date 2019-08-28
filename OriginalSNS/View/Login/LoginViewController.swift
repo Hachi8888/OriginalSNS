@@ -28,6 +28,8 @@ class LoginViewController: UIViewController {
     /// 奇数: loginState = true(保持する)
     var loginState : Bool = false
 
+//    let singleton :Singleton =  Singleton.sharedInstance
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -99,6 +101,9 @@ class LoginViewController: UIViewController {
 
     // ログイン状態を保持するかどうか
     @IBAction func switchLoginStateButton(_ sender: Any) {
+
+//    singleton.getLoginState() = loginState
+
         // FIXME: ボタンの画像の切り替え処理も追加!!
         // ログイン保持の選択を切り替える
         if loginState {
