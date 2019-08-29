@@ -28,6 +28,7 @@ class Singleton: NSObject {
     static let sharedInstance: Singleton = Singleton()
     private override init() {}
 
+
     func saveWhatList(whatList: [String]) {
         data.whatList = whatList
     }
@@ -42,6 +43,7 @@ class Singleton: NSObject {
 
     func getWhatList() -> [String] {
         return data.whatList
+
     }
 
     func getHowList() -> [String] {

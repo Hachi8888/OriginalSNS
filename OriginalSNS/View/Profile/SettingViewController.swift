@@ -53,7 +53,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         print("UserDefaultへicon画像の保存完了")
 
         // ②Firebaseへの保存
-
         let postImage = "プロフィール設定用"
         let comment = "プロフィール設定用"
         // Firestoreに飛ばす箱を用意
@@ -62,8 +61,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         db.collection("contents").addDocument(data: user as! [String : Any])
         print("Firebaseへ名前とicon画像の保存完了")
     }
-
-
     // ImageViewの下にボタンあり。押すとプロフィール画像を設定できる
     @IBAction func settingImageButton(_ sender: Any) {
         // 写真を撮る or ライブラリから選択 のアラートを出す
@@ -130,15 +127,12 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             print("画像選択の失敗")
             return
         }
-
         // FIXME: 選択しても表示が変わらない(コンソールにエラーが起きている)
         // 選択した画像をこの画面(SettingVC)のプロフィール画像に反映
         settingIconImageView.image = pickedImage
         // ピッカーを閉じる
         picker.dismiss(animated: true)
-
     }
-
 
     // UserDefaultに保存しているプロフィール画像と名前情報を反映させる関数
     func getProfile() {

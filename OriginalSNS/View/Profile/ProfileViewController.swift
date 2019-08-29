@@ -38,13 +38,16 @@ class ProfileViewController: UIViewController {
         // お題を増やすボタンは最初は非表示にしておく
          addThemeButton.isHidden = true
 
-        // FIXME: いいね数が0でも下の条件式に当てはまってしまう!!
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         // いいね数が10個貯まるごとに、お題を増やせるようにする
         if getGoodNum == 0 || getGoodNum % 10 != 0 {
             // お題追加ボタンを表示
-           addThemeButton.isHidden = true
+            addThemeButton.isHidden = true
         } else {
-             // FIXME: お題追加できるアナウンスを表示
+            // アラート表示でユーザーにお知らせ
+            showAlert()
             // お題追加ボタンを表示
             addThemeButton.isHidden = false
         }
@@ -65,7 +68,6 @@ class ProfileViewController: UIViewController {
     @IBAction func toProfile(_ sender: Any) {
         // FIXME: リロードする or してるようにみせかける
     }
-
 
     // UserDefaultに保存している①プロフィール画像、②名前情報、③お題、④いいね獲得数を反映させる関数
     func getInfo() {
@@ -107,27 +109,15 @@ class ProfileViewController: UIViewController {
         }
     }
 
-//    // Firebaseからお題のデータを取得
-//    func fetch() {
-//        // getで全件取得
-//        db.collection("themes").getDocuments() {(querySnapshot, err) in
-//            // tempThemeという変数を一時的に作成
-//            var tempTheme = [NSDictionary]()
-//            // for文で回し`item`に格納
-//            for theme in querySnapshot!.documents {
-//                // item内のデータをdictという変数に入れる
-//                let dict = theme.data()
-//                // dictをtempItemsに入れる
-//                tempTheme.append(dict as NSDictionary)
-//            }
-//            // tempItemsをitems(クラスの変数として定義した)に入れる
-//            self.items = tempTheme
-//            // リロード
-//            self.tableView.reloadData()
-//        }
+    // いいねが10個たまるごとにお題追加のボタンができることを知らせる関数
+    func showAlert() {
+        let alert = UIAlertController(title: "祝", message: "いいねが10個たまりました!\nお題の語句を増やせます!!", preferredStyle: .actionSheet)
+        //  OKボタンの設定
+        let ok = UIAlertAction(title: "OK", style: .cancel)
 
-
-
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
 }
 
 extension ProfileViewController {
