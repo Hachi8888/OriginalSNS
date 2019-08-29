@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseFirestore
 import IBAnimatable
-//import XLPagerTabStrip // 横スクロール
 import NVActivityIndicatorView // インジゲータ
 
 class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
@@ -180,19 +179,14 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             // postImageViewへ代入
             cell.timeLinePostImageView.image = decadedPostImage
         } else {
-            //            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
-
-            // ImageViewを隠す
-            cell.timeLinePostImageView.isHidden = true
+            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
         }
 
         // ④投稿文を反映
         if let comment = dict["comment"] as? String {
             cell.timeLineTextView.text = comment
         } else {
-            //            cell.timeLineTextView.text = ""
-            // TextViewを隠す
-            cell.timeLineTextView.isHidden = true
+            cell.timeLineTextView.text = ""
         }
 
         // ⑤お題を反映

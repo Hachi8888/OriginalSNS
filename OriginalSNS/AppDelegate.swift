@@ -18,11 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let userDefaults = UserDefaults.standard
     
     var window: UIWindow?
+
+    
     
     override init() {
         super.init()
         FirebaseApp.configure()
-        
     }
     
     // アプリが開いたとき
@@ -33,9 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // getGoodNumをUserDefaultから取得する
         getGoodNum = userDefaults.object(forKey: "getGoodNum") as? Int ?? 0
         // 追加したお題の語句をUserDefaultから取得できる
-        data.whatList = userDefaults.object(forKey: "whatList") as? Int ?? 0
-        data.toDoList = userDefaults.object(forKey: "toDoList") as? Int ?? 0
-        data.howList = userDefaults.object(forKey: "howList") as? Int ?? 0
+        singleton.data.whatList = (userDefaults.object(forKey: "whatList") as? [String]) ?? ["黒色のものを"]
+        singleton.data.toDoList = (userDefaults.object(forKey: "toDoList") as? [String]) ?? ["組み立てる"]
+        singleton.data.howList = (userDefaults.object(forKey: "howList") as? [String]) ?? ["論理的に"]
         
         return true
     }
@@ -46,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // getGoodNumをUserDefaultに保存する
         userDefaults.set(getGoodNum, forKey: "getGoodNum")
         // 追加したお題の語句をUserDefaultに保存する
-        userDefaults.set(data.whatList, forKey: "whatList")
-        userDefaults.set(data.toDoList, forKey: "toDoList")
-        userDefaults.set(data.howList, forKey: "howList")
+        userDefaults.set(singleton.data.whatList, forKey: "whatList")
+        userDefaults.set(singleton.data.toDoList, forKey: "toDoList")
+        userDefaults.set(singleton.data.howList, forKey: "howList")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
