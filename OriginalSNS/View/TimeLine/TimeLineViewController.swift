@@ -31,13 +31,14 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
         super.viewDidLoad()
-        //2つのdelegateを追加
+        // 2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
 
         // FireBaseから最新情報をとってくる
         fetch()
 
+        // インジケータの背景:grayView:grayViewの設定
         // grayViewのサイズを確定
         grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         // grayViewの背景色を薄いグレーに設定
@@ -49,7 +50,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
         activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballBeat, color: UIColor.white, padding: 0)
-
         // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
@@ -69,7 +69,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        // 2秒後にインジケータを終了させる
+        // 1.5秒後にインジケータを終了させる
         perform(#selector(delay), with: nil, afterDelay: 1.5)
 
     }
@@ -181,14 +181,19 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             // postImageViewへ代入
             cell.timeLinePostImageView.image = decadedPostImage
         } else {
-            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
+//            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
+
+             // ImageViewを隠す
+              cell.timeLinePostImageView.isHidden = true
         }
 
          // ④投稿文を反映
         if let comment = dict["comment"] as? String {
             cell.timeLineTextView.text = comment
         } else {
-            cell.timeLineTextView.text = ""
+//            cell.timeLineTextView.text = ""
+            // TextViewを隠す
+            cell.timeLineTextView.isHidden = true
         }
 
         // ⑤お題を反映

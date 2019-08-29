@@ -142,15 +142,25 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
 
         if selectMode {
             selectMode = false
-            print("ノーマルモード選択")
+            showAlert("ノーマルモード")
            // HOWの表示ラベルを隠す
              howLabel.isHidden = true
         } else {
             selectMode = true
-            print("ハードモード選択")
+            showAlert("ハードモード")
           // HOWの表示ラベルを表示
              howLabel.isHidden = false
         }
+    }
+
+    // アラートを表示する関数
+    func showAlert(_ message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+        //  OKボタンの設定
+        let ok = UIAlertAction(title: "OK", style: .cancel)
+
+        alert.addAction(ok)
+        present(alert, animated: true)
     }
 
     // MARK: TabBarの処理

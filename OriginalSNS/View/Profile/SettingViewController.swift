@@ -26,11 +26,25 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         getProfile()
     }
 
-    // 戻るボタンを押したとき
-    @IBAction func backButton(_ sender: Any) {
+    // ImageViewの下にボタンあり。押すとプロフィール画像を設定できる
+    @IBAction func settingImageButton(_ sender: Any) {
+        // 写真を撮る or ライブラリから選択 のアラートを出す
+        showSelectAlert()
+    }
+
+    // ログアウトボタン
+    @IBAction func logoutButton(_ sender: Any) {
+        // ログアウト処理
+        try! Auth.auth().signOut()
+        // LoginVCへ画面遷移
+        self.present(LoginViewController.makeLoginVC(), animated: true)
+    }
+
+    // 決定ボタンを押したとき
+    @IBAction func registerButton(_ sender: Any) {
         //  名前とプロフィール画像を①UserDefaultと②Firebaseに保存する
         /* Firebaseにもほ情報を保存する理由:タイムラインに戻ったときに、新たに投稿しなくても過去の自分の投稿に対して最新のプロフィール画像と名前が反映されるようにするため
-          */
+         */
         // ①UserDefaulへの保存
         //  名前ついて
         let userName = settingNameLabel.text
@@ -38,14 +52,14 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         UserDefaults.standard.set(userName, forKey: "userName")
         print("UserDefaultに名前の保存完了")
 
-       // プロフィール画像について(UIImage型→NSData型→base64String型へ要変換)
+        // プロフィール画像について(UIImage型→NSData型→base64String型へ要変換)
         guard let image = settingIconImageView.image else {
             return
         }
         // NSData型の箱を用意
         var data: NSData = NSData()
         // クオリティを10パーセントに下げる
-            data = image.jpegData(compressionQuality: 0.1)! as NSData
+        data = image.jpegData(compressionQuality: 0.1)! as NSData
         // NSData型からbase64String型へ変更
         let base64IconImage = data.base64EncodedString(options: .lineLength64Characters) as String
         // 保存
@@ -60,20 +74,9 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         // userごとFirestoreへpost
         db.collection("contents").addDocument(data: user as! [String : Any])
         print("Firebaseへ名前とicon画像の保存完了")
-    }
-    // ImageViewの下にボタンあり。押すとプロフィール画像を設定できる
-    @IBAction func settingImageButton(_ sender: Any) {
-        // 写真を撮る or ライブラリから選択 のアラートを出す
-        showSelectAlert()
+
     }
 
-    // ログアウトボタン
-    @IBAction func logoutButton(_ sender: Any) {
-        // ログアウト処理
-        try! Auth.auth().signOut()
-        // LoginVCへ画面遷移
-        self.present(LoginViewController.makeLoginVC(), animated: true)
-    }
 
     // 画像選択を 写真を撮る or ライブラリ から選択させるアラートを表示
     func showSelectAlert() {

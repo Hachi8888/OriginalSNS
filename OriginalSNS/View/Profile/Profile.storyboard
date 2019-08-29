@@ -21,8 +21,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z01-SG-SGC" customClass="AnimatableImageView" customModule="IBAnimatable">
                                 <rect key="frame" x="0.0" y="20" width="320" height="498"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="1" green="0.97308995480000005" blue="0.67047771430000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.99077574020000003" green="1" blue="0.92349793830000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -40,7 +43,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-wY-kYv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匿名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-wY-kYv">
                                         <rect key="frame" x="90" y="28" width="120" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -61,6 +64,95 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="9uC-9x-IZl"/>
                                 </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-09-WbW" userLabel="Contents Stack View">
+                                <rect key="frame" x="30" y="150" width="260" height="255"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="l30-ri-SgI">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本日のお題" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NL-A9-zYZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="WFv-wV-J6j"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="決定した最新のお題が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="EYm-eY-nBq" customClass="AnimatableTextView" customModule="IBAnimatable">
+                                                <rect key="frame" x="0.0" y="35" width="260" height="85"/>
+                                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                        <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="9dJ-o6-dDv"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fwo-oc-3fy">
+                                        <rect key="frame" x="0.0" y="135" width="260" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいね獲得数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-fJ-IPu">
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="kR7-fW-lHD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bx-uR-pep">
+                                                <rect key="frame" x="0.0" y="40" width="260" height="80"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいね数が表示" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vG-n9-CXv" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="80"/>
+                                                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="個" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FC-76-Th4" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                                        <rect key="frame" x="160" y="0.0" width="100" height="80"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="100" id="HDb-cn-qYq"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BRo-TO-8lB">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
@@ -85,6 +177,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uh6-GR-lxJ">
                                         <rect key="frame" x="160" y="0.0" width="80" height="50"/>
                                         <state key="normal" title="Button" image="icons8-chat-bubble-24"/>
+                                        <connections>
+                                            <action selector="toPostButton:" destination="ksf-pN-nA1" eventType="touchUpInside" id="KHx-MH-fxI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26c-hC-G0E">
                                         <rect key="frame" x="240" y="0.0" width="80" height="50"/>
@@ -98,97 +193,8 @@
                                     <constraint firstAttribute="height" constant="50" id="CKN-7C-DvU"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-09-WbW" userLabel="Contents Stack View">
-                                <rect key="frame" x="10" y="130" width="300" height="195"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="l30-ri-SgI">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本日のお題" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NL-A9-zYZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="WFv-wV-J6j"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="決定した最新のお題が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="EYm-eY-nBq" customClass="AnimatableTextView" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="35" width="300" height="55"/>
-                                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                                        <color key="value" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fwo-oc-3fy">
-                                        <rect key="frame" x="0.0" y="105" width="300" height="90"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいね獲得数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-fJ-IPu">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="kR7-fW-lHD"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bx-uR-pep">
-                                                <rect key="frame" x="0.0" y="40" width="300" height="50"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいね数が表示" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vG-n9-CXv" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
-                                                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="W2z-ki-R1t"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                                                <color key="value" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="個" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FC-76-Th4" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                        <rect key="frame" x="200" y="0.0" width="100" height="50"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="HDb-cn-qYq"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                                                <color key="value" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="10"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls9-Nd-GGT" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="10" y="418" width="300" height="50"/>
+                                <rect key="frame" x="10" y="448" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VIC-nl-OEt"/>
                                 </constraints>
@@ -212,11 +218,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Rux-SK-kxM" firstAttribute="top" secondItem="B9k-9j-sRL" secondAttribute="top" constant="10" id="1eX-ea-Iuh"/>
-                            <constraint firstItem="M2Q-09-WbW" firstAttribute="leading" secondItem="B9k-9j-sRL" secondAttribute="leading" constant="10" id="7qj-GU-MBI"/>
+                            <constraint firstItem="M2Q-09-WbW" firstAttribute="leading" secondItem="B9k-9j-sRL" secondAttribute="leading" constant="30" id="7qj-GU-MBI"/>
                             <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="Ls9-Nd-GGT" secondAttribute="trailing" constant="10" id="Fdm-FR-njd"/>
                             <constraint firstItem="BRo-TO-8lB" firstAttribute="top" secondItem="z01-SG-SGC" secondAttribute="bottom" id="HwW-iZ-uKb"/>
-                            <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="M2Q-09-WbW" secondAttribute="trailing" constant="10" id="WdV-wP-aJO"/>
-                            <constraint firstItem="BRo-TO-8lB" firstAttribute="top" secondItem="Ls9-Nd-GGT" secondAttribute="bottom" constant="50" id="alt-Hh-O9r"/>
+                            <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="M2Q-09-WbW" secondAttribute="trailing" constant="30" id="WdV-wP-aJO"/>
+                            <constraint firstItem="BRo-TO-8lB" firstAttribute="top" secondItem="Ls9-Nd-GGT" secondAttribute="bottom" constant="20" id="alt-Hh-O9r"/>
                             <constraint firstItem="z01-SG-SGC" firstAttribute="top" secondItem="B9k-9j-sRL" secondAttribute="top" id="c6h-wU-4Ec"/>
                             <constraint firstItem="B9k-9j-sRL" firstAttribute="bottom" secondItem="BRo-TO-8lB" secondAttribute="bottom" id="eMc-Rm-EU5"/>
                             <constraint firstItem="BRo-TO-8lB" firstAttribute="leading" secondItem="jQS-zW-vAk" secondAttribute="leading" id="g89-Eu-d2f"/>
@@ -225,7 +231,7 @@
                             <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="Rux-SK-kxM" secondAttribute="trailing" constant="10" id="j0b-DV-Fm5"/>
                             <constraint firstItem="Rux-SK-kxM" firstAttribute="leading" secondItem="B9k-9j-sRL" secondAttribute="leading" constant="10" id="kwx-Be-p5I"/>
                             <constraint firstItem="Ls9-Nd-GGT" firstAttribute="leading" secondItem="B9k-9j-sRL" secondAttribute="leading" constant="10" id="lAz-dA-7Pg"/>
-                            <constraint firstItem="M2Q-09-WbW" firstAttribute="top" secondItem="Rux-SK-kxM" secondAttribute="bottom" constant="20" id="nVL-OQ-VY1"/>
+                            <constraint firstItem="M2Q-09-WbW" firstAttribute="top" secondItem="Rux-SK-kxM" secondAttribute="bottom" constant="40" id="nVL-OQ-VY1"/>
                             <constraint firstAttribute="trailing" secondItem="BRo-TO-8lB" secondAttribute="trailing" id="nee-hl-bXb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="B9k-9j-sRL"/>
@@ -253,8 +259,11 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dKJ-Es-2f4" customClass="AnimatableImageView" customModule="IBAnimatable">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="1" green="0.97308995480000005" blue="0.67047771430000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.99077574020000003" green="1" blue="0.92349793830000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
@@ -296,10 +305,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-he-8xl" customClass="AnimatableTextField" customModule="IBAnimatable">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="記入してください" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-he-8xl" customClass="AnimatableTextField" customModule="IBAnimatable">
                                         <rect key="frame" x="75" y="0.0" width="185" height="40"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
@@ -316,7 +325,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7w-U6-DPx" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="10" y="418" width="300" height="50"/>
+                                <rect key="frame" x="10" y="488" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wqh-lg-hXJ"/>
                                 </constraints>
@@ -326,7 +335,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                        <color key="value" red="1" green="0.82140291799999998" blue="0.33681651210000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
@@ -348,31 +357,53 @@
                                         <state key="normal" image="icons8-back-96"/>
                                         <connections>
                                             <action selector="backButton:" destination="CCh-0l-3f7" eventType="touchUpInside" id="ADb-VY-QTg"/>
-                                            <segue destination="ksf-pN-nA1" kind="show" id="lGn-mL-z3m"/>
+                                            <segue destination="ksf-pN-nA1" kind="show" id="yxS-pV-mf8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="プロフィール編集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wB-k1-6oz">
                                         <rect key="frame" x="30" y="0.0" width="285" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQX-ue-aQp" customClass="AnimatableButton" customModule="IBAnimatable">
+                                <rect key="frame" x="10" y="418" width="300" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.82140291799999998" blue="0.33681651210000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3eq-62-0T3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="決定する">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerButton:" destination="CCh-0l-3f7" eventType="touchUpInside" id="cmn-5m-aTK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="B7w-U6-DPx" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="10" id="4Co-hR-l61"/>
                             <constraint firstItem="eED-iE-JrQ" firstAttribute="top" secondItem="GeS-Fn-kI8" secondAttribute="bottom" constant="30" id="9eS-Xm-W1K"/>
+                            <constraint firstItem="B7w-U6-DPx" firstAttribute="top" secondItem="LQX-ue-aQp" secondAttribute="bottom" constant="20" id="Bhi-DA-QhC"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="B7w-U6-DPx" secondAttribute="trailing" constant="10" id="Dcf-sp-Rcd"/>
                             <constraint firstItem="Tw8-6h-iNY" firstAttribute="top" secondItem="am8-mu-GDy" secondAttribute="bottom" constant="40" id="En3-qb-PFi"/>
+                            <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="LQX-ue-aQp" secondAttribute="trailing" constant="10" id="FJy-AY-J7Z"/>
+                            <constraint firstItem="LQX-ue-aQp" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="10" id="FyX-yS-MXw"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="Tw8-6h-iNY" secondAttribute="trailing" constant="30" id="G5M-nc-p5t"/>
                             <constraint firstItem="Tw8-6h-iNY" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="30" id="JrM-PZ-Zpo"/>
                             <constraint firstItem="am8-mu-GDy" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="80" id="KdE-dG-JZy"/>
                             <constraint firstItem="dKJ-Es-2f4" firstAttribute="top" secondItem="H4h-rq-MBp" secondAttribute="top" id="LxF-Gk-dAb"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="eED-iE-JrQ" secondAttribute="trailing" constant="80" id="Ob1-AR-ul4"/>
                             <constraint firstItem="eED-iE-JrQ" firstAttribute="leading" secondItem="H4h-rq-MBp" secondAttribute="leading" constant="80" id="PQC-9Y-z2S"/>
-                            <constraint firstItem="H4h-rq-MBp" firstAttribute="bottom" secondItem="B7w-U6-DPx" secondAttribute="bottom" constant="100" id="YMd-rD-pTL"/>
+                            <constraint firstItem="H4h-rq-MBp" firstAttribute="bottom" secondItem="B7w-U6-DPx" secondAttribute="bottom" constant="30" id="YMd-rD-pTL"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="am8-mu-GDy" secondAttribute="trailing" constant="80" id="cWn-hN-mlf"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="trailing" secondItem="dKJ-Es-2f4" secondAttribute="trailing" id="eel-uN-akO"/>
                             <constraint firstItem="H4h-rq-MBp" firstAttribute="bottom" secondItem="dKJ-Es-2f4" secondAttribute="bottom" id="fL4-sP-nZs"/>
@@ -436,10 +467,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Bum-0F-Ba7">
-                                <rect key="frame" x="40" y="80" width="240" height="298"/>
+                                <rect key="frame" x="40" y="80" width="240" height="328"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FTR-cz-e9b">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="86"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="96"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WHAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUo-xF-ym3">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="25.5"/>
@@ -448,7 +479,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AN1-pJ-zIK" customClass="AnimatableTextField" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="30.5" width="240" height="55.5"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="240" height="65.5"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -464,7 +495,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="syy-xh-iIc">
-                                        <rect key="frame" x="0.0" y="106" width="240" height="86"/>
+                                        <rect key="frame" x="0.0" y="116" width="240" height="96"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO DO ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJQ-cK-vhV">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="25.5"/>
@@ -473,7 +504,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TbR-0q-jYu" customClass="AnimatableTextField" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="30.5" width="240" height="55.5"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="240" height="65.5"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -489,7 +520,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Yjm-ZN-x3Q">
-                                        <rect key="frame" x="0.0" y="212" width="240" height="86"/>
+                                        <rect key="frame" x="0.0" y="232" width="240" height="96"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-AX-XFg">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="25.5"/>
@@ -498,7 +529,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EDK-eF-E11" customClass="AnimatableTextField" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="30.5" width="240" height="55.5"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="240" height="65.5"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -516,7 +547,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zte-QD-KbG" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="10" y="418" width="300" height="50"/>
+                                <rect key="frame" x="10" y="448" width="300" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.97308995480000005" blue="0.67047771430000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2si-OZ-mN7"/>
@@ -544,7 +575,7 @@
                             <constraint firstItem="bE7-Ab-i4C" firstAttribute="trailing" secondItem="Bum-0F-Ba7" secondAttribute="trailing" constant="40" id="UTW-ZT-ROC"/>
                             <constraint firstItem="bE7-Ab-i4C" firstAttribute="trailing" secondItem="zw5-5w-3H3" secondAttribute="trailing" constant="5" id="Ym1-8V-Z1Q"/>
                             <constraint firstItem="Zte-QD-KbG" firstAttribute="leading" secondItem="bE7-Ab-i4C" secondAttribute="leading" constant="10" id="Ysh-iV-j4A"/>
-                            <constraint firstItem="bE7-Ab-i4C" firstAttribute="bottom" secondItem="Zte-QD-KbG" secondAttribute="bottom" constant="100" id="aMv-d5-lyt"/>
+                            <constraint firstItem="bE7-Ab-i4C" firstAttribute="bottom" secondItem="Zte-QD-KbG" secondAttribute="bottom" constant="70" id="aMv-d5-lyt"/>
                             <constraint firstItem="Bum-0F-Ba7" firstAttribute="leading" secondItem="bE7-Ab-i4C" secondAttribute="leading" constant="40" id="cYd-5G-hra"/>
                             <constraint firstItem="vty-mu-LFO" firstAttribute="top" secondItem="bE7-Ab-i4C" secondAttribute="top" id="d4B-n4-ZDm"/>
                             <constraint firstItem="bE7-Ab-i4C" firstAttribute="trailing" secondItem="vty-mu-LFO" secondAttribute="trailing" id="jsQ-BX-dDA"/>
@@ -577,6 +608,6 @@
         <image name="icons8-user-24" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bLu-ow-UW7"/>
+        <segue reference="yxS-pV-mf8"/>
     </inferredMetricsTieBreakers>
 </document>

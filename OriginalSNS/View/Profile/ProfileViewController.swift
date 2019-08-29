@@ -80,6 +80,12 @@ class ProfileViewController: UIViewController {
         present(MainViewController.makeMainVC(), animated: true)
     }
 
+
+    @IBAction func toPostButton(_ sender: Any) {
+        // PostVCへ遷移する
+        present(PostViewController.makePostVC(), animated: true)
+    }
+
     // プロフィールボタンを押したとき
     @IBAction func toProfile(_ sender: Any) {
         // FIXME: リロードする or してるようにみせかける

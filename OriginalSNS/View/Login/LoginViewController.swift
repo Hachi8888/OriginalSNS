@@ -20,13 +20,16 @@ class LoginViewController: UIViewController {
     // パスワード入力欄
     @IBOutlet weak var passwordTextField: UITextField!
 
+    // ログイン情報保持のイメージ画像を貼るラベル
+    @IBOutlet weak var loginStateImageView: UIImageView!
+
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
 
     /// ログイン状態の保持機能のオンオフを判断するのに使用する。
-    /// 偶数: loginState = false(保持しない)
-    /// 奇数: loginState = true(保持する)
-    var loginState : Bool = false
+    ///  loginState = false(保持しない)
+    ///  loginState = true(保持する)
+    var loginState: Bool = false
 
 //    let singleton :Singleton =  Singleton.sharedInstance
 
@@ -38,23 +41,17 @@ class LoginViewController: UIViewController {
 
         // FIXME: ログアウトしてこの画面に遷移すると、loginStateCountは0になって情報が引き継がれない
         // 最新のloginStateを反映させる
-        if let state = UserDefaults.standard.object(forKey: "currentLoginState") {
-            loginState = state as? Bool ?? false
-        }
+            loginState = UserDefaults.standard.object(forKey: "currentLoginState") as? Bool ?? false
 
         print("ログイン保持:\(loginState) ※trueならログイン保持")
         // ログイン状態を保持する設定(true)の場合、UserDefaultからemailとpasswordの情報を読んで反映させる。
         if loginState { // trueのときはログイン情報を保持
+            // emailについて反映
+                emailTextField.text = UserDefaults.standard.object(forKey: "registeredEmail") as? String
 
-            // emailを反映
-            if let email = UserDefaults.standard.object(forKey: "registeredEmail") {
-                emailTextField.text = email as? String
-            }
+            // passwordについて反映
+                passwordTextField.text = UserDefaults.standard.object(forKey: "registeredPassword") as? String
 
-            // passwordを反映
-            if let password = UserDefaults.standard.object(forKey: "registeredPassword") {
-                passwordTextField.text = password as? String
-            }
         } else {  // falseのとき、初期化する
              emailTextField.text = ""
              passwordTextField.text = ""
@@ -106,22 +103,24 @@ class LoginViewController: UIViewController {
     }
 
     // ログイン状態を保持するかどうか
-    @IBAction func switchLoginStateButton(_ sender: Any) {
-
-//    singleton.getLoginState() = loginState
-
-        // FIXME: ボタンの画像の切り替え処理も追加!!
+    @IBAction func tappedLoginStateButton(_ sender: Any) {
+      print("押されました")
         // ログイン保持の選択を切り替える
         if loginState {
             loginState = false
             // UserDefaltにloginStateの情報を保存
             UserDefaults.standard.set(loginState, forKey: "currentLoginState")
+            // 画像を切替える
+            loginStateImageView.image = #imageLiteral(resourceName: "icons8-unchecked-checkbox-24")
             print("「ログイン情報:保持しない」でUserDefaultに保存しました")
         } else {
             loginState = true
             // UserDefaltにloginStateの情報を保存
             UserDefaults.standard.set(loginState, forKey: "currentLoginState")
+            loginStateImageView.image = #imageLiteral(resourceName: "icons8-checked-checkbox-48")
+            // 画像を切替える
             print("「ログイン情報:保持する」でUserDefaultに保存しました")
+
         }
     }
 

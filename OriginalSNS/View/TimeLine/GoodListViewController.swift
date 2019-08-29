@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import NVActivityIndicatorView // インジゲータ
 
 class GoodListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -19,20 +20,72 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
 
+    // 更新
+    let refreshControl = UIRefreshControl()
+
+    // ロード中のインジゲータを取得
+    private var activityIndicator: NVActivityIndicatorView!
+    // インジケータの背景として表示させるView
+    let grayView = UIView()
+
+   // Viewが読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
 
         // FireBaseから最新情報をとってくる
         fetch()
+
+        // インジケータの背景:grayView:grayViewの設定
+        // grayViewのサイズを確定
+        grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        // grayViewの背景色を薄いグレーに設定
+        grayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        // grayViewをViewに追加
+        self.view.addSubview(grayView)
+        // grayViewは最初に隠す
+        grayView.isHidden = true
+
+        // activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballBeat, color: UIColor.white, padding: 0)
+        // refreshControlのアクションを指定
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        // tableViewに追加
+        tableView.addSubview(refreshControl)
+
+        // 3秒後にインジケータを終了させる
+        perform(#selector(delay), with: nil, afterDelay: 3)
+
+
+
+    }
+
+    // 更新
+    @objc func refresh() {
+        // 初期化
+        goodListItems = [NSDictionary]()
+        // データをサーバから取得
+        fetch()
+        // リロード
+        tableView.reloadData()
+        // リフレッシュ終了
+        refreshControl.endRefreshing()
+    }
+
+    @objc func delay() {
+        // インジケータ終了
+        activityIndicator.stopAnimating()
+        // grayViewを消す
+        grayView.isHidden = true
     }
 
     // Firebaseからデータを取得
     func fetch() {
         // getで全件取得
-        db.collection("goodContents").getDocuments() {(querySnapshot, err) in
+        db.collection("goodContent").getDocuments() {(querySnapshot, err) in
             // tempItemsという変数を一時的に作成
             var tempItems = [NSDictionary]()
             // for文で回し`item`に格納
@@ -67,7 +120,7 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
 
         print(goodListItems.count)
 
-        // Firebaseからいいねを押した投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する(コレクション名:goodContentsでFirebaseに保管)
+        // Firebaseからいいねを押した投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する(コレクション名:goodContentでFirebaseに保管)
         // まず、goodItemsの中からindexpathのrow番目を取得するdictを定義
         let dict = goodListItems[(indexPath as NSIndexPath).row]
 
