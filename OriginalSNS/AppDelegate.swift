@@ -33,11 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // getGoodNumをUserDefaultから取得する
         getGoodNum = userDefaults.object(forKey: "getGoodNum") as? Int ?? 0
-        // 追加したお題の語句をUserDefaultから取得できる
-        singleton.data.whatList = (userDefaults.object(forKey: "whatList") as? [String]) ?? ["黒色のものを"]
-        singleton.data.toDoList = (userDefaults.object(forKey: "toDoList") as? [String]) ?? ["組み立てる"]
-        singleton.data.howList = (userDefaults.object(forKey: "howList") as? [String]) ?? ["論理的に"]
-        
+
         return true
     }
     
