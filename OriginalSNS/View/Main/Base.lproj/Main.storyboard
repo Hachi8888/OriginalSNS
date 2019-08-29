@@ -164,7 +164,7 @@
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="g6J-vk-GVR">
                                         <rect key="frame" x="40" y="35" width="51" height="31"/>
                                         <color key="onTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <color key="thumbTintColor" red="0.89051679042594212" green="0.99953407049999998" blue="0.40312253968987488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="thumbTintColor" red="0.24688291840000001" green="0.95713450369999997" blue="0.4434569176" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="selectModeSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="C9N-1b-a4L"/>
                                         </connections>
@@ -224,7 +224,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-gI-o9l">
-                                <rect key="frame" x="135" y="418" width="50" height="50"/>
+                                <rect key="frame" x="135" y="448" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Ibk-ad-e3H"/>
                                     <constraint firstAttribute="height" constant="50" id="iHk-Iq-Pu7"/>
@@ -234,41 +234,46 @@
                                     <action selector="batsuButton:" destination="b31-1h-YTw" eventType="touchDown" id="9s9-gk-UCX"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Fn6-1W-TIy" customClass="AnimatableStackView" customModule="IBAnimatable">
-                                <rect key="frame" x="0.0" y="120" width="320" height="108"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題発表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
-                                        <rect key="frame" x="89.5" y="0.0" width="141.5" height="42"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r">
-                                        <rect key="frame" x="23.5" y="72" width="273" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題発表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
+                                <rect key="frame" x="89.5" y="60" width="141.5" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r" customClass="AnimatableLabel" customModule="IBAnimatable">
+                                <rect key="frame" x="30" y="132" width="260" height="300"/>
+                                <color key="backgroundColor" red="0.24688291842439503" green="0.95713450369898478" blue="0.44345691756126671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="A1Q-Wk-xMp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" secondItem="eYm-gI-o9l" secondAttribute="bottom" constant="100" id="5GW-0J-AwR"/>
-                            <constraint firstItem="Fn6-1W-TIy" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="100" id="Gwg-Gz-PnZ"/>
-                            <constraint firstItem="Fn6-1W-TIy" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="Mja-0o-OF4"/>
+                            <constraint firstItem="OZq-AW-o7r" firstAttribute="top" secondItem="ZCI-vI-bFx" secondAttribute="bottom" constant="30" id="3QT-xV-LvE"/>
+                            <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" secondItem="eYm-gI-o9l" secondAttribute="bottom" constant="70" id="5GW-0J-AwR"/>
+                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="9bQ-Wu-0qd"/>
+                            <constraint firstItem="OZq-AW-o7r" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" constant="30" id="R18-Db-aYY"/>
+                            <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="OZq-AW-o7r" secondAttribute="trailing" constant="30" id="UEc-Mv-DmQ"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="bBC-g9-hHn"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" id="cWx-El-bHG"/>
-                            <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="Fn6-1W-TIy" secondAttribute="trailing" id="clo-o4-mJU"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="f9q-lU-F6v" secondAttribute="trailing" id="dFa-t9-RIc"/>
                             <constraint firstItem="eYm-gI-o9l" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="e3v-i5-p8a"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="bottom" secondItem="fRo-eL-lbj" secondAttribute="bottom" id="gbj-Ty-r9g"/>
-                            <constraint firstItem="Fn6-1W-TIy" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="ohT-aO-3AM"/>
+                            <constraint firstItem="OZq-AW-o7r" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="idv-g0-bZg"/>
+                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="40" id="pFn-oN-vsp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fRo-eL-lbj"/>
                     </view>
                     <connections>
-                        <outlet property="showThemeStackView" destination="Fn6-1W-TIy" id="ugw-a7-gIP"/>
                         <outlet property="themeLabel" destination="OZq-AW-o7r" id="Iye-ge-FpX"/>
                     </connections>
                 </viewController>

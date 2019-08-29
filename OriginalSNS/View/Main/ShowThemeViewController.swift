@@ -30,9 +30,9 @@ class ShowThemeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // FIXME: 反映されない。そもそも不要かもしれない
-    // アニメーションをつける
-        showThemeStackView.animate(.flip(along: .x))
+     themeLabel.layer.masksToBounds = true
+
+
      // ラベルにお題を表示
      themeLabel.text = "\n\(receiveWhat)" + "\n\(receiveTodo)" + "\n\(receiveHow)"
     }
