@@ -13,5 +13,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "TimeLineTableViewCell.awakeFromNib():TimeLineTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "num">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

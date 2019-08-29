@@ -29,6 +29,8 @@ class TimeLineTableViewCell: UITableViewCell {
     // いいねボタンを紐付け
     @IBOutlet weak var goodButton: AnimatableButton!
 
+    var num = 0
+
     // Firestoreを使うためにインスタンス化
     let db = Firestore.firestore()
     // いいね獲得数
@@ -44,10 +46,14 @@ class TimeLineTableViewCell: UITableViewCell {
         // 全体のいいね数を +1 する
         getGoodNum += 1
 
-       // indexPath.row順にいいね数を記録する
-       // いいねされた投稿単体のいいね数
-        var tappedGoodNum = eachGoodNumArray[goodButton.tag]
-       eachGoodNumArray.append[]
+        // いいねした投稿単体のいいねカウントを+1する
+        num += 1
+        // String型に変換して表示させる
+        let stringNum = String(num)
+        showGoodNumLabel.text = stringNum
+        // UDに保存させる
+        UserDefaults.standard.set(num, forKey: "\(goodButton.tag)")
+
 
         print(goodButton.tag)
 
@@ -102,6 +108,12 @@ class TimeLineTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        // 各投稿のいいね数をUserDefaultからとってきて反映させる
+        if let eachNum: Int = UserDefaults.standard.object(forKey: "\(goodButton.tag)") as? Int {
+            num = eachNum
+            showGoodNumLabel.text = "\(num)"
+        }
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

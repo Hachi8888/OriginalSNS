@@ -35,18 +35,18 @@ class ProfileViewController: UIViewController {
         // UserDefaultからプロフィ-ル画像、名前、最新のお題を取得、反映
         getInfo()
 
-//        showGetGoodNumLabel.text = "ああああああ"
-
         // お題を増やすボタンは最初は非表示にしておく
-         addThemeButton.isHidden = false
+         addThemeButton.isHidden = true
 
-        // いいね数が0でも下の条件式に当てはまってしまう!!
+        // FIXME: いいね数が0でも下の条件式に当てはまってしまう!!
         // いいね数が10個貯まるごとに、お題を増やせるようにする
-        if Int(showGetGoodNumLabel.text!) ?? 0 % 10 == 0 {
-            // FIXME: お題追加できるアナウンスを表示
-
+        if getGoodNum == 0 || getGoodNum % 10 != 0 {
             // お題追加ボタンを表示
            addThemeButton.isHidden = true
+        } else {
+             // FIXME: お題追加できるアナウンスを表示
+            // お題追加ボタンを表示
+            addThemeButton.isHidden = false
         }
     }
 

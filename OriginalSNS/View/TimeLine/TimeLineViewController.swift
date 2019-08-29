@@ -38,6 +38,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // FireBaseから最新情報をとってくる
         fetch()
 
+
         // grayViewのサイズを確定
         grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         // grayViewの背景色を薄いグレーに設定
@@ -146,7 +147,13 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // いいねされた投稿のいいねボタン(goodButton)に対して、タグ番号としてセルのindex番号を格納する
         cell.goodButton.tag = indexPath.row
 
-        cell.showGoodNumLabel.text =  [goodButton.tag]
+        // UserDefaultからいいね数を取得して反映
+//        if let showNum = UserDefaults.standard.object(forKey: "num") {
+//            cell.showGoodNumLabel.text = showNum as! String 
+//        }
+
+
+  //      cell.showGoodNumLabel.text =  [goodButton.tag]
 
         // Firebaseから全投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義

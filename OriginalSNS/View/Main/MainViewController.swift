@@ -20,6 +20,8 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
     // HOW: 形容詞を表示させるラベル
     @IBOutlet weak var howLabel: AnimatableLabel!
 
+    let singleton :Singleton =  Singleton.sharedInstance
+
     // ボタン、各ラベルの表示を切り替えるために使用する変数4つ
     var tapCount: Int = 0
     var whatCount: Int = 0
@@ -34,19 +36,24 @@ class MainViewController: UIViewController,UIViewControllerTransitioningDelegate
     // FIXME: データをfirebaseに持たせること
     // 各ラベルに表示させる語句の配列一覧(語句追加するのでvarで宣言)
     // 対象リスト
-    var whatList: [String] = ["青色のものを", "黄色のものを", "緑色のものを", "赤色のものを", "つやつやしたものを", "ざらざらしたものを", "トゲトゲしたものを", "丸いものを", "やわらかいものを", "硬いものを", "長いものを", "辛いものを", "甘いものを", "漢字で書いたときに画数の多いものを", "細いものを", "高さがあるものを"]
+    var whatList: [String] = []
 
     // 動詞リスト
-    var toDoList: [String] = ["食べる", "触る", "買う", "人に語る", "写真に取る", "街で見つける", "辞書で意味を調べる", "綺麗な字で書く", "全身で表現する", "題材に一句詠む", "主人公とした物語を調べる", "題材としたエピソードを人に尋ねる"]
+    var toDoList: [String] = []
 
     // 【ハードモード】副詞リスト
-    var howList: [String] = ["すばやく", "ゆっくりと", "満面の笑みで", "元気よく", "さりげなく", "心をこめて", "無表情で", "おもむろに", "どざくさにまぎれて", "目をつむって", "おおげさに", "息を止めながら", "瞬きもせずに", "目をパチパチさせながら", "リズムに乗りながら", "大きく振りかぶって", "ただひたすらに", "目に余る勢いで"]
+    var howList: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // 最初はノーマルモードなので、HOWの表示画面は隠しておく
         print("ノーマルモードです")
         howLabel.isHidden = true
+
+        whatList = singleton.getWhatList()
+        toDoList = singleton.getToDoList()
+        howList = singleton.getHowList()
+
         }
 
     // MARK: メイン機能:ボタンを押して、WHAT TODO? HOW(ハードモード時のみ) の3要素を決定
