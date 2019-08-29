@@ -20,6 +20,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
     // インスタンス化
     let db = Firestore.firestore()
 
+    // Viewが読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
         // UserDefaultからプロフィール画像と名前の情報を取得する
@@ -77,7 +78,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     }
 
-
     // 画像選択を 写真を撮る or ライブラリ から選択させるアラートを表示
     func showSelectAlert() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -130,7 +130,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             print("画像選択の失敗")
             return
         }
-        // FIXME: 選択しても表示が変わらない(コンソールにエラーが起きている)
         // 選択した画像をこの画面(SettingVC)のプロフィール画像に反映
         settingIconImageView.image = pickedImage
         // ピッカーを閉じる
@@ -147,12 +146,11 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             // さらにUIImage型に変換
             let decodedImage = UIImage(data: dataImage! as Data)
             // settingIconImageViewに代入
-             print("UserDefaultからプロフィール画像を取得")
+            print("UserDefaultからプロフィール画像を取得")
             settingIconImageView.image = decodedImage
         } else {
-            // FIXME: 初期設定のアイコンを変えること!!
             // なければアイコン画像をpsettingIconImageViewに格納
-            settingIconImageView.image = #imageLiteral(resourceName: "人物(仮)")
+            settingIconImageView.image = #imageLiteral(resourceName: "icons8-user-48")
         }
         // 名前情報があればprofNameに格納
         if let profName = UserDefaults.standard.object(forKey: "userName") as? String {

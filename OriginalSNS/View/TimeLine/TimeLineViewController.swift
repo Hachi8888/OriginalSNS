@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseFirestore
 import IBAnimatable
-import XLPagerTabStrip // 横スクロール
+//import XLPagerTabStrip // 横スクロール
 import NVActivityIndicatorView // インジゲータ
 
 class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
@@ -43,7 +43,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         // grayViewの背景色を薄いグレーに設定
         grayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-       // grayViewをViewに追加
+        // grayViewをViewに追加
         self.view.addSubview(grayView)
         // grayViewは最初に隠す
         grayView.isHidden = true
@@ -86,7 +86,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // MainVC:お題決定画面へ遷移
         present(MainViewController.makeMainVC(), animated: true)
     }
-
     // 投稿ボタンを押したとき
     @IBAction func toPostButton(_ sender: Any) {
         // PostVC:投稿画面へ遷移
@@ -138,7 +137,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineTableViewCell", for: indexPath) as! TimeLineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineTableViewCell", for: indexPath) as! TimeLineTableViewCell
 
         // セルを選択不可にする
         cell.selectionStyle = .none
@@ -150,7 +149,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義
         let dict = items[(indexPath as NSIndexPath).row]
 
-       // プロフィール設定変更の際にfirebaseに保存された情報(プロフ画像と名前だけの情報で、投稿文も投稿画像もどちらもない場合)を以下を判断し、合致すればタイムラインに表示されないようにする。
+        // プロフィール設定変更の際にfirebaseに保存された情報(プロフ画像と名前だけの情報で、投稿文も投稿画像もどちらもない場合)を以下を判断し、合致すればタイムラインに表示されないようにする。
         if dict["postImage"] as? String == "プロフィール設定用", dict["comment"] as? String == "プロフィール設定用" {
             print("プロフィール設定変更の情報なのでタイムラインには反映させません")
             return cell
@@ -181,17 +180,17 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             // postImageViewへ代入
             cell.timeLinePostImageView.image = decadedPostImage
         } else {
-//            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
+            //            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
 
-             // ImageViewを隠す
-              cell.timeLinePostImageView.isHidden = true
+            // ImageViewを隠す
+            cell.timeLinePostImageView.isHidden = true
         }
 
-         // ④投稿文を反映
+        // ④投稿文を反映
         if let comment = dict["comment"] as? String {
             cell.timeLineTextView.text = comment
         } else {
-//            cell.timeLineTextView.text = ""
+            //            cell.timeLineTextView.text = ""
             // TextViewを隠す
             cell.timeLineTextView.isHidden = true
         }
@@ -203,7 +202,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.timeLineTextView.text = ""
         }
         return cell
-}
+    }
 
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

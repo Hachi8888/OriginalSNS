@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profIconImageView: UIImageView!
     // ユーザー名を表示するLabel
     @IBOutlet weak var profNameLabel: UILabel!
-
     // 決定したお題を表示するラベル
     @IBOutlet weak var showThemeTextView: AnimatableTextView!
     // いいねの獲得数を表すラベル
@@ -32,30 +31,29 @@ class ProfileViewController: UIViewController {
     // PostVCで投稿用に選択した画像を受け取る変数
     var willPostImage: UIImage = UIImage()
 
+    // 画面が読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
         // UserDefaultからプロフィ-ル画像、名前、最新のお題を取得、反映
         getInfo()
 
         // お題を増やすボタンは最初は非表示にしておく
-         addThemeButton.isHidden = true
+        addThemeButton.isHidden = true
 
         // お題を増やすボタンを押したかどうか読み込む
         if let currentState = UserDefaults.standard.object(forKey: "didAddTheme") as? Bool {
-           didAddTheme = currentState
+            didAddTheme = currentState
         }
 
     }
 
-    // 画面が読み込まれたときの処理
+    // viewDidLoad()の処理
     override func viewDidAppear(_ animated: Bool) {
-        // いいね数が10個貯まるごとに、お題を1回増やせるようにする
-        // FIXME: 以下の条件式だと、いいねが10個単位でないとボタンが出現しない
+        // いいね数が10個単位になるごとに、お題を1回増やせるようにする
         if getGoodNum == 0 || getGoodNum % 10 != 0 {
-             // 何もしない
+            // 何もしない
             return
         } else { // いいねが10個単位のとき
-
             // すでにお題を増やすボタンをおしているか確認
             if didAddTheme { // ボタンをすでに押していたとき
                 // お題追加ボタンは隠す
@@ -74,12 +72,12 @@ class ProfileViewController: UIViewController {
         // タイムライン画面に遷移する
         present(TimeLineViewController.makeTimeLineVC(), animated: true)
     }
+
     // ★ボタンを押したとき
     @IBAction func getThemeButton(_ sender: Any) {
         // MainVC:お題決定画面へ遷移
         present(MainViewController.makeMainVC(), animated: true)
     }
-
 
     @IBAction func toPostButton(_ sender: Any) {
         // PostVCへ遷移する
