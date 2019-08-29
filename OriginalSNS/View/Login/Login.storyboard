@@ -37,7 +37,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L2J-1K-9qJ">
-                                <rect key="frame" x="60" y="328" width="200" height="162"/>
+                                <rect key="frame" x="60" y="328" width="200" height="167"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCF-0a-Kdj" customClass="AnimatableTextField" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
@@ -73,29 +73,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-Rs-3b1">
-                                        <rect key="frame" x="0.0" y="100" width="200" height="22"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-unchecked-checkbox-16" translatesAutoresizingMaskIntoConstraints="NO" id="ncT-PR-g7h">
-                                                <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ncT-PR-g7h" secondAttribute="height" multiplier="1:1" id="rTV-ng-Z1d"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6M-55-eb1">
-                                                <rect key="frame" x="22" y="0.0" width="178" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <state key="normal" title="ログイン情報を保持する">
-                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="tappedLoginStateButton:" destination="9iD-DV-IMc" eventType="touchUpInside" id="5NG-y9-Bzp"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-GQ-mIH">
-                                        <rect key="frame" x="0.0" y="132" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="200" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVz-T5-xud" customClass="AnimatableButton" customModule="IBAnimatable">
                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="30"/>
@@ -116,6 +95,21 @@
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
                                                     <action selector="createUser:" destination="9iD-DV-IMc" eventType="touchUpInside" id="UOY-pM-Sc1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-Rs-3b1">
+                                        <rect key="frame" x="0.0" y="140" width="200" height="27"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evs-SU-OvY">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="ログイン保持">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedLoginStateButton:" destination="9iD-DV-IMc" eventType="touchUpInside" id="lBe-jj-KNE"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -141,7 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="fCF-0a-Kdj" id="vdg-mg-EYq"/>
-                        <outlet property="loginStateImageView" destination="ncT-PR-g7h" id="0xX-VE-Xpr"/>
+                        <outlet property="loginStateButton" destination="evs-SU-OvY" id="Z4y-fP-n9h"/>
                         <outlet property="logoImage" destination="g1E-9I-0J5" id="VhD-dR-KG4"/>
                         <outlet property="passwordTextField" destination="F1E-4J-e2t" id="2Yb-0b-KPR"/>
                     </connections>
@@ -153,6 +147,5 @@
     </scenes>
     <resources>
         <image name="Find!ロゴ3" width="1270" height="423"/>
-        <image name="icons8-unchecked-checkbox-16" width="16" height="16"/>
     </resources>
 </document>

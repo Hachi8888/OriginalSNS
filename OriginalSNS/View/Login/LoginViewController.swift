@@ -19,9 +19,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     // パスワード入力欄
     @IBOutlet weak var passwordTextField: UITextField!
-    // ログイン情報保持のイメージ画像を貼るラベル
-    @IBOutlet weak var loginStateImageView: UIImageView!
-    
+    @IBOutlet weak var loginStateButton: UIButton!
+
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
     
@@ -51,6 +50,8 @@ class LoginViewController: UIViewController {
             emailTextField.text = ""
             passwordTextField.text = ""
         }
+        // ログイン保持の選択を切り替える
+        switchLoginState()
     }
     
     // 新規登録ボタンを押したとき
@@ -76,7 +77,7 @@ class LoginViewController: UIViewController {
     }
     
     // ログインボタンを押したとき
-    @IBAction func userLogin(_ sender: Any) {
+    @IBAction func userLogin(_ sender: UIButton) {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
         }
@@ -97,27 +98,37 @@ class LoginViewController: UIViewController {
     }
     
     // ログイン状態を保持するかどうか
-    @IBAction func tappedLoginStateButton(_ sender: Any) {
+
+
+
+
+
+
+    @IBAction func tappedLoginStateButton(_ sender: UIButton) {
         print("押されました")
+        // ログイン保持の選択を切り替える
+        switchLoginState()
+    }
+
+    func switchLoginState() {
         // ログイン保持の選択を切り替える
         if loginState {
             loginState = false
             // UserDefaltにloginStateの情報を保存
             UserDefaults.standard.set(loginState, forKey: "currentLoginState")
-            // 画像を切替える
-            loginStateImageView.image = #imageLiteral(resourceName: "icons8-unchecked-checkbox-24")
+            // テキストを変える
+            loginStateButton.titleLabel?.text = "□ ログイン情報を保持しました"
             print("「ログイン情報:保持しない」でUserDefaultに保存しました")
         } else {
             loginState = true
             // UserDefaltにloginStateの情報を保存
             UserDefaults.standard.set(loginState, forKey: "currentLoginState")
-            loginStateImageView.image = #imageLiteral(resourceName: "icons8-checked-checkbox-48")
-            // 画像を切替える
+            // テキストを変える
+            loginStateButton.titleLabel?.text = "☑ ログイン情報を保持しました"
             print("「ログイン情報:保持する」でUserDefaultに保存しました")
-            
         }
     }
-    
+
     // emailとpasswoedをFirebaseに保存する
     func registerLoginInfo() {
         let registeredEmail = emailTextField.text
