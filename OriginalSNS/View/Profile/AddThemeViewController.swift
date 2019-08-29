@@ -45,6 +45,7 @@ class AddThemeViewController: UIViewController {
             // どれか未入力の場合
             print("入ってないところがあるよ!すべて入力してください")
             showAlert("すべて入力してください!")
+
             return
         }
 
@@ -57,7 +58,19 @@ class AddThemeViewController: UIViewController {
         singleton.saveWhatList(whatList: currentWhat)
         singleton.saveToDoList(toDoList: currentToDo)
         singleton.saveHowList(howList: currentHow)
-        showAlert("お題の語句が追加されました!")
+
+        // お題追加をしたことをUserDefaultに記録する
+        // didAddTheme(currentStateでUDから取得)をtrueにする
+        if var currentState: Bool = UserDefaults.standard.object(forKey: "didAddTheme") as? Bool {
+            if currentState == false {
+                currentState = true
+                UserDefaults.standard.set(currentState, forKey: "didAddTheme")
+                print("お題追加をしたのでdidAddThemeをtrueに戻します!")
+            }
+        }
+
+        // アラート表示
+        AddCompleteAlert()
     }
 
     // アラートを表示する関数
@@ -69,4 +82,21 @@ class AddThemeViewController: UIViewController {
          alert.addAction(ok)
         present(alert, animated: true)
     }
+
+
+    // アラートを表示する関数
+    func AddCompleteAlert() {
+        let alert = UIAlertController(title: nil, message: "お題の語句が追加されました!", preferredStyle: .actionSheet)
+        //  OKボタンの設定
+        let ok = UIAlertAction(title: "OK", style: .cancel) { (UIAlertAction) in
+            // ボタンを押したときの処理
+            // ProfileVCへ遷移する
+            self.present(ProfileViewController.makeProfileVC(), animated: true)
+
+        }
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+
+
 }

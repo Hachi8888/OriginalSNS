@@ -26,6 +26,8 @@ class ProfileViewController: UIViewController {
 
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
+    // お題を増やすボタンを押したかどうかの判定に使う変数
+    var didAddTheme: Bool = false
 
     // PostVCで投稿用に選択した画像を受け取る変数
     var willPostImage: UIImage = UIImage()
@@ -38,18 +40,32 @@ class ProfileViewController: UIViewController {
         // お題を増やすボタンは最初は非表示にしておく
          addThemeButton.isHidden = true
 
+        // お題を増やすボタンを押したかどうか読み込む
+        if let currentState = UserDefaults.standard.object(forKey: "didAddTheme") as? Bool {
+           didAddTheme = currentState
+        }
+
     }
 
+    // 画面が読み込まれたときの処理
     override func viewDidAppear(_ animated: Bool) {
-        // いいね数が10個貯まるごとに、お題を増やせるようにする
+        // いいね数が10個貯まるごとに、お題を1回増やせるようにする
+        // FIXME: 以下の条件式だと、いいねが10個単位でないとボタンが出現しない
         if getGoodNum == 0 || getGoodNum % 10 != 0 {
-            // お題追加ボタンを表示
-            addThemeButton.isHidden = true
-        } else {
-            // アラート表示でユーザーにお知らせ
-            showAlert()
-            // お題追加ボタンを表示
-            addThemeButton.isHidden = false
+             // 何もしない
+            return
+        } else { // いいねが10個単位のとき
+
+            // すでにお題を増やすボタンをおしているか確認
+            if didAddTheme { // ボタンをすでに押していたとき
+                // お題追加ボタンは隠す
+                addThemeButton.isHidden = true
+            } else {  // まだボタンを押していないとき
+                // お題追加ボタンを表示
+                addThemeButton.isHidden = false
+                // アラート表示でユーザーにお知らせ
+                showAlert()
+            }
         }
     }
 
@@ -105,7 +121,7 @@ class ProfileViewController: UIViewController {
             showGetGoodNumLabel.text = goodNum
             print("現在のいいね数:\(goodNum)")
         } else {
-            print("いいね数をUDから取得失敗")
+            print("いいね数をUserDefaultから取得失敗")
         }
     }
 
@@ -131,3 +147,5 @@ extension ProfileViewController {
         return vc
     }
 }
+
+

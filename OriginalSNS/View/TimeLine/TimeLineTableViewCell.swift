@@ -43,7 +43,17 @@ class TimeLineTableViewCell: UITableViewCell {
         // 背景色を黄色に変更
         sender.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
 
-        // 全体のいいね数を +1 する
+        // didAddTheme(currentStateでUDから取得)をfalseにして、次にいいね数が10個単位になったときに、お題追加ボタンが出るようにする
+        if var currentState: Bool = UserDefaults.standard.object(forKey: "didAddTheme") as? Bool {
+            if currentState == true {
+
+            currentState = false
+            UserDefaults.standard.set(currentState, forKey: "didAddTheme")
+            print("いいね数が更新されたのでdidAddThemeをfalseに戻します!")
+            }
+        }
+
+        // ユーザーの全投稿に対するいいねの総数を +1 する
         getGoodNum += 1
 
         // いいねした投稿単体のいいねカウントを+1する
@@ -53,11 +63,8 @@ class TimeLineTableViewCell: UITableViewCell {
         showGoodNumLabel.text = stringNum
         // UDに保存させる
         UserDefaults.standard.set(num, forKey: "\(goodButton.tag)")
-
-
         print(goodButton.tag)
 
-        // FIXME: firebaseではなく、UserDefaultに保存のほうがいいかも
         // いいね一覧の箱に追加
         // ①名前
         let goodUserName = timeLineNameLabel.text
