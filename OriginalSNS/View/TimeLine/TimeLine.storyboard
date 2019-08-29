@@ -86,17 +86,16 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvV-Et-mTQ" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="52" width="300" height="50"/>
+                                                            <rect key="frame" x="0.0" y="52" width="300" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="Jrd-KH-jJ1"/>
+                                                                <constraint firstAttribute="height" constant="40" id="Jrd-KH-jJ1"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="quA-9t-Ebp" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="104" width="300" height="225"/>
-                                                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="0.0" y="94" width="300" height="225"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="quA-9t-Ebp" secondAttribute="height" multiplier="4:3" id="Lvk-gP-Zu8"/>
                                                             </constraints>
@@ -107,43 +106,44 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="投稿文が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="muv-GP-7aM" customClass="AnimatableTextView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="331" width="300" height="133.5"/>
-                                                            <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="0.0" y="321" width="300" height="148.5"/>
+                                                            <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="20"/>
+                                                                    <real key="value" value="10"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </textView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-ou-xJZ" userLabel="goodButton Stack View" customClass="AnimatableStackView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="466.5" width="300" height="30"/>
+                                                            <rect key="frame" x="0.0" y="471.5" width="300" height="25"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9af-pH-l0G">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="241.5" height="25"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cE-kn-iUe">
-                                                                    <rect key="frame" x="240" y="0.0" width="30" height="30"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cE-kn-iUe">
+                                                                    <rect key="frame" x="241.5" y="0.0" width="33.5" height="25"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="3cE-kn-iUe" secondAttribute="height" multiplier="1:1" id="7ta-C0-Ufe"/>
+                                                                        <constraint firstAttribute="width" secondItem="3cE-kn-iUe" secondAttribute="height" multiplier="4:3" id="7ta-C0-Ufe"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2S-Hl-MtI" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                                    <rect key="frame" x="270" y="0.0" width="30" height="30"/>
+                                                                    <rect key="frame" x="275" y="0.0" width="25" height="25"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="P2S-Hl-MtI" secondAttribute="height" multiplier="1:1" id="qbn-Cz-9gD"/>
                                                                     </constraints>
+                                                                    <inset key="contentEdgeInsets" minX="0.0" minY="-2" maxX="0.0" maxY="0.0"/>
                                                                     <state key="normal" title="Button" image="icons8-easy-50"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="15"/>
+                                                                            <real key="value" value="12"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
@@ -152,7 +152,7 @@
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="jnG-uR-Lwh"/>
+                                                                <constraint firstAttribute="height" constant="25" id="jnG-uR-Lwh"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
@@ -318,17 +318,16 @@
                                                             </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-tC-rHa" customClass="AnimatableLabel" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="52" width="300" height="50"/>
+                                                            <rect key="frame" x="0.0" y="52" width="300" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="Ba0-Jd-yT9"/>
+                                                                <constraint firstAttribute="height" constant="40" id="Ba0-Jd-yT9"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ahf-3N-Sx4" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="104" width="300" height="150"/>
-                                                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="0.0" y="94" width="300" height="150"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="150" id="6E4-mh-9aA"/>
                                                             </constraints>
@@ -339,13 +338,13 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="投稿文が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-4x-ePP" customClass="AnimatableTextView" customModule="IBAnimatable">
-                                                            <rect key="frame" x="0.0" y="256" width="300" height="240.5"/>
-                                                            <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <rect key="frame" x="0.0" y="246" width="300" height="250.5"/>
+                                                            <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="20"/>
+                                                                    <real key="value" value="10"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </textView>
