@@ -62,8 +62,9 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // grayViewを表示
         grayView.isHidden = false
         // インジケータの追加
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), padding: 0)
-        activityIndicator.center = self.grayView.center // 位置を中心に設定
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: #colorLiteral(red: 0.9907757402, green: 1, blue: 0.9234979383, alpha: 1), padding: 0)
+        // 位置を中心に設定
+        activityIndicator.center = self.grayView.center
         grayView.addSubview(activityIndicator)
 
         // インジケータを表示

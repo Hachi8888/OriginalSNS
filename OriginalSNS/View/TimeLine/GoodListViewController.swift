@@ -37,34 +37,33 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         // FireBaseから最新情報をとってくる
         fetch()
         
-        // インジケータの背景:grayView:grayViewの設定
-        // grayViewのサイズを確定
+        // インジケータの背景:grayViewの設定
+        // サイズ
         grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        // grayViewの背景色を薄いグレーに設定
+        // 背景色
         grayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
-        // grayViewをViewに追加
+        // Viewに追加
         self.view.addSubview(grayView)
-        // grayViewは最初に表示
+        // 最初に表示
         grayView.isHidden = false
-        
-        // activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballClipRotate, color: UIColor.white, padding: 0)
-        // refreshControlのアクションを指定
+
+        // インジケータの設定
+        // 位置、大きさ、種類、色
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: UIColor.white, padding: 0)
+
+        // 引っ張って更新を追加
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+
         // tableViewにインジケータと引っ張って更新のマークを追加
         tableView.addSubview(activityIndicator)
         tableView.addSubview(refreshControl)
-    }
 
-
-    override func viewWillAppear(_ animated: Bool) {
         // インジケータ開始
         activityIndicator.startAnimating()
         // 1.5秒後にインジケータとgrayViewの表示を終了させる
         perform(#selector(delay), with: nil, afterDelay: 1.5)
+        
     }
-
-
 
     // 更新
     @objc func refresh() {
@@ -100,8 +99,6 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             // tempItemsをitems(クラスの変数として定義した)に入れる
             self.goodListItems = tempItems
-            
-            print(tempItems)
             // リロード
             self.tableView.reloadData()
         }
@@ -119,8 +116,6 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // セルを選択不可にする
         cell.selectionStyle = .none
-        
-        print(goodListItems.count)
         
         // Firebaseからいいねを押した投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する(コレクション名:goodContentでFirebaseに保管)
         // まず、goodItemsの中からindexpathのrow番目を取得するdictを定義
