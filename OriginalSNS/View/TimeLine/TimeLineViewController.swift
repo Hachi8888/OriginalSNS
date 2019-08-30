@@ -66,8 +66,10 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         activityIndicator.center = self.grayView.center // 位置を中心に設定
         grayView.addSubview(activityIndicator)
 
+        // インジケータを表示
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
+
         // 1.5秒後にインジケータを終了させる
         perform(#selector(delay), with: nil, afterDelay: 1.5)
 

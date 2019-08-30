@@ -9,7 +9,6 @@
     import UIKit
     import IBAnimatable
 
-
     class MainViewController: UIViewController,UIViewControllerTransitioningDelegate {
 
         // WHAT: 対象を表示させるラベル
@@ -50,6 +49,11 @@
             whatList = singleton.getWhatList()
             toDoList = singleton.getToDoList()
             howList = singleton.getHowList()
+
+            // 各ラベルの角に丸みをもたせるようにする
+            whatLabel.layer.masksToBounds = true
+            toDoLabel.layer.masksToBounds = true
+            howLabel.layer.masksToBounds = true
         }
 
 

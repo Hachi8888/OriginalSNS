@@ -44,20 +44,28 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         grayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         // grayViewをViewに追加
         self.view.addSubview(grayView)
-        // grayViewは最初に隠す
-        grayView.isHidden = true
+        // grayViewは最初に表示
+        grayView.isHidden = false
         
         // activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballBeat, color: UIColor.white, padding: 0)
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballClipRotate, color: UIColor.white, padding: 0)
         // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-        // tableViewに追加
+        // tableViewにインジケータと引っ張って更新のマークを追加
+        tableView.addSubview(activityIndicator)
         tableView.addSubview(refreshControl)
-        
-        // 3秒後にインジケータを終了させる
-        perform(#selector(delay), with: nil, afterDelay: 3)
     }
-    
+
+
+    override func viewWillAppear(_ animated: Bool) {
+        // インジケータ開始
+        activityIndicator.startAnimating()
+        // 1.5秒後にインジケータとgrayViewの表示を終了させる
+        perform(#selector(delay), with: nil, afterDelay: 1.5)
+    }
+
+
+
     // 更新
     @objc func refresh() {
         // 初期化

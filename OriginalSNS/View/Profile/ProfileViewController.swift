@@ -22,12 +22,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var showGetGoodNumLabel: UILabel!
     // お題を増やすボタンの紐付け(押すと、お題追加画面に遷移)
     @IBOutlet weak var addThemeButton: AnimatableButton!
-
     // Firestoreをインスタンス化
     let db = Firestore.firestore()
     // お題を増やすボタンを押したかどうかの判定に使う変数
     var didAddTheme: Bool = false
-
     // PostVCで投稿用に選択した画像を受け取る変数
     var willPostImage: UIImage = UIImage()
 
@@ -39,6 +37,9 @@ class ProfileViewController: UIViewController {
 
         // お題を増やすボタンは最初は非表示にしておく
         addThemeButton.isHidden = true
+
+        // 2つのラベルの角に丸みをもたせる
+        showGetGoodNumLabel.layer.masksToBounds = true
 
         // お題を増やすボタンを押したかどうか読み込む
         if let currentState = UserDefaults.standard.object(forKey: "didAddTheme") as? Bool {
@@ -122,7 +123,8 @@ class ProfileViewController: UIViewController {
 
         // ④現在のいいね獲得数
         if let goodNum = UserDefaults.standard.object( forKey: "currentGetGoodNum") as? String {
-            showGetGoodNumLabel.text = goodNum
+            showGetGoodNumLabel.text = "\(goodNum)個GET!"
+
             print("現在のいいね数:\(goodNum)")
         } else {
             print("いいね数をUserDefaultから取得失敗")
