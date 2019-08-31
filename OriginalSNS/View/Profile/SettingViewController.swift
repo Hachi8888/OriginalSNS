@@ -149,8 +149,8 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             print("UserDefaultからプロフィール画像を取得")
             settingIconImageView.image = decodedImage
         } else {
-            // なければアイコン画像をpsettingIconImageViewに格納
-            settingIconImageView.image = #imageLiteral(resourceName: "icons8-user-48")
+//             なければアイコン画像をpsettingIconImageViewに格納
+            settingIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-96")
         }
         // 名前情報があればprofNameに格納
         if let profName = UserDefaults.standard.object(forKey: "userName") as? String {

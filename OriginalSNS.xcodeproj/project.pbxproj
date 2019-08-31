@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D13107E123191EC900F8A639 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D13107E023191EC900F8A639 /* TestStoryboard.storyboard */; };
+		D13107E323191EDC00F8A639 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13107E223191EDC00F8A639 /* TestViewController.swift */; };
 		D1AEEF672317006A00D7B594 /* Information.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AEEF662317006A00D7B594 /* Information.swift */; };
 		D1CB1DD9230AB589008C3855 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1DD8230AB589008C3855 /* AppDelegate.swift */; };
 		D1CB1DDB230AB589008C3855 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1CB1DDA230AB589008C3855 /* MainViewController.swift */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		6437BADF47FC4D668D053C58 /* Pods-OriginalSNS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OriginalSNS.debug.xcconfig"; path = "Target Support Files/Pods-OriginalSNS/Pods-OriginalSNS.debug.xcconfig"; sourceTree = "<group>"; };
 		6F0DF0EAFE3E2F1E91F96C56 /* Pods_OriginalSNS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OriginalSNS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D13107E023191EC900F8A639 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		D13107E223191EDC00F8A639 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D1AEEF662317006A00D7B594 /* Information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Information.swift; sourceTree = "<group>"; };
 		D1CB1DD5230AB589008C3855 /* OriginalSNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OriginalSNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1CB1DD8230AB589008C3855 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		D1CB1DCC230AB589008C3855 = {
 			isa = PBXGroup;
 			children = (
+				D13107E223191EDC00F8A639 /* TestViewController.swift */,
+				D13107E023191EC900F8A639 /* TestStoryboard.storyboard */,
 				D1CB1DD7230AB589008C3855 /* OriginalSNS */,
 				D1CB1DD6230AB589008C3855 /* Products */,
 				1F4795823F116DE5DA16FE2F /* Pods */,
@@ -266,6 +272,7 @@
 				D1CB1DEB230AB5DB008C3855 /* GoogleService-Info.plist in Resources */,
 				D1CB1DE0230AB58A008C3855 /* Assets.xcassets in Resources */,
 				D1CB1E05230CE42B008C3855 /* Post.storyboard in Resources */,
+				D13107E123191EC900F8A639 /* TestStoryboard.storyboard in Resources */,
 				D1CB1DEF230ABDDF008C3855 /* Login.storyboard in Resources */,
 				D1CB1DDE230AB589008C3855 /* Main.storyboard in Resources */,
 			);
@@ -320,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D13107E323191EDC00F8A639 /* TestViewController.swift in Sources */,
 				D1CB1DF1230ABEA7008C3855 /* LoginViewController.swift in Sources */,
 				D1CB1E07230CE465008C3855 /* PostViewController.swift in Sources */,
 				D1D5E8442315560F004F2A34 /* GoodListTableViewCell.swift in Sources */,
