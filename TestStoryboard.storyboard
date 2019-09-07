@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="7ux-Yt-ZV2">
+            <objects>
+                <viewController id="6Wo-je-EmB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4lA-IM-7Lu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJs-ho-kDC">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="0GW-wd-6jv"/>
+                                    <tabBarItem systemItem="more" id="BWe-8m-YdP"/>
+                                </items>
+                            </tabBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ALx-e2-4ML">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZJs-ho-kDC" firstAttribute="leading" secondItem="ah6-zb-owe" secondAttribute="leading" id="GI1-7I-iIR"/>
+                            <constraint firstItem="ALx-e2-4ML" firstAttribute="top" secondItem="ah6-zb-owe" secondAttribute="top" id="Hsq-j7-Yzd"/>
+                            <constraint firstItem="ALx-e2-4ML" firstAttribute="trailing" secondItem="ah6-zb-owe" secondAttribute="trailing" id="O16-Ik-iQV"/>
+                            <constraint firstItem="ZJs-ho-kDC" firstAttribute="trailing" secondItem="ah6-zb-owe" secondAttribute="trailing" id="TLo-Au-2Jl"/>
+                            <constraint firstItem="ZJs-ho-kDC" firstAttribute="top" secondItem="ALx-e2-4ML" secondAttribute="bottom" id="V2g-R3-Mff"/>
+                            <constraint firstItem="ALx-e2-4ML" firstAttribute="leading" secondItem="ah6-zb-owe" secondAttribute="leading" id="Wvd-M4-eL2"/>
+                            <constraint firstItem="ah6-zb-owe" firstAttribute="bottom" secondItem="ZJs-ho-kDC" secondAttribute="bottom" id="ogF-it-VGI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ah6-zb-owe"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j15-iX-Wnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186.95652173913044" y="-3.3482142857142856"/>
+        </scene>
+    </scenes>
+</document>
