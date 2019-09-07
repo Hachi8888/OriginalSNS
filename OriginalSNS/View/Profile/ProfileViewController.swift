@@ -92,20 +92,20 @@ class ProfileViewController: UIViewController {
 
     // UserDefaultに保存している①プロフィール画像、②名前情報、③お題、④いいね獲得数を反映させる関数
     func getInfo() {
-        // ①プロフィール画像
-//        if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
-//            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
-//            // NSData型に変換
-//            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
-//            // さらにUIImage型に変換
-//            let decodedImage = UIImage(data: dataImage! as Data)
-//            // profileImageViewに代入
-//            profIconImageView.image = decodedImage
-//        } else {
+//   ①プロフィール画像
+        if let profImage = UserDefaults.standard.object(forKey: "iconImage") {
+            // あればprofImageを型変換して投稿用のmyIconImageViewに格納
+            // NSData型に変換
+            let dataImage = NSData(base64Encoded: profImage as! String, options: .ignoreUnknownCharacters)
+            // さらにUIImage型に変換
+            let decodedImage = UIImage(data: dataImage! as Data)
+            // profileImageViewに代入
+            profIconImageView.image = decodedImage
+        } else {
             // FIXME: 初期設定のアイコンを変えること!!
-            // なければアイコン画像をprofImageViewに格納
+            //  なければアイコン画像をprofImageViewに格納
             profIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-48")
-//        }
+        }
 
         // ②名前情報
         if let profName = UserDefaults.standard.object(forKey: "userName") as? String {
