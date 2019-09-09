@@ -47,8 +47,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // grayViewは最初に隠す
         grayView.isHidden = true
 
-        // activityIndicatorをつくり、位置(真ん中)、インジゲータの種類、色を決める
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 30, height: 30), type: NVActivityIndicatorType.ballBeat, color: UIColor.white, padding: 0)
         // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加

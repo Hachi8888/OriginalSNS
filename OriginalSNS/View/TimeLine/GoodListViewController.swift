@@ -48,20 +48,21 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         grayView.isHidden = false
 
         // インジケータの設定
-        // 位置、大きさ、種類、色
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: self.view.center.x - 15, y: self.view.center.y - 15 - 50 , width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: UIColor.white, padding: 0)
-
-        // 引っ張って更新を追加
+        // インジケータの追加
+        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: #colorLiteral(red: 0.9907757402, green: 1, blue: 0.9234979383, alpha: 1), padding: 0)
+        // 位置を中心に設定
+        activityIndicator.center = self.grayView.center
+        // grayViewにインジケータを追加
+        grayView.addSubview(activityIndicator)
+        // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-
-        // tableViewにインジケータと引っ張って更新のマークを追加
-        tableView.addSubview(activityIndicator)
-        tableView.addSubview(refreshControl)
-
         // インジケータ開始
         activityIndicator.startAnimating()
         // 1.5秒後にインジケータとgrayViewの表示を終了させる
         perform(#selector(delay), with: nil, afterDelay: 1.5)
+        
+        // tableViewに引っ張って更新のマークを追加
+        tableView.addSubview(refreshControl)
         
     }
 

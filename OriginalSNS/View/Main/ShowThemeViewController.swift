@@ -33,13 +33,15 @@
             themeLabel.text = "\n\(receiveWhat)" + "\n\(receiveTodo)" + "\n\(receiveHow)"
         }
 
-        // ☓ボタンを押したときの処理
+        // チェックボタンを押したときの処理
         @IBAction func batsuButton(_ sender: UIButton) {
-
             // お題をUserDefaultに保存する
             let currentTheme = "\(receiveWhat)" + "\(receiveTodo)" + "\(receiveHow)"
             UserDefaults.standard.set(currentTheme, forKey: "currentTheme")
             print("UserDefaultに最新のお題の保存完了")
+            // FIXME: ↓不要かも。もしくはライブラリを使う。
+            // 背景色を緑色に変更する
+            sender.backgroundColor = UIColor.green
             // ホーム画面へ遷移する
             present(TimeLineViewController.makeTimeLineVC(), animated: true)
         }
