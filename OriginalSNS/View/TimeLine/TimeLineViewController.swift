@@ -149,12 +149,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義
         let dict = items[(indexPath as NSIndexPath).row]
 
-        // プロフィール設定変更の際にfirebaseに保存された情報(プロフ画像と名前だけの情報で、投稿文も投稿画像もどちらもない場合)を以下を判断し、合致すればタイムラインに表示されないようにする。
-        if dict["postImage"] as? String == "プロフィール設定用", dict["comment"] as? String == "プロフィール設定用" {
-            print("プロフィール設定変更の情報なのでタイムラインには反映させません")
-            return cell
-        }
-
         // firebaseから以下①〜⑤の情報をとって反映させる
         // ①プロフィール画像情報
         if let profImage = dict["iconImage"] {

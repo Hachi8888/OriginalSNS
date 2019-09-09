@@ -278,7 +278,7 @@
                                     <action selector="settingImageButton:" destination="CCh-0l-3f7" eventType="touchUpInside" id="fyM-Ke-pek"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-male-user-96" translatesAutoresizingMaskIntoConstraints="NO" id="eED-iE-JrQ" customClass="AnimatableImageView" customModule="IBAnimatable">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-male-user-96" translatesAutoresizingMaskIntoConstraints="NO" id="eED-iE-JrQ" customClass="AnimatableImageView" customModule="IBAnimatable">
                                 <rect key="frame" x="80" y="85" width="160" height="160"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eED-iE-JrQ" secondAttribute="height" multiplier="1:1" id="kwY-SQ-u8y"/>
@@ -301,10 +301,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="記入してください" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-he-8xl" customClass="AnimatableTextField" customModule="IBAnimatable">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  記入してください" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Crd-he-8xl" customClass="AnimatableTextField" customModule="IBAnimatable">
                                         <rect key="frame" x="75" y="0.0" width="185" height="40"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
@@ -352,7 +352,6 @@
                                         </constraints>
                                         <state key="normal" image="icons8-back-96"/>
                                         <connections>
-                                            <action selector="backButton:" destination="CCh-0l-3f7" eventType="touchUpInside" id="ADb-VY-QTg"/>
                                             <segue destination="ksf-pN-nA1" kind="show" id="yxS-pV-mf8"/>
                                         </connections>
                                     </button>

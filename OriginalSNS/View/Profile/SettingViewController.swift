@@ -43,10 +43,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     // 決定ボタンを押したとき
     @IBAction func registerButton(_ sender: Any) {
-        //  名前とプロフィール画像を①UserDefaultと②Firebaseに保存する
-        /* Firebaseにもほ情報を保存する理由:タイムラインに戻ったときに、新たに投稿しなくても過去の自分の投稿に対して最新のプロフィール画像と名前が反映されるようにするため
-         */
-        // ①UserDefaulへの保存
+        //  名前とプロフィール画像をUserDefaultに保存する
         //  名前ついて
         let userName = settingNameLabel.text
         // 保存
@@ -66,15 +63,6 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
         // 保存
         UserDefaults.standard.set(base64IconImage, forKey: "iconImage")
         print("UserDefaultへicon画像の保存完了")
-
-        // ②Firebaseへの保存
-        let postImage = "プロフィール設定用"
-        let comment = "プロフィール設定用"
-        // Firestoreに飛ばす箱を用意
-        let user: NSDictionary = ["userName": userName ?? "", "iconImage": base64IconImage, "postImage": postImage , "comment": comment]
-        // userごとFirestoreへpost
-        db.collection("contents").addDocument(data: user as! [String : Any])
-        print("Firebaseへ名前とicon画像の保存完了")
 
     }
 
@@ -117,7 +105,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             // ソースタイプの代入
             cameraPicker.sourceType = sourceType
             // デリゲートの接続
-            cameraPicker.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
+            cameraPicker.delegate = self as UIImagePickerControllerDelegate & UINavigationControllerDelegate
             // 画面遷移
             self.present(cameraPicker, animated: true)
         }
@@ -149,7 +137,7 @@ class SettingViewController: UIViewController, UIImagePickerControllerDelegate, 
             print("UserDefaultからプロフィール画像を取得")
             settingIconImageView.image = decodedImage
         } else {
-//             なければアイコン画像をpsettingIconImageViewに格納
+          // なければアイコン画像をpsettingIconImageViewに格納
             settingIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-96")
         }
         // 名前情報があればprofNameに格納
