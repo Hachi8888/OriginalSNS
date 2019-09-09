@@ -167,6 +167,13 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
 
         // ③投稿画像を反映
         if let postImage = dict["postImage"] {
+            
+            if postImage as? String == "写真ないよ！" {
+                
+                print("if文は正しく判定できています")
+            }
+            
+            
             // NSData型に変換
             let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
             // さらにUIImage型に変換

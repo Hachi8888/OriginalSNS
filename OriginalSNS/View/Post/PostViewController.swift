@@ -69,6 +69,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let image = postImageView.image {
             // クオリティを10パーセントに下げる
             ImageData = image.jpegData(compressionQuality: 0.1)! as NSData
+        } else {
+            let base64PostImage: String = "写真ないよ！"
         }
         // 送信するためにbase64Stringという形式に変換
         let base64PostImage = ImageData.base64EncodedString(options: .lineLength64Characters) as String
