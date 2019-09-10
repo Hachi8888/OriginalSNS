@@ -10,6 +10,7 @@ import UIKit
 import IBAnimatable
 import FirebaseFirestore
 
+
 class ProfileViewController: UIViewController, UITabBarDelegate {
 
     // プロフィール画像を表示するImageView
@@ -47,6 +48,7 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         // お題を増やすボタンを押したかどうか読み込む
         if let currentState = UserDefaults.standard.object(forKey: "didAddTheme") as? Bool {
             didAddTheme = currentState
+            
         }
 
     }

@@ -11,7 +11,7 @@ import FirebaseFirestore
 import IBAnimatable
 import NVActivityIndicatorView // インジゲータ
 
-class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
 
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
@@ -30,9 +30,12 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 2つのdelegateを追加
+        // tableBarの2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
+        
+        // tabBerのデリゲート接続
+        tabBar.delegate = self
 
         // FireBaseから最新情報をとってくる
         fetch()
@@ -53,25 +56,50 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.addSubview(refreshControl)
     }
 
-    // タイムラインを押したとき
-    @IBAction func toTimeLineButton(_ sender: Any) {
-        // リロード
-        tableView.reloadData()
-        // grayViewを表示
-        grayView.isHidden = false
-        // インジケータの追加
-        activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: #colorLiteral(red: 0.9907757402, green: 1, blue: 0.9234979383, alpha: 1), padding: 0)
-        // 位置を中心に設定
-        activityIndicator.center = self.grayView.center
-        grayView.addSubview(activityIndicator)
+    
+    // tabbarに関する紐付け
+    @IBOutlet weak var toTimeLineBar: UITabBarItem!
+    @IBOutlet weak var toPostBar: UITabBarItem!
+    @IBOutlet weak var toMyPageBar: UITabBarItem!
+    @IBOutlet weak var getThemeTab: UITabBarItem!
+    @IBOutlet weak var tabBar: UITabBar!
 
-        // インジケータを表示
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-
-        // 1.5秒後にインジケータを終了させる
-        perform(#selector(delay), with: nil, afterDelay: 1.5)
-
+    // tabbarを押したとき
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag{
+        case 1 :
+            // リロード
+            tableView.reloadData()
+            // grayViewを表示
+            grayView.isHidden = false
+            // インジケータの追加
+            activityIndicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 25, height: 25), type: NVActivityIndicatorType.ballClipRotate, color: #colorLiteral(red: 0.9907757402, green: 1, blue: 0.9234979383, alpha: 1), padding: 0)
+            // 位置を中心に設定
+            activityIndicator.center = self.grayView.center
+            grayView.addSubview(activityIndicator)
+            
+            // インジケータを表示
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            
+            // 1.5秒後にインジケータを終了させる
+            perform(#selector(delay), with: nil, afterDelay: 1.5)
+            
+        case 2 :
+            // MainVC:お題決定画面へ遷移
+            present(MainViewController.makeMainVC(), animated: true)
+        case 3 :
+            // PostVCへ遷移する
+            present(PostViewController.makePostVC(), animated: true)
+            
+        case 4 :
+            // ProfileVC:プロフィール設定へ画面遷
+          present(ProfileViewController.makeProfileVC(), animated: true)
+            
+        default :
+            return
+        }
+        
     }
 
     @objc func delay() {
@@ -79,22 +107,6 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         activityIndicator.stopAnimating()
         // grayViewを消す
         grayView.isHidden = true
-    }
-
-    // ★ボタンを押したとき
-    @IBAction func getThemeButton(_ sender: Any) {
-        // MainVC:お題決定画面へ遷移
-        present(MainViewController.makeMainVC(), animated: true)
-    }
-    // 投稿ボタンを押したとき
-    @IBAction func toPostButton(_ sender: Any) {
-        // PostVC:投稿画面へ遷移
-        present(PostViewController.makePostVC(), animated: true)
-    }
-    // プロフィールボタンを押したとき
-    @IBAction func toProfileButton(_ sender: Any) {
-        // ProfileVC:プロフィール設定へ画面遷
-        present(ProfileViewController.makeProfileVC(), animated: true)
     }
 
     // 更新

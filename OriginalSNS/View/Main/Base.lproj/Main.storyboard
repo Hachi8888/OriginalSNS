@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EU3-XR-xFI" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                <rect key="frame" x="0.0" y="20" width="320" height="508"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="498"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                                         <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -85,50 +85,6 @@
                                     <constraint firstAttribute="height" constant="300" id="sft-e8-u45"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CeS-TT-S59">
-                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqm-Tx-zO9">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" image="icons8-timeline-32">
-                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="toHomeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wnn-8r-VPU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icU-6R-E0r">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="40"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="icons8-christmas-star-24"/>
-                                        <connections>
-                                            <action selector="getThemeButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0g-jM-og7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dv2-ZP-afO">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="40"/>
-                                        <state key="normal" title="Button" image="icons8-chat-bubble-24"/>
-                                        <connections>
-                                            <action selector="toPostButton:" destination="rzP-jw-YFs" eventType="touchUpInside" id="FZK-BQ-JzA"/>
-                                            <action selector="toPostButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nwO-et-bRT"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-LT-vLI">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="40"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                        <state key="normal" title="Button" image="icons8-user-24"/>
-                                        <connections>
-                                            <action selector="toProfileButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ftj-Bh-QYb"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Rc1-zj-Tp2"/>
-                                </constraints>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-3z-Gj9" customClass="AnimatableButton" customModule="IBAnimatable">
                                 <rect key="frame" x="110" y="458" width="100" height="50"/>
                                 <color key="backgroundColor" red="1" green="0.81494899499999995" blue="0.85425653160000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,36 +127,57 @@
                                     </switch>
                                 </subviews>
                             </stackView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfv-EN-fC2" customClass="ESTabBar" customModule="ESTabBarController_swift">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OCl-6E-EhH"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem tag="1" title="Time Line" image="icons8-timeline-32" id="eCJ-1w-him" customClass="ESTabBarItem" customModule="ESTabBarController_swift"/>
+                                    <tabBarItem tag="2" title="Get Theme" image="icons8-christmas-star-24" id="WhW-UY-AsX" customClass="AnimatableTabBarItem" customModule="IBAnimatable">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="autoRun" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
+                                    <tabBarItem tag="3" title="Find!" image="icons8-speech-24" id="agv-zD-7QK"/>
+                                    <tabBarItem tag="4" title="My Page" image="icons8-user-24" id="OJD-4F-X5Q"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CeS-TT-S59" firstAttribute="top" secondItem="Zkr-3z-Gj9" secondAttribute="bottom" constant="20" id="3wt-Vq-Wya"/>
                             <constraint firstItem="EU3-XR-xFI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6cq-22-JgR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EU3-XR-xFI" secondAttribute="trailing" id="FW6-Wx-Ag4"/>
-                            <constraint firstAttribute="trailing" secondItem="CeS-TT-S59" secondAttribute="trailing" id="GfV-Ta-kH1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CeS-TT-S59" secondAttribute="bottom" id="Ggq-u8-aXn"/>
+                            <constraint firstItem="xfv-EN-fC2" firstAttribute="top" secondItem="EU3-XR-xFI" secondAttribute="bottom" id="FeF-P4-XbD"/>
+                            <constraint firstItem="xfv-EN-fC2" firstAttribute="top" secondItem="Zkr-3z-Gj9" secondAttribute="bottom" constant="10" id="Lky-HB-yJh"/>
                             <constraint firstItem="yfT-Zj-pob" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="O2W-a5-ChO"/>
+                            <constraint firstItem="xfv-EN-fC2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="P7v-RU-F3S"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yfT-Zj-pob" secondAttribute="trailing" constant="20" id="Pvn-bJ-BEB"/>
                             <constraint firstItem="nXa-rr-OhS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aBW-bS-TRU"/>
                             <constraint firstItem="yfT-Zj-pob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="gpW-dJ-Qbg"/>
                             <constraint firstItem="Zkr-3z-Gj9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h5v-w3-lRs"/>
+                            <constraint firstItem="xfv-EN-fC2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="oga-TW-mz5"/>
                             <constraint firstItem="nXa-rr-OhS" firstAttribute="top" secondItem="yfT-Zj-pob" secondAttribute="bottom" constant="30" id="pJN-fr-FPB"/>
-                            <constraint firstItem="CeS-TT-S59" firstAttribute="top" secondItem="EU3-XR-xFI" secondAttribute="bottom" id="ts0-hF-eoa"/>
                             <constraint firstItem="EU3-XR-xFI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yqH-oK-RTq"/>
-                            <constraint firstItem="CeS-TT-S59" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zfK-3n-ucc"/>
+                            <constraint firstItem="xfv-EN-fC2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z6X-JZ-Bqe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="WHAT TO DO?" largeTitleDisplayMode="never" id="9Dy-ab-zHb"/>
                     <connections>
+                        <outlet property="getThemeTab" destination="WhW-UY-AsX" id="mQt-pC-jz0"/>
                         <outlet property="howLabel" destination="n8f-ou-2bd" id="bq6-rS-h5q"/>
+                        <outlet property="tabBar" destination="xfv-EN-fC2" id="fp5-3x-rmZ"/>
                         <outlet property="toDoLabel" destination="6mL-ND-SjT" id="Jhp-Q0-z1I"/>
+                        <outlet property="toMyPageBar" destination="OJD-4F-X5Q" id="1Dy-MT-1SM"/>
+                        <outlet property="toPostBar" destination="agv-zD-7QK" id="fQh-bZ-E3f"/>
+                        <outlet property="toTimeLineBar" destination="eCJ-1w-him" id="2AX-hy-5pa"/>
                         <outlet property="whatLabel" destination="IOw-JP-Lbl" id="jpg-F3-6gU"/>
                         <segue destination="b31-1h-YTw" kind="show" identifier="showTheme" id="cmC-v3-HzV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="rzP-jw-YFs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1046.25" y="90.845070422535215"/>
         </scene>
@@ -284,9 +261,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-chat-bubble-24" width="24" height="24"/>
         <image name="icons8-christmas-star-24" width="24" height="24"/>
         <image name="icons8-ok-100" width="100" height="100"/>
+        <image name="icons8-speech-24" width="24" height="24"/>
         <image name="icons8-timeline-32" width="32" height="32"/>
         <image name="icons8-user-24" width="24" height="24"/>
     </resources>

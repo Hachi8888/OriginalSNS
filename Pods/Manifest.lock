@@ -122,6 +122,7 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.7.0)
   - NVActivityIndicatorView/Presenter (4.7.0)
   - Protobuf (3.9.0)
+  - RAMAnimatedTabBarController (5.0.1)
   - XLPagerTabStrip (8.1.0)
 
 DEPENDENCIES:
@@ -132,6 +133,7 @@ DEPENDENCIES:
   - IBAnimatable
   - IQKeyboardManagerSwift
   - NVActivityIndicatorView
+  - RAMAnimatedTabBarController
   - XLPagerTabStrip
 
 SPEC REPOS:
@@ -160,6 +162,7 @@ SPEC REPOS:
     - nanopb
     - NVActivityIndicatorView
     - Protobuf
+    - RAMAnimatedTabBarController
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
@@ -187,8 +190,9 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  RAMAnimatedTabBarController: ec36fba2fa4679fd36db55098e3477fe9bd79f52
   XLPagerTabStrip: 22d4c58200d7c105e0e407ab6bfd01a5d85014be
 
-PODFILE CHECKSUM: 67981a994e8c1ff7c1ee65c0c0a72bf93c0feb95
+PODFILE CHECKSUM: 860b1d3548a4414601272a8e17c4728db317cbb1
 
 COCOAPODS: 1.7.5

@@ -32,7 +32,7 @@
             // ラベルにお題を表示
             themeLabel.text = "\n\(receiveWhat)" + "\n\(receiveTodo)" + "\n\(receiveHow)"
         }
-
+        
         // チェックボタンを押したときの処理
         @IBAction func batsuButton(_ sender: UIButton) {
             // お題をUserDefaultに保存する

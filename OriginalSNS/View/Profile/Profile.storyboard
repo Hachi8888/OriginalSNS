@@ -150,8 +150,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls9-Nd-GGT" customClass="AnimatableButton" customModule="IBAnimatable">
-                                <rect key="frame" x="20" y="448" width="280" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls9-Nd-GGT" customClass="AnimatableButton" customModule="IBAnimatable">
+                                <rect key="frame" x="20" y="439" width="280" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VIC-nl-OEt"/>
                                 </constraints>
@@ -171,11 +171,11 @@
                                     <segue destination="tAY-jH-ERl" kind="show" id="fGc-tz-qub"/>
                                 </connections>
                             </button>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVp-tZ-Esb">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVp-tZ-Esb" customClass="ESTabBar" customModule="ESTabBarController_swift">
                                 <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem tag="1" title="Time Line" image="icons8-timeline-32" id="Ytz-dc-a8E"/>
+                                    <tabBarItem tag="1" title="Time Line" image="icons8-timeline-32" id="Ytz-dc-a8E" customClass="ESTabBarItem" customModule="ESTabBarController_swift"/>
                                     <tabBarItem tag="2" title="Get Theme" image="icons8-christmas-star-24" id="rSG-ld-BWx" customClass="AnimatableTabBarItem" customModule="IBAnimatable">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoRun" value="YES"/>
@@ -193,6 +193,7 @@
                             <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="Ls9-Nd-GGT" secondAttribute="trailing" constant="20" id="Fdm-FR-njd"/>
                             <constraint firstItem="aVp-tZ-Esb" firstAttribute="leading" secondItem="B9k-9j-sRL" secondAttribute="leading" id="Pyw-IB-yDH"/>
                             <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="M2Q-09-WbW" secondAttribute="trailing" constant="30" id="WdV-wP-aJO"/>
+                            <constraint firstItem="aVp-tZ-Esb" firstAttribute="top" secondItem="Ls9-Nd-GGT" secondAttribute="bottom" constant="30" id="a8E-Bk-Wbm"/>
                             <constraint firstItem="z01-SG-SGC" firstAttribute="top" secondItem="B9k-9j-sRL" secondAttribute="top" id="c6h-wU-4Ec"/>
                             <constraint firstItem="aVp-tZ-Esb" firstAttribute="trailing" secondItem="B9k-9j-sRL" secondAttribute="trailing" id="gUD-XB-XBb"/>
                             <constraint firstItem="B9k-9j-sRL" firstAttribute="trailing" secondItem="z01-SG-SGC" secondAttribute="trailing" id="gm5-81-MX0"/>
@@ -476,6 +477,9 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
@@ -501,6 +505,9 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
@@ -524,6 +531,9 @@
                                                         <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
                                                         <real key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>

@@ -9,7 +9,7 @@
     import UIKit
     import IBAnimatable
 
-    class MainViewController: UIViewController,UIViewControllerTransitioningDelegate {
+    class MainViewController: UIViewController, UIViewControllerTransitioningDelegate, UITabBarDelegate {
 
         // WHAT: 対象を表示させるラベル
         @IBOutlet weak var whatLabel: AnimatableLabel!
@@ -54,6 +54,9 @@
             whatLabel.layer.masksToBounds = true
             toDoLabel.layer.masksToBounds = true
             howLabel.layer.masksToBounds = true
+            
+            // tabBerのデリゲート接続
+            tabBar.delegate = self
         }
 
 
@@ -149,28 +152,36 @@
             present(alert, animated: true)
         }
 
-        // ホームボタンを押したとき
-        @IBAction func toHomeButton(_ sender: Any) {
-            // タイムライン画面へ遷移する
-            present(TimeLineViewController.makeTimeLineVC(), animated: true)
+        // tabbarに関する紐付け
+        @IBOutlet weak var toTimeLineBar: UITabBarItem!
+        @IBOutlet weak var toPostBar: UITabBarItem!
+        @IBOutlet weak var toMyPageBar: UITabBarItem!
+        @IBOutlet weak var getThemeTab: UITabBarItem!
+        @IBOutlet weak var tabBar: UITabBar!
+        
+        // tabbarを押したとき
+        func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            switch item.tag{
+            case 1 :
+               present(TimeLineViewController.makeTimeLineVC(), animated: true)
+                
+            case 2 :
+                // MainVC:お題決定画面へ遷移
+                present(MainViewController.makeMainVC(), animated: true)
+            case 3 :
+                // PostVCへ遷移する
+                present(PostViewController.makePostVC(), animated: true)
+                
+            case 4 :
+                // ProfileVC:プロフィール設定へ画面遷
+                present(ProfileViewController.makeProfileVC(), animated: true)
+                
+            default :
+                return
+            }
+        
         }
-
-        // ★ボタンを押したとき
-        @IBAction func getThemeButoon(_ sender: Any) {
-            // 何も起こらない
-            return
-        }
-
-        @IBAction func toPostButton(_ sender: Any) {
-            // PodtVCへ画面遷移する
-            present(PostViewController.makePostVC(), animated: true)
-        }
-
-        // プロフィールボタンを押したとき
-        @IBAction func toProfileButoon(_ sender: Any) {
-            // ProfileVCへ画面遷移する
-            present(ProfileViewController.makeProfileVC(), animated: true)
-        }
+        
     }
 
     extension MainViewController {
