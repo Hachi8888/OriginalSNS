@@ -10,7 +10,7 @@ import UIKit
 import IBAnimatable
 import FirebaseFirestore
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITabBarDelegate {
 
     // プロフィール画像を表示するImageView
     @IBOutlet weak var profIconImageView: UIImageView!
@@ -32,6 +32,9 @@ class ProfileViewController: UIViewController {
     // 画面が読み込まれたときの処理
     override func viewDidLoad() {
         super.viewDidLoad()
+        // デリゲート接続
+        tabBar.delegate = self
+        
         // UserDefaultからプロフィ-ル画像、名前、最新のお題を取得、反映
         getInfo()
 
@@ -68,28 +71,33 @@ class ProfileViewController: UIViewController {
         }
     }
 
-    // ホームボタンを押したとき
-    @IBAction func toHomeButton(_ sender: Any) {
-        // タイムライン画面に遷移する
-        present(TimeLineViewController.makeTimeLineVC(), animated: true)
+    
+    // tabbarに関する紐付け
+    @IBOutlet weak var toTimeLineBar: UITabBarItem!
+    @IBOutlet weak var toPostBar: UITabBarItem!
+    @IBOutlet weak var toMyPageBar: UITabBarItem!
+    @IBOutlet weak var getThemeTab: UITabBarItem!
+    @IBOutlet weak var tabBar: UITabBar!
+    
+    // tabbarを押したとき
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        switch item.tag{
+        case 1 :
+            // タイムライン画面に遷移する
+            present(TimeLineViewController.makeTimeLineVC(), animated: true)
+        case 2 :
+            // MainVC:お題決定画面へ遷移
+            present(MainViewController.makeMainVC(), animated: true)
+        case 3 :
+            // PostVCへ遷移する
+            present(PostViewController.makePostVC(), animated: true)
+        default :
+            return
+        }
+        
     }
-
-    // ★ボタンを押したとき
-    @IBAction func getThemeButton(_ sender: Any) {
-        // MainVC:お題決定画面へ遷移
-        present(MainViewController.makeMainVC(), animated: true)
-    }
-
-    @IBAction func toPostButton(_ sender: Any) {
-        // PostVCへ遷移する
-        present(PostViewController.makePostVC(), animated: true)
-    }
-
-    // プロフィールボタンを押したとき
-    @IBAction func toProfile(_ sender: Any) {
-        // FIXME: リロードする or してるようにみせかける
-    }
-
+    
+ 
     // UserDefaultに保存している①プロフィール画像、②名前情報、③お題、④いいね獲得数を反映させる関数
     func getInfo() {
 //   ①プロフィール画像
