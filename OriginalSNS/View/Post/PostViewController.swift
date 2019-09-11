@@ -64,23 +64,41 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // お題
         let theme = postThemeLabel.text
         
-        // 投稿画像
-        var ImageData: NSData = NSData()
-        if let image = postImageView.image {
-            // クオリティを10パーセントに下げる
-            ImageData = image.jpegData(compressionQuality: 0.1)! as NSData
-        } else {
-            let base64PostImage: String = "写真ないよ！"
-        }
-        // 送信するためにbase64Stringという形式に変換
-        let base64PostImage = ImageData.base64EncodedString(options: .lineLength64Characters) as String
-        
         // プロフィール画像
         var iconImageData: NSData = NSData()
         if let iconImage = postIconImageView.image {
             iconImageData = iconImage.jpegData(compressionQuality: 0.1)! as NSData
         }
         let base64IconImage = iconImageData.base64EncodedString(options: .lineLength64Characters) as String
+        
+        // 投稿画像
+        var ImageData: NSData = NSData()
+        guard let image = postImageView.image else { // 投稿画像がないとき
+            print("写真ありません")
+             let base64PostImage = "写真ないよ！！"
+            
+            // ②Firestoreに飛ばす箱を用意
+            let user: NSDictionary = ["userName": userName ?? "" , "comment": comment ?? "","theme": theme ?? "", "postImage": base64PostImage, "iconImage": base64IconImage]
+            
+            // ③userごとFirestoreへpost
+            db.collection("contents").addDocument(data: user as! [String : Any])
+            print("firebaseに5つの情報を保管しました!")
+            
+            // ④画面を消す
+            self.dismiss(animated: true)
+            
+            
+            return
+        }
+        
+        // 投稿画像があるとき
+        // クオリティを10パーセントに下げる
+        ImageData = image.jpegData(compressionQuality: 0.1)! as NSData
+        
+        // 送信するためにbase64Stringという形式に変換
+        let base64PostImage = ImageData.base64EncodedString(options: .lineLength64Characters) as String
+        
+        
         
         // ②Firestoreに飛ばす箱を用意
         let user: NSDictionary = ["userName": userName ?? "" , "comment": comment ?? "","theme": theme ?? "", "postImage": base64PostImage, "iconImage": base64IconImage]

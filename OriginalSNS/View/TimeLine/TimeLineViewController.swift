@@ -12,7 +12,7 @@ import IBAnimatable
 import NVActivityIndicatorView // インジゲータ
 
 class TimeLineViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate {
-
+    
     // TableViewを紐付け
     @IBOutlet weak var tableView: UITableView!
     // 投稿情報をすべて格納(Firebaseからとってくる)
@@ -21,12 +21,12 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     let db = Firestore.firestore()
     // 更新
     let refreshControl = UIRefreshControl()
-
+    
     // ロード中のインジゲータを取得
     private var activityIndicator: NVActivityIndicatorView!
     // toTimeLineButtonを押したときインジケータの背景として表示させるView
     let grayView = UIView()
-
+    
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +36,10 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // tabBerのデリゲート接続
         tabBar.delegate = self
-
+        
         // FireBaseから最新情報をとってくる
         fetch()
-
+        
         // インジケータの背景:grayView:grayViewの設定
         // grayViewのサイズを確定
         grayView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
@@ -49,13 +49,13 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         self.view.addSubview(grayView)
         // grayViewは最初に隠す
         grayView.isHidden = true
-
+        
         // refreshControlのアクションを指定
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         // tableViewに追加
         tableView.addSubview(refreshControl)
     }
-
+    
     
     // tabbarに関する紐付け
     @IBOutlet weak var toTimeLineBar: UITabBarItem!
@@ -63,7 +63,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var toMyPageBar: UITabBarItem!
     @IBOutlet weak var getThemeTab: UITabBarItem!
     @IBOutlet weak var tabBar: UITabBar!
-
+    
     // tabbarを押したとき
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         switch item.tag{
@@ -94,21 +94,21 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             
         case 4 :
             // ProfileVC:プロフィール設定へ画面遷
-          present(ProfileViewController.makeProfileVC(), animated: true)
+            present(ProfileViewController.makeProfileVC(), animated: true)
             
         default :
             return
         }
         
     }
-
+    
     @objc func delay() {
         // インジケータ終了
         activityIndicator.stopAnimating()
         // grayViewを消す
         grayView.isHidden = true
     }
-
+    
     // 更新
     @objc func refresh() {
         // 初期化
@@ -120,7 +120,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         // リフレッシュ終了
         refreshControl.endRefreshing()
     }
-
+    
     // Firebaseから投稿データを取得
     func fetch() {
         // getで全件取得
@@ -140,27 +140,27 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
             self.tableView.reloadData()
         }
     }
-
+    
     // セクションの中のセルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 投稿情報の数に設定
         return items.count
     }
-
+    
     // セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineTableViewCell", for: indexPath) as! TimeLineTableViewCell
-
+        
         // セルを選択不可にする
         cell.selectionStyle = .none
-
+        
         // いいねされた投稿のいいねボタン(goodButton)に対して、タグ番号としてセルのindex番号を格納する
         cell.goodButton.tag = indexPath.row
-
+        
         // Firebaseから全投稿のプロフィール画像、ユーザー名、投稿文、投稿画像、お題を取得して反映する
         // まず、itemsの中からindexpathのrow番目を取得するdictを定義
         let dict = items[(indexPath as NSIndexPath).row]
-
+        
         // firebaseから以下①〜⑤の情報をとって反映させる
         // ①プロフィール画像情報
         if let profImage = dict["iconImage"] {
@@ -173,36 +173,35 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             cell.timeLineIconImageView.image = #imageLiteral(resourceName: "icons8-male-user-96")
         }
-
+        
         // ②名前を反映
         cell.timeLineNameLabel.text = dict["userName"] as? String
-
+        
         // ③投稿画像を反映
         if let postImage = dict["postImage"] {
             
-            if postImage as? String == "写真ないよ！" {
-                
-                print("if文は正しく判定できています")
+            if postImage as? String == "写真ないよ！！" {
+                print("写真ないよ！！")
+                // ImageViewを消す
+                cell.timeLinePostImageView.isHidden = true
+            } else {
+                print("写真ありだよ")
+                // NSData型に変換
+                let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
+                // さらにUIImage型に変換
+                let decadedPostImage = UIImage(data: dataPostImage! as Data)
+                // postImageViewへ代入
+                cell.timeLinePostImageView.image = decadedPostImage
             }
-            
-            
-            // NSData型に変換
-            let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
-            // さらにUIImage型に変換
-            let decadedPostImage = UIImage(data: dataPostImage! as Data)
-            // postImageViewへ代入
-            cell.timeLinePostImageView.image = decadedPostImage
-        } else {
-            cell.timeLinePostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
         }
-
+        
         // ④投稿文を反映
         if let comment = dict["comment"] as? String {
             cell.timeLineTextView.text = comment
         } else {
             cell.timeLineTextView.text = ""
         }
-
+        
         // ⑤お題を反映
         if let theme = dict["theme"] as? String {
             cell.timeLineShowTheme.text = theme
@@ -211,7 +210,7 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         return cell
     }
-
+    
     // セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400

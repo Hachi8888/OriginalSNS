@@ -163,7 +163,8 @@
         func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
             switch item.tag{
             case 1 :
-               present(TimeLineViewController.makeTimeLineVC(), animated: true)
+              
+            present(TimeLineViewController.makeTimeLineVC(), animated: true)
                 
             case 2 :
                 // MainVC:お題決定画面へ遷移

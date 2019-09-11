@@ -177,14 +177,20 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hx-A1-GQd" customClass="ESTabBar" customModule="ESTabBarController_swift">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hx-A1-GQd">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jhd-PV-M1B"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem tag="1" title="Time Line" image="icons8-timeline-32" id="zfX-Ld-4MX" customClass="ESTabBarItem" customModule="ESTabBarController_swift"/>
+                                    <tabBarItem tag="1" title="Time Line" image="icons8-timeline-32" id="zfX-Ld-4MX" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tabBarItem>
                                     <tabBarItem tag="2" title="Get Theme" image="icons8-christmas-star-24" id="4oU-2D-ZBv" customClass="AnimatableTabBarItem" customModule="IBAnimatable">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="autoRun" value="YES"/>
@@ -193,6 +199,9 @@
                                     <tabBarItem tag="3" title="Find!" image="icons8-speech-24" id="pGm-FH-oIR"/>
                                     <tabBarItem tag="4" title="My Page" image="icons8-user-24" id="Qf9-Uz-NPh"/>
                                 </items>
+                                <connections>
+                                    <outlet property="delegate" destination="wyA-ak-ngh" id="267-iF-PIw"/>
+                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -219,6 +228,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4cY-5V-Jg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="wyA-ak-ngh" customClass="AnimatableBarButtonItem" customModule="IBAnimatable"/>
             </objects>
             <point key="canvasLocation" x="-121.875" y="41.197183098591552"/>
         </scene>
