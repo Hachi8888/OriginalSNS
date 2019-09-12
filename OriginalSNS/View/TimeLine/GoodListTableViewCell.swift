@@ -20,5 +20,5 @@ class GoodListTableViewCell: UITableViewCell {
     // 投稿画像
     @IBOutlet weak var goodListPostImageView: AnimatableImageView!
     // 投稿文
-    @IBOutlet weak var goodListTextView: AnimatableTextView!
+    @IBOutlet weak var goodListPostLabel: UILabel!
 }

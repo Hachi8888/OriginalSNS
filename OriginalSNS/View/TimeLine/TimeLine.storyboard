@@ -44,11 +44,8 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="St1-r9-nq4">
-                                <rect key="frame" x="10" y="70" width="300" height="450"/>
+                                <rect key="frame" x="10" y="70" width="300" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="cSR-qX-KjT"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeLineTableViewCell" rowHeight="497" id="gAo-UZ-Tfc" customClass="TimeLineTableViewCell" customModule="OriginalSNS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="300" height="497"/>
@@ -105,17 +102,20 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="投稿文が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="muv-GP-7aM" customClass="AnimatableTextView" customModule="IBAnimatable">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿文が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWy-kD-aac" customClass="AnimatableLabel" customModule="IBAnimatable">
                                                             <rect key="frame" x="0.0" y="321" width="300" height="148.5"/>
-                                                            <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="10"/>
                                                                 </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                                    <color key="value" red="0.98373597150000003" green="1" blue="0.78076030240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                        </textView>
+                                                        </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppa-ou-xJZ" userLabel="goodButton Stack View" customClass="AnimatableStackView" customModule="IBAnimatable">
                                                             <rect key="frame" x="0.0" y="471.5" width="300" height="25"/>
                                                             <subviews>
@@ -156,6 +156,19 @@
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="dWy-kD-aac" firstAttribute="leading" secondItem="Iae-t5-BYk" secondAttribute="leading" id="5l9-bt-Hkw"/>
+                                                        <constraint firstAttribute="trailing" secondItem="SvV-Et-mTQ" secondAttribute="trailing" id="L1T-Mg-UBe"/>
+                                                        <constraint firstItem="SvV-Et-mTQ" firstAttribute="top" secondItem="w21-el-SO6" secondAttribute="bottom" constant="2" id="LaR-yF-HGB"/>
+                                                        <constraint firstItem="w21-el-SO6" firstAttribute="leading" secondItem="Iae-t5-BYk" secondAttribute="leading" id="UaM-TU-5MR"/>
+                                                        <constraint firstItem="w21-el-SO6" firstAttribute="top" secondItem="Iae-t5-BYk" secondAttribute="top" id="bOV-aG-Xqe"/>
+                                                        <constraint firstItem="SvV-Et-mTQ" firstAttribute="leading" secondItem="Iae-t5-BYk" secondAttribute="leading" id="bj6-7R-9Oz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="quA-9t-Ebp" secondAttribute="trailing" id="mwh-N3-ojo"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dWy-kD-aac" secondAttribute="trailing" id="o3O-YO-d3e"/>
+                                                        <constraint firstItem="quA-9t-Ebp" firstAttribute="leading" secondItem="Iae-t5-BYk" secondAttribute="leading" id="tg9-Pi-wvU"/>
+                                                        <constraint firstItem="quA-9t-Ebp" firstAttribute="top" secondItem="SvV-Et-mTQ" secondAttribute="bottom" constant="2" id="xdU-jM-zFe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="w21-el-SO6" secondAttribute="trailing" id="xkN-jR-hjs"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -171,8 +184,8 @@
                                             <outlet property="timeLineIconImageView" destination="OHL-Ei-o3S" id="MDA-EK-Nsf"/>
                                             <outlet property="timeLineNameLabel" destination="zPZ-lc-mF1" id="gKJ-JT-5iv"/>
                                             <outlet property="timeLinePostImageView" destination="quA-9t-Ebp" id="Rqj-pA-utm"/>
+                                            <outlet property="timeLinePostTextLabel" destination="dWy-kD-aac" id="Kgx-ch-hd5"/>
                                             <outlet property="timeLineShowTheme" destination="SvV-Et-mTQ" id="vFD-gk-cdY"/>
-                                            <outlet property="timeLineTextView" destination="muv-GP-7aM" id="Qov-RN-obN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -199,9 +212,6 @@
                                     <tabBarItem tag="3" title="Find!" image="icons8-speech-24" id="pGm-FH-oIR"/>
                                     <tabBarItem tag="4" title="My Page" image="icons8-user-24" id="Qf9-Uz-NPh"/>
                                 </items>
-                                <connections>
-                                    <outlet property="delegate" destination="wyA-ak-ngh" id="267-iF-PIw"/>
-                                </connections>
                             </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -212,6 +222,7 @@
                             <constraint firstItem="RfJ-Q2-0uv" firstAttribute="trailing" secondItem="St1-r9-nq4" secondAttribute="trailing" constant="10" id="PXY-iG-YCR"/>
                             <constraint firstItem="St1-r9-nq4" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" constant="10" id="Sc3-bF-Fex"/>
                             <constraint firstItem="p0f-b2-ywS" firstAttribute="leading" secondItem="RfJ-Q2-0uv" secondAttribute="leading" constant="5" id="Wm4-IP-qla"/>
+                            <constraint firstItem="St1-r9-nq4" firstAttribute="bottom" secondItem="8hx-A1-GQd" secondAttribute="bottom" id="gh8-xm-YWQ"/>
                             <constraint firstItem="8hx-A1-GQd" firstAttribute="trailing" secondItem="RfJ-Q2-0uv" secondAttribute="trailing" id="gli-nH-6Qh"/>
                             <constraint firstItem="p0f-b2-ywS" firstAttribute="top" secondItem="RfJ-Q2-0uv" secondAttribute="top" id="h3i-YA-1JM"/>
                             <constraint firstItem="St1-r9-nq4" firstAttribute="top" secondItem="p0f-b2-ywS" secondAttribute="bottom" constant="10" id="hN5-CC-gww"/>
@@ -266,11 +277,8 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R1P-Wt-iQu">
-                                <rect key="frame" x="10" y="70" width="300" height="450"/>
+                                <rect key="frame" x="10" y="70" width="300" height="493"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="450" id="93v-IQ-8Xu"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoodListTableViewCell" rowHeight="497" id="p6q-Tz-bdj" customClass="GoodListTableViewCell" customModule="OriginalSNS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="300" height="497"/>
@@ -327,17 +335,18 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="投稿文が表示されます" translatesAutoresizingMaskIntoConstraints="NO" id="e7j-4x-ePP" customClass="AnimatableTextView" customModule="IBAnimatable">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投稿文が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BGl-R2-iUz" customClass="AnimatableLabel" customModule="IBAnimatable">
                                                             <rect key="frame" x="0.0" y="246" width="300" height="250.5"/>
-                                                            <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <color key="backgroundColor" red="0.98373597150000003" green="1" blue="0.78076030240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="10"/>
+                                                                    <real key="value" value="5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                        </textView>
+                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -352,8 +361,8 @@
                                             <outlet property="goodListIconImageView" destination="olD-2u-5hX" id="jMd-L0-xqK"/>
                                             <outlet property="goodListNameLabel" destination="bUy-3l-uaB" id="82S-Wb-QJ7"/>
                                             <outlet property="goodListPostImageView" destination="Ahf-3N-Sx4" id="3qM-Va-GoQ"/>
+                                            <outlet property="goodListPostLabel" destination="BGl-R2-iUz" id="wKy-CT-gbN"/>
                                             <outlet property="goodListShowTheme" destination="7HL-tC-rHa" id="gR9-q8-aOW"/>
-                                            <outlet property="goodListTextView" destination="e7j-4x-ePP" id="toH-MR-xiF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -361,6 +370,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yMt-lE-ABa" firstAttribute="bottom" secondItem="R1P-Wt-iQu" secondAttribute="bottom" constant="5" id="OEk-bc-lUf"/>
                             <constraint firstItem="W0k-rm-oPY" firstAttribute="top" secondItem="yMt-lE-ABa" secondAttribute="top" id="TSf-Rj-W9t"/>
                             <constraint firstItem="yMt-lE-ABa" firstAttribute="trailing" secondItem="R1P-Wt-iQu" secondAttribute="trailing" constant="10" id="VOl-AQ-bBq"/>
                             <constraint firstItem="W0k-rm-oPY" firstAttribute="leading" secondItem="yMt-lE-ABa" secondAttribute="leading" id="c7S-x8-QVv"/>

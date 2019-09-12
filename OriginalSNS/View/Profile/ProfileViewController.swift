@@ -42,7 +42,7 @@ class ProfileViewController: UIViewController, UITabBarDelegate {
         // お題を増やすボタンは最初は非表示にしておく
         addThemeButton.isHidden = true
 
-        // 2つのラベルの角に丸みをもたせる
+        // ラベルの角に丸みをもたせる
         showGetGoodNumLabel.layer.masksToBounds = true
 
         // お題を増やすボタンを押したかどうか読み込む

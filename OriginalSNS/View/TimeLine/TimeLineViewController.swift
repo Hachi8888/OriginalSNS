@@ -30,6 +30,13 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     // Viewが開いたとき行う処理
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // FIXME: 下二つはなくても自動的に幅が決まってくれているが、いる？
+        //セルの高さの初期設定
+        tableView.estimatedRowHeight = 250
+        // セルの高さを自動設定
+        tableView.rowHeight = UITableView.automaticDimension
+        
         // tableBarの2つのdelegateを追加
         tableView.delegate = self
         tableView.dataSource = self
@@ -151,6 +158,12 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TimeLineTableViewCell", for: indexPath) as! TimeLineTableViewCell
         
+        // FIXME: 下３つ書いても効かない（角が丸くならない）　TimeLineTableVCにも書いてみたけど効きません。
+        // ラベルの角に丸みをもたせる
+//        cell.timeLineNameLabel.layer.cornerRadius = 10
+//        cell.timeLineNameLabel.layer.masksToBounds = true
+//        cell.timeLineNameLabel.clipsToBounds = true
+        
         // セルを選択不可にする
         cell.selectionStyle = .none
         
@@ -197,24 +210,22 @@ class TimeLineViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // ④投稿文を反映
         if let comment = dict["comment"] as? String {
-            cell.timeLineTextView.text = comment
+            
+            cell.timeLinePostTextLabel.text = comment
         } else {
-            cell.timeLineTextView.text = ""
+            cell.timeLinePostTextLabel.text = ""
         }
-        
+        cell.timeLinePostTextLabel.translatesAutoresizingMaskIntoConstraints = false
+
         // ⑤お題を反映
         if let theme = dict["theme"] as? String {
             cell.timeLineShowTheme.text = theme
         } else {
-            cell.timeLineTextView.text = ""
+            cell.timeLinePostTextLabel.text = ""
         }
         return cell
     }
     
-    // セルの高さ
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
-    }
 }
 
 // TimeLineVCへの画面遷移に使う

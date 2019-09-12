@@ -139,21 +139,27 @@ class GoodListViewController: UIViewController, UITableViewDataSource, UITableVi
         
         // ③投稿画像を反映
         if let postImage = dict["goodPostImage"] {
-            // NSData型に変換
-            let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
-            // さらにUIImage型に変換
-            let decadedPostImage = UIImage(data: dataPostImage! as Data)
-            // postImageViewへ代入
-            cell.goodListPostImageView.image = decadedPostImage
-        } else {
-            cell.goodListPostImageView.image = #imageLiteral(resourceName: "NO IMAGE")
+            
+            if postImage as? String == "写真ないよ！！" {
+                print("写真ないよ！！")
+                // ImageViewを消す
+                cell.goodListPostImageView.isHidden = true
+            } else {
+                print("写真ありだよ")
+                // NSData型に変換
+                let dataPostImage = NSData(base64Encoded: postImage as! String, options: .ignoreUnknownCharacters)
+                // さらにUIImage型に変換
+                let decadedPostImage = UIImage(data: dataPostImage! as Data)
+                // postImageViewへ代入
+                cell.goodListPostImageView.image = decadedPostImage
+            }
         }
         
         // ④投稿文を反映
         if let comment = dict["goodComment"] as? String {
-            cell.goodListTextView.text = comment
+            cell.goodListPostLabel.text = comment
         } else {
-            cell.goodListTextView.text = ""
+            cell.goodListPostLabel.text = ""
         }
         
         // ⑤お題を表示

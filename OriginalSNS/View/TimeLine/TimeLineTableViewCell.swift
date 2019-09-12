@@ -22,13 +22,14 @@ class TimeLineTableViewCell: UITableViewCell {
     @IBOutlet weak var timeLineShowTheme: AnimatableLabel!
     // 投稿した画像を表示させるImageView
     @IBOutlet weak var timeLinePostImageView: AnimatableImageView!
-    // 投稿文をのせるTextView
-    @IBOutlet weak var timeLineTextView: AnimatableTextView!
+    // 投稿文をのせるラベル
+    @IBOutlet weak var timeLinePostTextLabel: UILabel!
     // いいね獲得数を表すラベル
     @IBOutlet weak var showGoodNumLabel: UILabel!
     // いいねボタンを紐付け
     @IBOutlet weak var goodButton: AnimatableButton!
     
+
     // いいねした投稿単体のいいねカウント
     var num = 0
     // Firestoreを使うためにインスタンス化
@@ -64,7 +65,7 @@ class TimeLineTableViewCell: UITableViewCell {
         // ①名前
         let goodUserName = timeLineNameLabel.text
         // ②投稿文
-        let goodComment = timeLineTextView.text
+        let goodComment = timeLinePostTextLabel.text
         // ③投稿画像
         var ImageData: NSData = NSData()
         if let postImage = timeLinePostImageView.image {
@@ -104,6 +105,14 @@ class TimeLineTableViewCell: UITableViewCell {
     // 読み込まれたときの処理
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        // FIXME: 下３つ書いても効かない（角が丸くならない）TimeLineVCにも書いてみたけど効きません。
+        // ラベルの角に丸みをもたせる
+//        timeLineNameLabel.layer.cornerRadius = 10
+//        timeLineNameLabel.layer.masksToBounds = true
+//        timeLineNameLabel.clipsToBounds = true
+
+        
         // Initialization code
         // 各投稿のいいね数をUserDefaultからとってきて反映させる
         if let eachNum: Int = UserDefaults.standard.object(forKey: "\(goodButton.tag)") as? Int {
