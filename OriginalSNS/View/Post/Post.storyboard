@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Cg-aJ-XLD">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-iu-dEq">
                                 <rect key="frame" x="10" y="20" width="300" height="537"/>
                                 <subviews>
@@ -46,7 +49,7 @@
                                             <constraint firstAttribute="height" constant="50" id="WOx-QM-wXC"/>
                                         </constraints>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-2g-TOQ">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sPd-2g-TOQ" customClass="AnimatableTextView" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="55" width="300" height="200"/>
                                         <color key="backgroundColor" red="0.96309747040000004" green="1" blue="0.79600818390000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -54,6 +57,11 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHh-p7-Qqi">
                                         <rect key="frame" x="0.0" y="260" width="300" height="12"/>
@@ -61,11 +69,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2P-cB-POr">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2P-cB-POr" customClass="AnimatableImageView" customModule="IBAnimatable">
                                         <rect key="frame" x="0.0" y="277" width="300" height="225"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="w2P-cB-POr" secondAttribute="height" multiplier="4:3" id="QpF-Ma-tUp"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyu-09-Uor">
                                         <rect key="frame" x="0.0" y="507" width="300" height="30"/>
@@ -156,8 +169,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uzr-iu-dEq" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" constant="10" id="EFG-ZA-bid"/>
+                            <constraint firstItem="4aq-ic-EOQ" firstAttribute="trailing" secondItem="3Cg-aJ-XLD" secondAttribute="trailing" id="ObH-Jp-Qyt"/>
+                            <constraint firstItem="3Cg-aJ-XLD" firstAttribute="bottom" secondItem="4aq-ic-EOQ" secondAttribute="bottom" id="Zeo-Hf-xCU"/>
+                            <constraint firstItem="3Cg-aJ-XLD" firstAttribute="top" secondItem="4aq-ic-EOQ" secondAttribute="top" id="lDm-6v-Fst"/>
                             <constraint firstItem="uzr-iu-dEq" firstAttribute="top" secondItem="4aq-ic-EOQ" secondAttribute="top" id="oyU-uO-XfB"/>
                             <constraint firstItem="4aq-ic-EOQ" firstAttribute="trailing" secondItem="uzr-iu-dEq" secondAttribute="trailing" constant="10" id="q4f-bW-H4K"/>
+                            <constraint firstItem="3Cg-aJ-XLD" firstAttribute="leading" secondItem="4aq-ic-EOQ" secondAttribute="leading" id="qdo-qq-Ru1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4aq-ic-EOQ"/>
                     </view>
@@ -171,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSQ-bP-Xzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="147.82608695652175" y="28.794642857142854"/>
+            <point key="canvasLocation" x="146.25" y="28.52112676056338"/>
         </scene>
     </scenes>
     <resources>

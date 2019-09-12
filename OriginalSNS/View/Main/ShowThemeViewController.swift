@@ -41,7 +41,7 @@
             print("UserDefaultに最新のお題の保存完了")
             // FIXME: ↓不要かも。もしくはライブラリを使う。
             // 背景色を緑色に変更する
-            sender.backgroundColor = UIColor.green
+//            sender.backgroundColor = UIColor.green
             // ホーム画面へ遷移する
             present(TimeLineViewController.makeTimeLineVC(), animated: true)
         }
