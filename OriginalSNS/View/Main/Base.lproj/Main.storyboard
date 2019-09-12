@@ -198,6 +198,23 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題発表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
+                                <rect key="frame" x="89.5" y="80" width="141.5" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r">
+                                <rect key="frame" x="30" y="249.5" width="260" height="69.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYm-gI-o9l" customClass="AnimatableButton" customModule="IBAnimatable">
                                 <rect key="frame" x="135" y="448" width="50" height="50"/>
                                 <constraints>
@@ -214,30 +231,13 @@
                                     <action selector="batsuButton:" destination="b31-1h-YTw" eventType="touchDown" id="9s9-gk-UCX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題発表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCI-vI-bFx">
-                                <rect key="frame" x="89.5" y="60" width="141.5" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お題が表示されます" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-AW-o7r">
-                                <rect key="frame" x="30" y="132" width="260" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OZq-AW-o7r" firstAttribute="top" secondItem="ZCI-vI-bFx" secondAttribute="bottom" constant="30" id="3QT-xV-LvE"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="bottom" secondItem="eYm-gI-o9l" secondAttribute="bottom" constant="70" id="5GW-0J-AwR"/>
                             <constraint firstItem="ZCI-vI-bFx" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="9bQ-Wu-0qd"/>
                             <constraint firstItem="OZq-AW-o7r" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" constant="30" id="R18-Db-aYY"/>
+                            <constraint firstItem="OZq-AW-o7r" firstAttribute="centerY" secondItem="Mgb-Lc-amk" secondAttribute="centerY" id="R3u-N6-Ehe"/>
                             <constraint firstItem="fRo-eL-lbj" firstAttribute="trailing" secondItem="OZq-AW-o7r" secondAttribute="trailing" constant="30" id="UEc-Mv-DmQ"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="leading" secondItem="fRo-eL-lbj" secondAttribute="leading" id="bBC-g9-hHn"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" id="cWx-El-bHG"/>
@@ -245,7 +245,7 @@
                             <constraint firstItem="eYm-gI-o9l" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="e3v-i5-p8a"/>
                             <constraint firstItem="f9q-lU-F6v" firstAttribute="bottom" secondItem="fRo-eL-lbj" secondAttribute="bottom" id="gbj-Ty-r9g"/>
                             <constraint firstItem="OZq-AW-o7r" firstAttribute="centerX" secondItem="Mgb-Lc-amk" secondAttribute="centerX" id="idv-g0-bZg"/>
-                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="40" id="pFn-oN-vsp"/>
+                            <constraint firstItem="ZCI-vI-bFx" firstAttribute="top" secondItem="fRo-eL-lbj" secondAttribute="top" constant="60" id="pFn-oN-vsp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fRo-eL-lbj"/>
                     </view>
