@@ -30,17 +30,17 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Find!ロゴ3" translatesAutoresizingMaskIntoConstraints="NO" id="g1E-9I-0J5" customClass="AnimatableImageView" customModule="IBAnimatable">
-                                <rect key="frame" x="-40" y="70" width="400" height="250"/>
+                                <rect key="frame" x="-55" y="70" width="430" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="2SZ-qh-ZVJ"/>
-                                    <constraint firstAttribute="width" constant="400" id="Vfs-vF-hmf"/>
+                                    <constraint firstAttribute="width" constant="430" id="Vfs-vF-hmf"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="L2J-1K-9qJ">
-                                <rect key="frame" x="60" y="328" width="200" height="170"/>
+                                <rect key="frame" x="70" y="328" width="180" height="170"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCF-0a-Kdj" customClass="AnimatableTextField" customModule="IBAnimatable">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="f61-OM-Hg5"/>
                                         </constraints>
@@ -60,7 +60,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1E-4J-e2t" customClass="AnimatableTextField" customModule="IBAnimatable">
-                                        <rect key="frame" x="0.0" y="50" width="200" height="40"/>
+                                        <rect key="frame" x="0.0" y="50" width="180" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="qc1-5s-XpB"/>
                                         </constraints>
@@ -80,10 +80,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-GQ-mIH">
-                                        <rect key="frame" x="0.0" y="100" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="180" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVz-T5-xud" customClass="AnimatableButton" customModule="IBAnimatable">
-                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="87.5" height="30"/>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Login"/>
                                                 <userDefinedRuntimeAttributes>
@@ -96,7 +96,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9dO-XX-Hda">
-                                                <rect key="frame" x="102.5" y="0.0" width="97.5" height="30"/>
+                                                <rect key="frame" x="92.5" y="0.0" width="87.5" height="30"/>
                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
@@ -106,7 +106,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="rm9-Rs-3b1">
-                                        <rect key="frame" x="0.0" y="140" width="200" height="30"/>
+                                        <rect key="frame" x="0.0" y="140" width="180" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caO-IV-Qw4">
                                                 <rect key="frame" x="0.0" y="0.0" width="25" height="30"/>
@@ -125,7 +125,7 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evs-SU-OvY">
-                                                <rect key="frame" x="41" y="1.5" width="159" height="27"/>
+                                                <rect key="frame" x="41" y="1.5" width="139" height="27"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <state key="normal" title=" ログイン保持をする">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,7 +141,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="xEY-Jl-Jhw"/>
+                                    <constraint firstAttribute="width" constant="180" id="xEY-Jl-Jhw"/>
                                 </constraints>
                             </stackView>
                         </subviews>
