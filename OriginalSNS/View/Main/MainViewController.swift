@@ -61,11 +61,13 @@
 
 
         // ボタンを押したときの処理
-        @IBAction func tappedButton(_ sender: UIButton) {
+        @IBAction func tappedButton(_ sender: AnimatableButton) {
+            
+            sender.animate(.flip(along: .x))
+            
             // ボタンを押したときのカウントを進める
             tapCount += 1
-            print(tapCount)
-
+            
             switch tapCount {
             case 1: // 1回押したとき
                 // 3つのラベルを??に変更
@@ -107,7 +109,9 @@
                 return
             }
         }
-
+        @IBAction func tappedbutton(_ sender: Any) {
+        }
+        
         // segue遷移前準備
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             guard segue.identifier == "showTheme" , let vc = segue.destination as? ShowThemeViewController else {

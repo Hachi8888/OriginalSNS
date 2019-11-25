@@ -33,6 +33,8 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         postImageView.isHidden = true
         // UserDefaultからプロフィ-ル画像と名前情報を取得、反映
         getProfAndTheme()
+        
+        postTextView.bounds.insetBy(dx: 50.0, dy: 0.0)
     }
     
     // イメージボタンを押したとき
